@@ -1,7 +1,21 @@
 package com.android.ts.emis.app;
 
+import android.content.Context;
+import android.content.Intent;
+
+import com.android.kotlinapp.action.config.AppConfig;
+import com.android.ts.emis.BuildConfig;
+import com.android.ts.emis.activity.MainActivity;
+import com.android.ts.emis.utils.ToastUtil;
 import com.libcommon.action.base.CommonBaseApplication;
 import com.libcommon.action.utils.APPToolsUtil;
+import com.libcommon.action.utils.LogAPPUtil;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.MsgConstant;
+import com.umeng.message.PushAgent;
+import com.umeng.message.UmengNotificationClickHandler;
+import com.umeng.message.entity.UMessage;
 
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackManager;
 
@@ -33,6 +47,13 @@ public class APPApplication extends CommonBaseApplication {
         // 必须在Application的onCreate 方法中执行
         // BGASwipeBackManager.getInstance().init(this)来初始化滑动返回
         BGASwipeBackManager.getInstance().init(this);
+        //友盟初始化
+        //设置LOG开关，默认为false
+        UMConfigure.setLogEnabled(BuildConfig.DEBUG);
+        //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
+        UMConfigure.init(this, AppConfig.INSTANCE.getUMENG_APP_KEY(), null, UMConfigure.DEVICE_TYPE_PHONE,
+                AppConfig.INSTANCE.getUMENG_MESSAGE_SECRET());
+        initUpush();//初始化友盟推送
     }
 
     public static synchronized APPApplication getInstance() {
@@ -40,111 +61,42 @@ public class APPApplication extends CommonBaseApplication {
     }
 
 
-//    //消息临时缓存，测试使用
-//    private List<MessageInfoBean2.Data> messageDataList = DataCenter.getMessageListModuleData2();
-//
-//    public List<MessageInfoBean2.Data> getMessageDataList() {
-//        return messageDataList;
-//    }
-//
-//    public void setMessageDataList(List<MessageInfoBean2.Data> messageDataList) {
-//        this.messageDataList = messageDataList;
-//    }
-//
-//    public void addMessageDataList(List<MessageInfoBean2.Data> lists) {
-//        if (lists != null) {
-//            int size = lists.size();
-//            for (int i = 0; i < size; i++) {
-//                this.messageDataList.add(lists.get(i));
-//            }
-//        }
-//    }
-//
-//    public void addMessageData(MessageInfoBean2.Data data) {
-//        if (data != null) {
-//            this.messageDataList.add(0, data);
-//        }
-//    }
-//
-//    //工单信息临时缓存，测试使用
-//    private List<WorkOrderListBean.Data> workDataList = DataCenter.getWorkOrderTestList();
-//
-//    public void setWorkOrderType(String id, int type) {
-//        int size = workDataList.size();
-//        WorkOrderListBean.Data bean;
-//        for (int i = 0; i < size; i++) {
-//            if (id.equals(workDataList.get(i).getId())) {
-//                bean = workDataList.get(i);
-//                bean.setType(type);
-//                workDataList.remove(workDataList.get(i));
-//                workDataList.add(0, bean);
-//            }
-//        }
-//    }
-//
-//    public void setInputWorkMessage(String id, String inputMessage) {
-//        int size = workDataList.size();
-//        WorkOrderListBean.Data bean;
-//        for (int i = 0; i < size; i++) {
-//            if (id.equals(workDataList.get(i).getId())) {
-//                bean = workDataList.get(i);
-//                bean.setMessage(bean.getMessage() + " 工作输入:" + inputMessage);
-//                workDataList.remove(workDataList.get(i));
-//                workDataList.add(0, bean);
-//            }
-//        }
-//    }
-//
-//    public List<WorkOrderListBean.Data> getWorkOrderTypeList(int type) {
-//        if (type == 0) {
-//            return workDataList;
-//        }
-//        List<WorkOrderListBean.Data> typeList = new ArrayList<>();
-//        int size = workDataList.size();
-//        for (int i = 0; i < size; i++) {
-//            if (type == workDataList.get(i).getType()) {
-//                typeList.add(workDataList.get(i));
-//            }
-//        }
-//        return typeList;
-//    }
-//
-//    public WorkOrderListBean.Data getWorkOrderBean(String id) {
-//        if (id == null)
-//            return workDataList.get(0);
-//        WorkOrderListBean.Data bean = null;
-//        int size = workDataList.size();
-//        for (int i = 0; i < size; i++) {
-//            if (id.equals(workDataList.get(i).getId())) {
-//                bean = workDataList.get(i);
-//            }
-//        }
-//        if (bean == null) {
-//            bean = workDataList.get(0);
-//        }
-//        return bean;
-//    }
-//
-//    public List<WorkOrderListBean.Data> getWorkDataList() {
-//        return workDataList;
-//    }
-//
-//    public void setWorkDataList(List<WorkOrderListBean.Data> workDataList) {
-//        this.workDataList = workDataList;
-//    }
-//
-//    public void addWorkDataList(List<WorkOrderListBean.Data> workDataList) {
-//        if (workDataList != null) {
-//            int size = workDataList.size();
-//            for (int i = 0; i < size; i++) {
-//                this.workDataList.add(workDataList.get(i));
-//            }
-//        }
-//    }
-//
-//    public void addWorkData(WorkOrderListBean.Data data) {
-//        if (data != null) {
-//            this.workDataList.add(data);
-//        }
-//    }
+    /**
+     * 注册友盟
+     */
+    public void initUpush() {
+        PushAgent mPushAgent = PushAgent.getInstance(this);
+        //注册推送服务，每次调用register方法都会回调该接口
+        //sdk开启通知声音
+        //mPushAgent.setNotificationPlaySound(MsgConstant.NOTIFICATION_PLAY_SDK_ENABLE);
+        // sdk关闭通知声音
+        // mPushAgent.setNotificationPlaySound(MsgConstant.NOTIFICATION_PLAY_SDK_DISABLE);
+        // 通知声音由服务端控制
+        mPushAgent.setNotificationPlaySound(MsgConstant.NOTIFICATION_PLAY_SERVER);
+        // mPushAgent.setNotificationPlayLights(MsgConstant.NOTIFICATION_PLAY_SDK_DISABLE);
+        // mPushAgent.setNotificationPlayVibrate(MsgConstant.NOTIFICATION_PLAY_SDK_DISABLE);
+        mPushAgent.register(new IUmengRegisterCallback() {
+
+            @Override
+            public void onSuccess(String deviceToken) {
+                //注册成功会返回device tokend
+                LogAPPUtil.i("mPushAgent==>deviceToken:"+deviceToken);
+            }
+
+            @Override
+            public void onFailure(String s, String s1) {
+            }
+        });
+
+        UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
+            @Override
+            public void dealWithCustomAction(Context context, UMessage msg) {
+                ToastUtil.INSTANCE.show(msg.custom);
+                Intent intent = new Intent(context, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        };
+        mPushAgent.setNotificationClickHandler(notificationClickHandler);
+    }
 }

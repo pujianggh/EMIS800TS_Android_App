@@ -38,6 +38,7 @@ public class UserPasswordBean implements Serializable {
     private String HouseCode;//楼盘编号
     private String HousePhaseCode;//楼盘小区编号
     private String RuleCode;//楼盘编码
+    private String EstateCode;//物业编码
 
     public String getUserCode() {
         return UserCode;
@@ -141,6 +142,14 @@ public class UserPasswordBean implements Serializable {
 
     public void setHousePhaseCode(String housePhaseCode) {
         HousePhaseCode = housePhaseCode;
+    }
+
+    public String getEstateCode() {
+        return EstateCode;
+    }
+
+    public void setEstateCode(String estateCode) {
+        EstateCode = estateCode;
     }
 }
 

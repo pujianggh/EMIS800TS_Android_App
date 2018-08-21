@@ -71,8 +71,8 @@ public class OkhttpUtil {
      * @param constantUrl
      * @param <T>
      */
-    public static <T> void postGetClass(final Context context, final String headUrl, final Map<String, String> params,
-                                        final Class<T> clas, final GetUrlMode mode, final INetWorkCallBack callBack, final String constantUrl) {
+    public static <T> void postParamClass(final Context context, final String headUrl, final Map<String, String> params,
+                                          final Class<T> clas, final GetUrlMode mode, final INetWorkCallBack callBack, final String constantUrl) {
         TaskExecutorUtil.executeNetTask(new Runnable() {
             @Override
             public void run() {
@@ -174,8 +174,119 @@ public class OkhttpUtil {
     }
 
 
-    public static <T> void getClass(final Context context, final String headUrl, final Map<String, String> params,
-                                        final Class<T> clas, final GetUrlMode mode, final INetWorkCallBack callBack, final String constantUrl) {
+    /**
+     * 网络请求
+     *
+     * @param context
+     * @param headUrl
+     * @param paramJson
+     * @param clas
+     * @param mode
+     * @param callBack
+     * @param <T>
+     */
+    public static <T> void postJsonClass(final Context context, final String headUrl, final String paramJson,
+                                         final Class<T> clas, final GetUrlMode mode, final INetWorkCallBack callBack) {
+        TaskExecutorUtil.executeNetTask(new Runnable() {
+            @Override
+            public void run() {
+                if (NetWorkUtil.isNetworkEnabled(context) == NetWorkUtil.NET_CONNECT_TYPE_UNNET) {
+                    TaskExecutorUtil.runTaskOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            callBack.noNetWork();
+                        }
+                    });
+                } else {
+                    try {
+                        APPApplication.getInstance().getOkHttpCall()
+                                .post()
+                                .jsonParams(paramJson)
+                                .tag(context)
+                                .url(baseAppURL + headUrl)
+                                .addHeader("loginTerm", "Android")
+                                .addHeader("appVersion", versionName)
+                                .addHeader("versionCode", versionCode)
+                                .addHeader("accessToken", accessToken)
+                                .addHeader("long", longtude)
+                                .addHeader("lati", latitude)
+                                .addHeader("ip", ipConfig)
+                                .addHeader("equipNum", drivice)
+                                .addHeader("loginChannel", loginChannel)
+                                .addHeader("sign", appSign)
+                                .enqueue(new JsonResponseHandler() {
+
+                                    @Override
+                                    public void onSuccess(int statusCode, String boy, final Headers headers) {
+                                        HttpPrintLog(1, statusCode, boy.toString(), headers, null, headUrl);
+                                    }
+
+                                    @Override
+                                    public void onSuccess(int statusCode, JSONArray response, final Headers headers) {
+                                        HttpPrintLog(2, statusCode, response.toString(), headers, null, headUrl);
+                                    }
+
+                                    @Override
+                                    public void onSuccess(int statusCode, final JSONObject response, final Headers headers) {
+                                        HttpPrintLog(3, statusCode, response.toString(), headers, null, headUrl);
+                                        try {
+                                            Gson gson = new Gson();
+                                            final T t = gson.fromJson(response.toString(), clas);
+                                            TaskExecutorUtil.runTaskOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    switch (mode) {
+                                                        case PULL_UP:
+                                                            callBack.onPullUpSuccess(t, clas, "");
+                                                            break;
+                                                        case PULL_DOWN:
+                                                            callBack.onPullDownSuccess(t, headers, clas, "");
+                                                            break;
+                                                        case NORMAL:
+                                                            callBack.onSuccess(t, headers, clas, "");
+                                                            break;
+                                                        default:
+                                                            callBack.onSuccess(t, headers, clas, "");
+                                                            break;
+                                                    }
+                                                }
+                                            });
+                                        } catch (JsonParseException je) {
+                                            TaskExecutorUtil.runTaskOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    getErrorStatus(context, BaseBean.class, callBack, response.toString(), "");
+                                                }
+                                            });
+                                        } catch (Exception e) {
+                                            NetWorkExceptionUtil.netWork(context, clas, callBack, e);
+                                            e.getStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onProgress(long currentBytes, long totalBytes) {
+                                        super.onProgress(currentBytes, totalBytes);
+                                    }
+
+                                    @Override
+                                    public void onFailure(int statusCode, String error_msg) {
+                                        HttpPrintLog(500, statusCode, error_msg.toString(), null, null, headUrl);
+                                    }
+
+                                });
+                    } catch (Exception e) {
+                        NetWorkExceptionUtil.netWork(context, clas, callBack, e);
+                        e.getStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+
+    public static <T> void getParamClass(final Context context, final String headUrl, final Map<String, String> params,
+                                         final Class<T> clas, final GetUrlMode mode, final INetWorkCallBack callBack, final String constantUrl) {
         TaskExecutorUtil.executeNetTask(new Runnable() {
             @Override
             public void run() {

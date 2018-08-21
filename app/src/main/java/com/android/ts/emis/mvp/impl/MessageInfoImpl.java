@@ -38,7 +38,7 @@ public class MessageInfoImpl implements IMessageInfo {
         params.put("PageSize", size);
         params.put("HouseCode", houseCode);
         params.put("UserCode", userCode);
-        OkhttpUtil.postGetClass(context, ConstantsUrls.GetUnreadMessages, params, MessageInfoBean.class,
+        OkhttpUtil.postParamClass(context, ConstantsUrls.GetUnreadMessages, params, MessageInfoBean.class,
                 modle, callBack, "");
     }
 
@@ -53,7 +53,7 @@ public class MessageInfoImpl implements IMessageInfo {
     public void setMessageRead(Context context, INetWorkCallBack callBack, String bdid) {
         Map<String, String> params = new HashMap<>();
         params.put("BDID", bdid);
-        OkhttpUtil.postGetClass(context, ConstantsUrls.SetUnreadMessage, params, BaseBean.class,
+        OkhttpUtil.postParamClass(context, ConstantsUrls.SetUnreadMessage, params, BaseBean.class,
                 OkhttpUtil.GetUrlMode.NORMAL, callBack, "");
     }
 }

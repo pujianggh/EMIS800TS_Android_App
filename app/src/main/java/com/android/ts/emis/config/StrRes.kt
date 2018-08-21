@@ -28,5 +28,6 @@ object StrRes {
     val houseCode = base + "houseCode"
     val ruleCode = base + "ruleCode"
     val housePhaseCode = base + "housePhaseCode"
+    val estateCode = base + "estateCode"
 
 }

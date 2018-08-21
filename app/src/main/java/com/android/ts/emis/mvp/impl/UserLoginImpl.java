@@ -34,7 +34,7 @@ public class UserLoginImpl implements IUserLogin {
         params.put("UserCode", userCode);
         params.put("PassWord", passWord);
         params.put("device", OkhttpUtil.drivice);
-        OkhttpUtil.postGetClass(context, ConstantsUrls.UserLogin, params, UserInfoBean.class,
+        OkhttpUtil.postParamClass(context, ConstantsUrls.UserLogin, params, UserInfoBean.class,
                 OkhttpUtil.GetUrlMode.NORMAL, callBack, constantTag);
     }
 

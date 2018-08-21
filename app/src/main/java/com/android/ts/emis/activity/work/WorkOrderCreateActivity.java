@@ -13,19 +13,22 @@ import android.widget.TextView;
 import com.android.kotlinapp.action.config.StateType;
 import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
-import com.android.ts.emis.activity.common.LoginActivity;
 import com.android.ts.emis.activity.common.QRCodeActivity;
 import com.android.ts.emis.adapter.WorkOrderDeviceAdapter;
 import com.android.ts.emis.base.BaseActivity;
 import com.android.ts.emis.config.RequestCode;
 import com.android.ts.emis.handle.EditTextListener;
-import com.android.ts.emis.mode.MessageInfoBean2;
+import com.android.ts.emis.mode.AddTicketBean;
 import com.android.ts.emis.mode.StateInfoBean;
-import com.android.ts.emis.mode.WorkOrderListBean;
+import com.android.ts.emis.mode.json.AddTicketJson;
+import com.android.ts.emis.mvp.iface.IWorkOrderInfo;
+import com.android.ts.emis.mvp.impl.WrokOrderInfoImpl;
 import com.android.ts.emis.utils.PopupWindowUtil;
 import com.android.ts.emis.utils.SPUtil;
 import com.android.ts.emis.view.ExpandListView;
-import com.libcommon.action.utils.DateToolsUtil;
+import com.google.gson.Gson;
+import com.libcommon.action.net.INetWorkCallBack;
+import com.libcommon.action.utils.LogAPPUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -37,6 +40,7 @@ import butterknife.OnClick;
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerActivity;
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerPreviewActivity;
 import cn.bingoogolapple.photopicker.widget.BGASortableNinePhotoLayout;
+import okhttp3.Headers;
 
 /**
  * 工作-工单创建
@@ -77,6 +81,7 @@ public class WorkOrderCreateActivity extends BaseActivity {
     private WorkOrderDeviceAdapter mAdapter;
     private List<StateInfoBean.Data> datas;
     private PopupWindowUtil mPopupWindowUtil = null;
+    private IWorkOrderInfo iWorkOrderInfo;
     private String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
 
     @Override
@@ -232,66 +237,47 @@ public class WorkOrderCreateActivity extends BaseActivity {
      * 提交工单
      */
     private void commitOrderInfo() {
-        mUserPasswrd = SPUtil.INSTANCE.getAllModle(mAPPApplication, mUserPasswrd);
-        if (TextUtils.isEmpty(mUserPasswrd.getUserName())) {
-            SPUtil.INSTANCE.putAllModle(mAPPApplication, mUserPasswrd);
-            startActivity(new Intent(this, LoginActivity.class));
-            onBackPressed();
-            return;
-        }
-//        if (TextUtils.isEmpty(edtPhoneNumber.getText().toString())) {
-//            showToast(getResources().getString(R.string.text_work_order_create_tip_qsrlxdh));
-//            return;
-//        }
-//        if (TextUtils.isEmpty(tvLocation.getText().toString())) {
-//            showToast(getResources().getString(R.string.text_work_order_create_tip_qxzwz));
-//            return;
-//        }
-//        if (TextUtils.isEmpty(tvWorkOrderType.getText().toString())) {
-//            showToast(getResources().getString(R.string.text_work_order_create_tip_qxzgdlx));
-//            return;
-//        }
-//        if (TextUtils.isEmpty(tvServerType.getText().toString())) {
-//            showToast(getResources().getString(R.string.text_work_order_create_tip_qxzfwle));
-//            return;
-//        }
+        showLoading();
+        AddTicketJson addTicketJson = new AddTicketJson();
+        addTicketJson.setOrderType("CM");
+        addTicketJson.setHouseCode(mUserPasswrd.getHouseCode());
+        addTicketJson.setHousePhaseCode(mUserPasswrd.getHousePhaseCode());
+        addTicketJson.setEstateCode(mUserPasswrd.getEstateCode());
+        addTicketJson.setTicketsFrom("APP");
+        addTicketJson.setRepairBy(mUserPasswrd.getUserName());
+        addTicketJson.setRepairBy(edtPhoneNumber.getText().toString());
+        addTicketJson.setDepartment(tvDepartment.getText().toString());
+        addTicketJson.setTaskTypeCode("");//工单类型编号
+        addTicketJson.setTaskTypeName("");
+        addTicketJson.setPriorityCode("");
+        addTicketJson.setTicketsTitle("");
+        addTicketJson.setTicketsDescription(edtContent.getText().toString());
+        addTicketJson.setUserCode(mUserPasswrd.getHouseCode());
+        if (iWorkOrderInfo == null)
+            iWorkOrderInfo = new WrokOrderInfoImpl();
+        iWorkOrderInfo.getAddTickets(mAPPApplication, new INetWorkCallBack() {
+            @Override
+            public void noNetWork() {
+                hideLoading();
+            }
 
-        WorkOrderListBean.Data data = new WorkOrderListBean.Data();
-        data.setType(1);
-        data.setNew(true);
-        data.setId(DateToolsUtil.getDateFormatter(DateToolsUtil.getNewTime(), "yyyyMMddHHmmss"));
-        data.setApplyName(mUserPasswrd.getUserName());
-        data.setPhoneNumber(edtPhoneNumber.getText().toString());
-        data.setDepartment(tvDepartment.getText().toString());
-        data.setLocation(tvLocation.getText().toString());
-        data.setWorkOrderType(tvWorkOrderType.getText().toString());
-        data.setServerType(tvServerType.getText().toString());
-        data.setPriority(tvPriority.getText().toString());
-        data.setOrderStatus(tvPriority.getText().toString());
-        data.setYuyueTime("13:00-15:00");
-        data.setQestionContent(edtContent.getText().toString());
-        data.setOrderDescribe(edtContent.getText().toString());
+            @Override
+            public <T> void onSuccess(T t, Headers headers, Class cla, String constantUrl) {
+                hideLoading();
+                AddTicketBean bean = (AddTicketBean) t;
+                if (bean != null) {
+                    showToast(bean.getMessage());
+                }
+            }
 
-        data.setOrderCode("CM0000088812");
-        data.setPfmCode("SZ001-20180628-888");
-        data.setMessage("チケット：CM0000088812成立ATM異常，至急処理");
-        data.setCreateTime(DateToolsUtil.getDateFormatter(DateToolsUtil.getNewTime(), "yyyy-MM-dd HH:mm:ss"));
+            @Override
+            public void onError(int status, String str, Class cla, String constantUrl) {
+                hideLoading();
+            }
+        }, addTicketJson);
 
-        data.setPhotosList(mPhotosSnpl.getData());
-        data.setDeviceList(datas);
-
-        //mAPPApplication.getWorkDataList().add(0, data);
-
-        MessageInfoBean2.Data messageBean = new MessageInfoBean2.Data();
-        messageBean.setId(data.getId());
-        messageBean.setTitle(data.getApplyName());
-        messageBean.setMessage(data.getMessage());
-        messageBean.setState("0");
-        messageBean.setType(1);
-        messageBean.setDate(data.getCreateTime());
-        //mAPPApplication.addMessageData(messageBean);
-        showToast(getResources().getString(R.string.text_message_commit_success));
-        onBackPressed();
+        String info = new Gson().toJson(addTicketJson).toString();
+        LogAPPUtil.i("===========>info:" + info);
     }
 
     private void initPhotoPicker() {

@@ -2,6 +2,7 @@ package com.android.ts.emis.mvp.iface;
 
 import android.content.Context;
 
+import com.android.ts.emis.mode.json.AddTicketJson;
 import com.android.ts.emis.net.OkhttpUtil;
 import com.libcommon.action.net.INetWorkCallBack;
 
@@ -12,6 +13,15 @@ import com.libcommon.action.net.INetWorkCallBack;
  * @Description:
  */
 public interface IWorkOrderInfo {
+
+    /**
+     * 添加工单
+     *
+     * @param context
+     * @param callBack
+     * @param addTicketJson
+     */
+    public void getAddTickets(Context context, INetWorkCallBack callBack, AddTicketJson addTicketJson);
 
     /**
      * 获取工单详细信息

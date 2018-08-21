@@ -3,10 +3,13 @@ package com.android.ts.emis.mvp.impl;
 import android.content.Context;
 
 import com.android.ts.emis.config.ConstantsUrls;
+import com.android.ts.emis.mode.AddTicketBean;
 import com.android.ts.emis.mode.TicketDetailInfoBean;
 import com.android.ts.emis.mode.WorkOrderQueryListBean;
+import com.android.ts.emis.mode.json.AddTicketJson;
 import com.android.ts.emis.mvp.iface.IWorkOrderInfo;
 import com.android.ts.emis.net.OkhttpUtil;
+import com.google.gson.Gson;
 import com.libcommon.action.net.INetWorkCallBack;
 
 import java.util.HashMap;
@@ -21,6 +24,19 @@ import java.util.Map;
 public class WrokOrderInfoImpl implements IWorkOrderInfo {
 
     /**
+     * 添加工单
+     *
+     * @param context
+     * @param callBack
+     * @param addTicketJson
+     */
+    @Override
+    public void getAddTickets(Context context, INetWorkCallBack callBack, AddTicketJson addTicketJson) {
+        OkhttpUtil.postJsonClass(context, ConstantsUrls.AddTickets, new Gson().toJson(addTicketJson).toString(), AddTicketBean.class,
+                OkhttpUtil.GetUrlMode.NORMAL, callBack);
+    }
+
+    /**
      * 获取工单详细信息
      *
      * @param context
@@ -31,7 +47,7 @@ public class WrokOrderInfoImpl implements IWorkOrderInfo {
     public void getTicketsWorkOrderInfo(Context context, INetWorkCallBack callBack, String ticketsCode) {
         Map<String, String> params = new HashMap<>();
         params.put("TicketsCode", ticketsCode);
-        OkhttpUtil.getClass(context, ConstantsUrls.GetTicketsByTicketsCode, params, TicketDetailInfoBean.class,
+        OkhttpUtil.getParamClass(context, ConstantsUrls.GetTicketsByTicketsCode, params, TicketDetailInfoBean.class,
                 OkhttpUtil.GetUrlMode.NORMAL, callBack, "");
     }
 
@@ -67,7 +83,7 @@ public class WrokOrderInfoImpl implements IWorkOrderInfo {
         params.put("TicketsStatus", ticketsStatus);
         params.put("PageIndex", page);
         params.put("PageSize", size);
-        OkhttpUtil.postGetClass(context, ConstantsUrls.GetTicketsByConditionQuery, params, WorkOrderQueryListBean.class,
+        OkhttpUtil.postParamClass(context, ConstantsUrls.GetTicketsByConditionQuery, params, WorkOrderQueryListBean.class,
                 modle, callBack, "");
     }
 }

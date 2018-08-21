@@ -28,6 +28,8 @@ public class ConstantsUrls {
     public static String SetUnreadMessage = "/Message/APP_SetUnreadMessage";
     //工单查询列表
     public static String GetTicketsByConditionQuery = "/TicketsManage/GetTicketsByConditionQuery";
+    //新增工单
+    public static String AddTickets = "/TicketsManage/AddTickets";
     //获取工单详细信息
     public static String GetTicketsByTicketsCode = "/TicketsManage/GetTicketsByTicketsCode";
 

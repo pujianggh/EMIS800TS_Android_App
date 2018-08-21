@@ -207,6 +207,11 @@
             android:name=".activity.my.LegalDeclarationActivity"
             android:theme="@style/AppThemeDefaultStyle"
             android:windowSoftInputMode="stateHidden" />
+
+        <!-- 友盟渠道【动态获取】 -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${CHANNEL_VALUE}" />
     </application>
 
     <!-- 网络反问权限 - 非隐私权限 -->

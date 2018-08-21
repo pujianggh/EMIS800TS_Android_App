@@ -20,4 +20,10 @@ object AppConfig {
 
     //获取验证码倒计时
     val GET_PHONECODE_TIME = 60000
+
+    //友盟APPKey
+    val UMENG_APP_KEY= "5b7bce3ff43e485ae900017b"
+
+    //友盟APPKey
+    val UMENG_MESSAGE_SECRET= "39a90b675a47e53ec296232b6b4557e7"
 }
