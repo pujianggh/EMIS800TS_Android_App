@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/lly_item"
+        style="@style/MatchMatch.Vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_item_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout style="@style/WrapWrap">
+
+            <ImageView
+                android:id="@+id/igv_icon"
+                android:layout_width="@dimen/item_dp35"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/spacing_min"
+                android:src="@drawable/ic_home_function_inventories" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="@dimen/spacing_min"
+                android:background="@drawable/shape_red_tips2"
+                android:gravity="center"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:text="39"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize_10"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:text="工单"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_min" />
+    </LinearLayout>
+</LinearLayout>

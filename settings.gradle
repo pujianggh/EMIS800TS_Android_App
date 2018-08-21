@@ -1,0 +1,1 @@
+include ':app', ':lib-common', ':lib-swipebacklayout', ':lib-okhttputils', ':lib-andfix', ':lib-pullrefresh', ':lib-banner', ':lib-styleplug', ':lib-swipeitemlayout', ':lib-zxing', ':lib-zxingview', ':lib-signature', ':lib-stypewheelpicker', ':lib-photopicker', ':lib-calendar'

@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion project.ANDROID_BUILD_COMPILE_SDK_VERSION as int
+
+    defaultConfig {
+        minSdkVersion project.ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion project.ANDROID_BUILD_TARGET_SDK_VERSION as int
+        versionCode project.VERSION_CODE as int
+        versionName project.VERSION_NAME
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation "com.android.support:appcompat-v7:${LIBRARY_SUPPORT_APPCOMPAT_V7}"
+    implementation "com.android.support:support-v4:${LIBRARY_SUPPORT_V4}"
+    implementation "com.android.support:recyclerview-v7:${LIBRARY_SUPPORT_RECYCLERVIEW_V7}"
+    implementation 'cn.bingoogolapple:bga-baseadapter:1.2.7@aar'
+    compileOnly "com.github.bumptech.glide:glide:${LIBRARY_BUMPTECH_GLIDE_NEW}"
+    implementation "com.squareup.picasso:picasso:${LIBRARY_SQUAREUP_PICASSO}"
+    implementation "com.nostra13.universalimageloader:universal-image-loader:${LIBRARY_UNIVERSAL_IMAGE_LOADER}"
+    implementation "org.xutils:xutils:${LIBRARY_ORG_XUTILS}"
+}

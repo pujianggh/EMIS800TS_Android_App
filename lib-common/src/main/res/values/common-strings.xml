@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="nw_error_10000">未知错误</string>
+    <string name="nw_error_10001">网络异常</string>
+    <string name="nw_error_10002">没有更多数据</string>
+    <string name="nw_error_10003">数据解析出错</string>
+    <string name="nw_error_10004">网络开了个小差，请稍后重试</string>
+    <string name="nw_error_10005">网络异常，请检查网络</string>
+
+</resources>

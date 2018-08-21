@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion project.ANDROID_BUILD_COMPILE_SDK_VERSION as int//编译的SDK版本
+
+    defaultConfig {
+        minSdkVersion project.ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion project.ANDROID_BUILD_TARGET_SDK_VERSION as int
+        versionCode project.VERSION_CODE as int
+        versionName project.VERSION_NAME
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//依赖排除内容
+def excludes = {
+    exclude group: 'com.android.support', module: 'support-v4'
+    exclude group: 'com.android.support', module: 'appcompat-v7'
+    exclude group: 'com.android.support', module: 'recyclerview-v7'
+    exclude group: 'com.android.support', module: 'multidex'
+    exclude group: 'com.android.support', module: 'support-v13'
+}
+
+dependencies {
+    //添加jar包
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "com.android.support:support-v4:${LIBRARY_SUPPORT_V4}"
+    api "com.android.support:multidex:${LIBRARY_SUPPORT_MULTIDEX_VIERSION}"
+    api "com.jaeger.statusbaruitl:library:${LIBRARY_JAEGER_STATUSBARUITL_LIBRARY}"
+    api "com.github.bumptech.glide:glide:${LIBRARY_BUMPTECH_GLIDE}"
+    api "com.google.code.gson:gson:${LIBRARY_FNDAPP_GSON_VIERSION}", excludes
+    api 'cn.bingoogolapple:bga-baseadapter:1.2.7@aar'
+    api project(':lib-swipebacklayout')
+    api project(':lib-okhttputils')
+    api project(':lib-andfix')
+    api project(':lib-pullrefresh')
+    api project(':lib-banner')
+    api project(':lib-styleplug')
+    api project(':lib-swipeitemlayout')
+    api project(':lib-zxing')
+    api project(':lib-signature')
+    api project(':lib-photopicker')
+    api project(':lib-calendar')
+}
+repositories {
+    mavenCentral()
+}

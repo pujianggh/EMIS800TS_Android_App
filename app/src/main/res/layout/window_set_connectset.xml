@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lly_window_root"
+    style="@style/MatchWrap.Vertical"
+    android:gravity="top"
+    android:paddingBottom="@dimen/item_dp10"
+    android:paddingTop="@dimen/item_dp10">
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_dp10"
+        android:layout_marginRight="@dimen/item_dp10"
+        android:background="@drawable/shape_white_gary">
+
+        <TextView
+            style="@style/Text_MatchWrap_Style"
+            android:layout_height="@dimen/item_dp40"
+            android:layout_marginTop="0dp"
+            android:background="@color/line_lightgray"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/item_dp10"
+            android:text="@string/text_popupWindow_qsrfwqmm" />
+
+        <EditText
+            android:id="@+id/edt_URL"
+            style="@style/Edit_MatchWrap_Style"
+            android:layout_marginTop="@dimen/item_dp10"
+            android:background="@android:color/transparent"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:padding="@dimen/item_dp10"
+            android:text="http//192.168.1.11" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_lightgray" />
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_height="@dimen/item_dp50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/item_dp15"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/item_dp10"
+            android:paddingRight="@dimen/item_dp10">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                style="@style/Button_Common_Style"
+                android:layout_width="0dp"
+                android:layout_marginRight="@dimen/spacing_min"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button_gary"
+                android:text="@string/text_button_qx" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                style="@style/Button_Common_Style"
+                android:layout_width="0dp"
+                android:layout_marginLeft="@dimen/spacing_min"
+                android:layout_weight="1"
+                android:text="@string/text_button_qd" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

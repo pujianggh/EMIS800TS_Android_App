@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 深黑色 -->
+    <color name="color_black_deep">#262b2e</color>
+    <!-- 统一背景颜色 -->
+    <color name="color_black_bg">#2b2c30</color>
+    <!-- 统一选中颜色 -->
+    <color name="color_pressed_bg">#808080</color>
+    <!-- 统一选中颜色2 -->
+    <color name="color_pressed_2">#CCCCCC</color>
+    <!-- 底黑色 -->
+    <color name="color_black_bar">#515151</color>
+    <!-- 统一title背景颜色 -->
+    <color name="color_title_bg">#3f4042</color>
+    <!-- 统一bottom背景颜色 -->
+    <color name="color_bottom_bg">#1a1a1a</color>
+    <!-- 输入框背景颜色 -->
+    <color name="color_edit_contentbg">#404145</color>
+    <!-- 输入框边框line颜色 -->
+    <color name="color_edit_linebg">#7f8084</color>
+    <!-- 输入框边框Hint颜色 -->
+    <color name="color_edit_hint">#646466</color>
+    <!-- 橙色 -->
+    <color name="color_orange">#e5a34f</color>
+    <!-- 橙色 -->
+    <color name="color_orange_gray">#E6BEA8</color>
+    <!-- 绿色 -->
+    <color name="color_green">#27B97A</color>
+    <!-- 字体蓝色 -->
+    <color name="text_blue_common">#2EABE3</color>
+    <!-- 字体蓝色亮 -->
+    <color name="text_blue_heigh">#06B0FE</color>
+    <!-- 字体蓝失去焦点 -->
+    <color name="text_blue_nopress">#97dbfb</color>
+    <!-- 字体蓝色 -->
+    <color name="text_blue">#0066E3</color>
+    <!-- 字体深蓝色 -->
+    <color name="text_deepblue">#29344A</color>
+    <!-- 字体棕色 -->
+    <color name="text_brown">#B0BA46</color>
+    <!-- 字体淡棕色 -->
+    <color name="text_brown_gray">#C2C287</color>
+    <!-- 字体淡棕色2 -->
+    <color name="text_brown2">#AFB85F</color>
+    <!-- 字体红色 -->
+    <color name="red_text">#E33881</color>
+    <!-- 字体红色2 -->
+    <color name="red_text2">#EF4D3D</color>
+    <!-- 字体深黑 -->
+    <color name="text_deepgray">#5e5e5e</color>
+    <!-- 字体灰色 -->
+    <color name="text_lightgray">#AEAEAE</color>
+    <!-- 字体深灰 -->
+    <color name="text_gray">#999999</color>
+    <!-- 字体内容灰色 -->
+    <color name="text_contentgray">#666666</color>
+    <!-- 提现提示颜色 -->
+    <color name="text_color_tips">#ADADAD</color>
+    <!-- 通用背景颜色  -->
+    <color name="common_white_bg">#fafafa</color>
+    <!-- 通用背景颜色 #fafafa -->
+    <color name="color_common_bg">@color/color_black_bg</color>
+    <!-- 进度 -->
+    <color name="text_prg_bg">#f78497</color>
+    <!-- line1 -->
+    <color name="line_gray">#C8C7CC</color>
+    <!-- line2 -->
+    <color name="line_lightgray">#DEDEDE</color>
+    <!-- line3 -->
+    <color name="line_deep">#3c3d41</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="red_tips">#E74E41</color>
+    <color name="nocolor">#00FFFFFF</color>
+    <color name="colorBlackBg">#333333</color>
+    <color name="selector_bar_select">#EFEFEF</color>
+    <color name="colorPrimaryDark">#00ae7d</color>
+    <color name="colorPrimary">#00ce7d</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+    <color name="colorWhiteTitle">#F8F8F8</color>
+    <color name="colorWindowBackground">@android:color/white</color>
+    <color name="colorNavigationBar">@android:color/black</color>
+
+    <color name="imoocstyle">#CA0612</color>
+
+</resources>

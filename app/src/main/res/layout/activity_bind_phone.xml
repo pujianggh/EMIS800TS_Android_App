@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/common_white_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:layout_marginTop="@dimen/item_dp100"
+        android:gravity="center_horizontal">
+
+        <TextView
+            style="@style/Text_WrapWrap_Style"
+            android:layout_height="@dimen/item_dp35"
+            android:gravity="center"
+            android:text="@string/text_bind_phone_ndjsjh"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <TextView
+            android:id="@+id/tv_oldPhoneNumber"
+            style="@style/Text_WrapWrap_Style"
+            android:gravity="center"
+            android:text=""
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <EditText
+            android:id="@+id/edt_newPhoneNumber"
+            style="@style/Edit_MatchWrap_Style"
+            android:layout_height="@dimen/item_dp40"
+            android:layout_marginLeft="@dimen/item_dp15"
+            android:layout_marginRight="@dimen/item_dp15"
+            android:layout_marginTop="@dimen/item_dp20"
+            android:background="@drawable/shape_item_whitecirle"
+            android:hint="@string/text_bind_phone_qsrxsjhm"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:textColor="@color/text_contentgray"
+            android:textColorHint="@color/text_gray"
+            android:textCursorDrawable="@drawable/cursor_color_red" />
+
+        <RelativeLayout
+            style="@style/MatchWrap"
+            android:layout_height="@dimen/item_dp40"
+            android:layout_marginTop="@dimen/item_dp20">
+
+            <EditText
+                android:id="@+id/edt_phoneCode"
+                style="@style/Edit_MatchWrap_Style"
+                android:layout_height="@dimen/item_dp40"
+                android:layout_marginLeft="@dimen/item_dp15"
+                android:layout_marginRight="@dimen/item_dp15"
+                android:background="@drawable/shape_item_whitecirle"
+                android:hint="@string/text_bind_phone_qsryzm"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="6"
+                android:textColor="@color/text_contentgray"
+                android:textColorHint="@color/text_gray"
+                android:textCursorDrawable="@drawable/cursor_color_red" />
+
+            <TextView
+                android:id="@+id/tv_getPhoneCode"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_height="@dimen/item_dp35"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/item_dp25"
+                android:gravity="center"
+                android:text="@string/text_bind_phone_hqyzm"
+                android:textColor="@drawable/text_select_blue"
+                android:textSize="@dimen/textsize_normalplus" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/Button_Common_Style_Black"
+            android:layout_marginLeft="@dimen/item_dp15"
+            android:layout_marginRight="@dimen/item_dp15"
+            android:layout_marginTop="@dimen/item_dp30"
+            android:text="@string/text_button_qd" />
+    </LinearLayout>
+</LinearLayout>

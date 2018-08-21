@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/common_white_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <RelativeLayout style="@style/MatchMatch">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/app_icon" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            style="@style/WrapWrap"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="V1.0"
+            android:textColor="@color/colorNavigationBar"
+            android:textSize="@dimen/textSize_20" />
+    </RelativeLayout>
+</LinearLayout>

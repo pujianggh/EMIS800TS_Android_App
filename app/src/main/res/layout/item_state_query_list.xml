@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchWrap.Vertical"
+    android:id="@+id/lly_item"
+    android:background="@drawable/selector_line_bg">
+
+    <RelativeLayout
+        style="@style/MatchWrap"
+        android:layout_marginLeft="@dimen/spacing_min"
+        android:layout_marginRight="@dimen/spacing_min">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_height="@dimen/item_dp40"
+            android:layout_margin="@dimen/spacing_min"
+            android:gravity="center_vertical"
+            android:text="状态"
+            android:textColor="@color/text_deepgray"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <ImageView
+            android:id="@+id/igv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/spacing_min"
+            android:padding="3dp"
+            android:src="@drawable/icon_indicator"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/item_dp10"
+        android:layout_marginRight="@dimen/item_dp10"
+        android:background="@color/line_lightgray" />
+</LinearLayout>

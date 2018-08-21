@@ -1,0 +1,124 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    signingConfigs {
+        debugConfig {
+            keyAlias project.SIGN_KEY_ALIAS
+            keyPassword project.SIGN_KEY_PASSWORD
+            storePassword project.SIGN_KEY_STORE_PASSWORD
+            storeFile file(project.SIGN_STORE_FILE_PATH)
+        }
+
+        debug {
+            keyAlias project.SIGN_KEY_ALIAS
+            keyPassword project.SIGN_KEY_PASSWORD
+            storePassword project.SIGN_KEY_STORE_PASSWORD
+            storeFile file(project.SIGN_STORE_FILE_PATH)
+        }
+
+        release {
+            keyAlias project.SIGN_KEY_ALIAS
+            keyPassword project.SIGN_KEY_PASSWORD
+            storePassword project.SIGN_KEY_STORE_PASSWORD
+            storeFile file(project.SIGN_STORE_FILE_PATH)
+        }
+    }
+
+    compileSdkVersion project.ANDROID_BUILD_COMPILE_SDK_VERSION as int//编译的SDK版本
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION //编译的Tools版本
+
+    defaultConfig {
+        applicationId project.APPLICATION_ID
+        minSdkVersion project.ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion project.ANDROID_BUILD_TARGET_SDK_VERSION as int
+        versionCode project.VERSION_CODE as int
+        versionName project.VERSION_NAME
+        multiDexEnabled true
+//        ndk {
+//            abiFilters "armeabi", "armeabi-v7a"
+//            // 指定要ndk需要兼容的架构(这样其他依赖包里mips,x86,armeabi,arm-v8之类的so会被过滤掉)
+//        }
+        signingConfig signingConfigs.release
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "EMIS_v${defaultConfig.versionName}_${variant.productFlavors[0].name}_${getBuildTime()}.apk"
+                }
+            }
+        }
+
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"      // 显示Log
+            versionNameSuffix "-debug"                           // 生成的版本包名字后缀
+            minifyEnabled false                                  // 是否支持混淆，不支持false
+            //zipAlignEnabled false                              // Zipalign优化
+            //shrinkResources false                              // 去掉无用资源
+            signingConfig signingConfigs.release                   // 签名配置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        baidu {
+            dimension "default"
+            manifestPlaceholders = [APP_NAME     : "EMIS",
+                                    CHANNEL_VALUE: "baidu"]
+        }
+        xiaomi {
+            dimension "default"
+            manifestPlaceholders = [APP_NAME     : "EMIS",
+                                    CHANNEL_VALUE: "xiaomi"]
+        }
+    }
+}
+
+//依赖排除内容
+def excludes = {
+    exclude group: 'com.android.support', module: 'support-v4'
+    exclude group: 'com.android.support', module: 'appcompat-v7'
+    exclude group: 'com.android.support', module: 'recyclerview-v7'
+    exclude group: 'com.android.support', module: 'multidex'
+    exclude group: 'com.android.support', module: 'support-v13'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${LIBRARY_SUPPORT_APPCOMPAT_V7}"
+    implementation "com.android.support:design:${LIBRARY_SUPPORT_DESIGN}"
+    implementation "com.android.support:recyclerview-v7:${LIBRARY_SUPPORT_RECYCLERVIEW_V7}"
+    implementation "com.android.support.constraint:constraint-layout:${LIBRARY_SUPPORT_CONSTRAINT_LAYOUT}"
+    androidTestImplementation "com.android.support.test:runner:${LIBRARY_SUPPORT_TEST_RUNNER}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${LIBRARY_SUPPORT_TEST_ESPRESSO_CORE}"
+    implementation "com.jakewharton:butterknife:${LIBRARY_FNDAPP_BUTTERKNIFE_VIERSION}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${LIBRARY_FNDAPP_BUTTERKNIFE_COMPILER_VIERSION}"
+    testImplementation "junit:junit:${LIBRARY_JUNIT}"
+    implementation project(':lib-common')
+}
+
+repositories {
+    mavenCentral()
+}
+
+//自定义包build时间获取函数
+def getBuildTime() {
+    def date = new Date()
+    //def formattedDate = date.format('yyyyMMdd_HHmm')
+    def formattedDate = date.format('yyyyMMdd')
+    return formattedDate
+}
+
+//自定义Release包build时间获取函数
+def getReleaseBuildTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getDefault())//包含时分秒
+}

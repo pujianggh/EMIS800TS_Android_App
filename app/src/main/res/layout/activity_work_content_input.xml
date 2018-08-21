@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/colorWhiteTitle">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ScrollView
+        style="@style/MatchMatch"
+        android:layout_above="@+id/lly_bottom"
+        android:layout_below="@+id/layout_titleBar"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout style="@style/MatchMatch.Vertical">
+
+            <LinearLayout
+                style="@style/MatchMatch.Vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_dp15"
+                    android:background="@color/white"
+                    android:minHeight="@dimen/item_dp180">
+
+                    <EditText
+                        android:id="@+id/edt_content"
+                        style="@style/Edit_MatchWrap_Style2"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="@dimen/spacing_min"
+                        android:layout_marginRight="@dimen/spacing_min"
+                        android:background="@color/white"
+                        android:hint="@string/text_work_content_input_tip_nr"
+                        android:inputType="textMultiLine"
+                        android:paddingBottom="@dimen/item_dp30"
+                        android:paddingTop="@dimen/item_dp10"
+                        android:textCursorDrawable="@drawable/cursor_color_red" />
+
+                    <TextView
+                        android:id="@+id/tv_contentTip"
+                        style="@style/Text_MatchWrap_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/item_dp10"
+                        android:paddingBottom="@dimen/item_dp10"
+                        android:text="@string/text_work_content_input_msg"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/textSize_12" />
+
+                    <View
+                        style="@style/View_Line_Common_Style"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@color/line_lightgray" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <cn.bingoogolapple.photopicker.widget.BGASortableNinePhotoLayout
+                        android:id="@+id/snpl_moment_add_photos"
+                        style="@style/MatchWrap"
+                        android:layout_margin="10dp"
+                        app:bga_snpl_deleteDrawable="@drawable/icon_delete_red_normal"
+                        app:bga_snpl_deleteDrawableOverlapQuarter="false"
+                        app:bga_snpl_editable="true"
+                        app:bga_snpl_itemCornerRadius="0dp"
+                        app:bga_snpl_itemSpanCount="4"
+                        app:bga_snpl_itemWhiteSpacing="4dp"
+                        app:bga_snpl_itemWidth="0dp"
+                        app:bga_snpl_maxItemCount="9"
+                        app:bga_snpl_otherWhiteSpacing="10dp"
+                        app:bga_snpl_placeholderDrawable="@mipmap/bga_pp_ic_holder_light"
+                        app:bga_snpl_plusDrawable="@drawable/icon_take_photo_focus"
+                        app:bga_snpl_plusEnable="true"
+                        app:bga_snpl_sortable="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

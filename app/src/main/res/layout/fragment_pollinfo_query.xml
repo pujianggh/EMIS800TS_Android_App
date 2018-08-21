@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchMatch"
+    android:background="@color/color_common_bg">
+
+    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        android:id="@+id/rl_root_refresh"
+        style="@style/MatchMatch"
+        android:layout_marginBottom="@dimen/item_dp50">
+
+        <ScrollView
+            style="@style/MatchAuto"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                style="@style/MatchMatch.Vertical"
+                android:paddingBottom="@dimen/item_dp10">
+
+                <TextView
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="@string/text_frg_polling_query_xjmc"
+                    android:textColor="@color/text_lightgray" />
+
+                <EditText
+                    android:id="@+id/edt_pollName"
+                    style="@style/Edit_MatchWrap_Style"
+                    android:background="@drawable/shape_line_whitebg"
+                    android:hint="@string/text_frg_polling_query_qrsxjmc"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+                <TextView
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:layout_marginTop="@dimen/item_dp10"
+                    android:text="@string/text_frg_polling_query_bm"
+                    android:textColor="@color/text_lightgray" />
+
+                <TextView
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_height="@dimen/item_dp35"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/shape_line_whitebg"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="@string/text_frg_polling_query_qxz"
+                    android:textColor="@color/text_contentgray" />
+
+                <TextView
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="@string/text_frg_polling_query_xjkssj"
+                    android:textColor="@color/text_lightgray" />
+
+                <TextView
+                    android:id="@+id/tv_startDate"
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_height="@dimen/item_dp35"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/shape_line_whitebg"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="2018-05-20"
+                    android:textColor="@color/text_contentgray" />
+
+                <TextView
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="@string/text_frg_polling_query_xjjssj"
+                    android:textColor="@color/text_lightgray" />
+
+                <TextView
+                    android:id="@+id/tv_endDate"
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_height="@dimen/item_dp35"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/shape_line_whitebg"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="2018-05-21"
+                    android:textColor="@color/text_contentgray" />
+
+                <TextView
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:layout_marginRight="@dimen/item_dp10"
+                    android:layout_marginTop="@dimen/item_dp15"
+                    android:text="@string/text_frg_polling_query_rwzt" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rlv_priorityView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:layout_marginRight="@dimen/item_dp10"
+                    android:gravity="center"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+
+                <TextView
+                    style="@style/Text_MatchWrap_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:layout_marginRight="@dimen/item_dp10"
+                    android:layout_marginTop="@dimen/item_dp15"
+                    android:text="@string/text_frg_polling_query_dwzt" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rlv_orderStateView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:layout_marginRight="@dimen/item_dp10"
+                    android:gravity="center"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </LinearLayout>
+        </ScrollView>
+    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+
+    <LinearLayout
+        style="@style/MatchWrap.Horizontal"
+        android:layout_height="@dimen/item_dp50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/item_dp10"
+        android:paddingRight="@dimen/item_dp10">
+
+        <Button
+            android:id="@+id/btn_reset"
+            style="@style/Button_Common_Style"
+            android:layout_width="0dp"
+            android:layout_marginRight="@dimen/spacing_min"
+            android:layout_weight="1"
+            android:background="@drawable/selector_button_gary"
+            android:text="@string/text_button_cz" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            style="@style/Button_Common_Style"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/spacing_min"
+            android:layout_weight="1"
+            android:text="@string/text_button_qd" />
+    </LinearLayout>
+</RelativeLayout>

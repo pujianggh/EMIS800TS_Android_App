@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lly_mainBottom"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/spacing_maxplus"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/shape_main_index_line"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        style="@style/MatchMatch.Horizontal"
+        android:layout_height="@dimen/spacing_maxplus"
+        android:paddingBottom="@dimen/spacing_min"
+        android:paddingTop="@dimen/spacing_min">
+
+        <RadioButton
+            android:id="@+id/rb_mainMessage"
+            style="@style/Tab_Main_RadioButton_Style"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_index_message"
+            android:text="@string/text_main_xx" />
+
+        <RadioButton
+            android:id="@+id/rb_mainMy"
+            style="@style/Tab_Main_RadioButton_Style"
+            android:drawableTop="@drawable/selector_index_set"
+            android:text="@string/text_main_wd" />
+
+        <RadioButton
+            android:id="@+id/rb_mainSet"
+            style="@style/Tab_Main_RadioButton_Style"
+            android:drawableTop="@drawable/selector_index_my"
+            android:text="@string/text_main_sz" />
+    </RadioGroup>
+
+    <LinearLayout
+        style="@style/MatchMatch.Horizontal"
+        android:layout_height="@dimen/spacing_maxplus">
+
+        <LinearLayout
+            style="@style/AutoMatch"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_messageCount"
+                style="@style/WrapWrap"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_red_tips2"
+                android:gravity="center"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text=" 1 "
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize_10"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/AutoMatch"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_myCount"
+                style="@style/WrapWrap"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_red_tips2"
+                android:gravity="center"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text=" 1 "
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize_10"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/AutoMatch"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_setCount"
+                style="@style/WrapWrap"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_red_tips2"
+                android:gravity="center"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text=" 1 "
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize_10"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

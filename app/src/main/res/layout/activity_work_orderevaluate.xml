@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_black_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ScrollView
+        style="@style/MatchMatch"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            style="@style/MatchMatch.Vertical"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/item_dp20"
+            android:paddingTop="@dimen/item_dp20">
+
+            <LinearLayout style="@style/MatchWrap.Vertical">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_work_order_evaluate_fwsfwc" />
+
+                <RadioGroup
+                    android:id="@+id/rg_serveFinish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_serveFinishYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@drawable/selector_sex_select"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_min"
+                        android:text="@string/text_work_order_evaluate_s"
+                        android:textColor="@color/text_deepgray" />
+
+                    <RadioButton
+                        android:id="@+id/rb_serveFinishNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/item_dp80"
+                        android:button="@drawable/selector_sex_select"
+                        android:checked="false"
+                        android:padding="@dimen/spacing_min"
+                        android:text="@string/text_work_order_evaluate_f"
+                        android:textColor="@color/text_deepgray" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1dp"
+                android:background="@color/line_lightgray" />
+
+            <LinearLayout
+                style="@style/MatchWrap.Vertical"
+                android:layout_marginTop="@dimen/item_dp10">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_work_order_evaluate_fwsfmy" />
+
+                <RadioGroup
+                    android:id="@+id/rg_servePlease"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_servePleaseYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@drawable/selector_sex_select"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_min"
+                        android:text="@string/text_work_order_evaluate_my"
+                        android:textColor="@color/text_deepgray" />
+
+                    <RadioButton
+                        android:id="@+id/rb_servePleaseNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/item_dp80"
+                        android:button="@drawable/selector_sex_select"
+                        android:checked="false"
+                        android:padding="@dimen/spacing_min"
+                        android:text="@string/text_work_order_evaluate_bmy"
+                        android:textColor="@color/text_deepgray" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1dp"
+                android:background="@color/line_lightgray" />
+
+            <LinearLayout
+                style="@style/MatchWrap.Vertical"
+                android:layout_marginTop="@dimen/item_dp10">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_work_order_evaluate_fwtdmyd" />
+
+                <RadioGroup
+                    android:id="@+id/rg_serveDegree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_serveDegreeYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@drawable/selector_sex_select"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_min"
+                        android:text="@string/text_work_order_evaluate_my"
+                        android:textColor="@color/text_deepgray" />
+
+                    <RadioButton
+                        android:id="@+id/rb_serveDegreeNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/item_dp80"
+                        android:button="@drawable/selector_sex_select"
+                        android:checked="false"
+                        android:padding="@dimen/spacing_min"
+                        android:text="@string/text_work_order_evaluate_bmy"
+                        android:textColor="@color/text_deepgray" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1dp"
+                android:background="@color/line_lightgray" />
+
+            <LinearLayout
+                style="@style/MatchWrap.Vertical"
+                android:layout_marginTop="@dimen/item_dp10">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_work_order_evaluate_qtbgyj" />
+
+                <EditText
+                    android:id="@+id/edt_content"
+                    style="@style/Edit_MatchWrap_Style2"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:layout_marginRight="@dimen/item_dp15"
+                    android:layout_marginTop="@dimen/item_dp10"
+                    android:background="@color/white"
+                    android:hint="@string/text_work_order_evaluate_ms"
+                    android:inputType="textMultiLine"
+                    android:paddingBottom="@dimen/item_dp30"
+                    android:paddingTop="@dimen/item_dp10"
+                    android:textCursorDrawable="@drawable/cursor_color_red" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lly_dshState"
+                style="@style/MatchMatch.Horizontal"
+                android:layout_marginTop="@dimen/item_dp20"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btn_next"
+                    style="@style/Button_Common_Style_Black"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:layout_marginRight="@dimen/item_dp15"
+                    android:layout_weight="1"
+                    android:text="@string/text_button_tj" />
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/Button_Common_Style_Black"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:layout_marginRight="@dimen/item_dp15"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button_gary"
+                    android:text="@string/text_button_qx" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

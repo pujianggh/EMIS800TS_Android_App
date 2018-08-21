@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchWrap.Vertical"
+    android:layout_height="@dimen/spacing_maxplus"
+    android:background="@color/color_title_bg"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/tv_title_bar"
+        style="@style/Text_Common_Style"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="0dp"
+        android:background="@drawable/selector_main_tar_bg"
+        android:drawablePadding="@dimen/item_dp10"
+        android:drawableRight="@drawable/icon_allow_below_white"
+        android:gravity="center"
+        android:paddingLeft="@dimen/item_dp15"
+        android:paddingRight="@dimen/item_dp50"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize_18" />
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lly_window_root"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/colorBlackBg"
+    android:gravity="top">
+
+    <LinearLayout
+        style="@style/MatchWrap.Horizontal"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <LinearLayout
+            style="@style/AutoWrap"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/igv_add"
+                android:layout_width="@dimen/item_dp40"
+                android:layout_height="@dimen/item_dp40"
+                android:layout_margin="@dimen/item_dp15"
+                android:src="@drawable/icon_workorder_select_add" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/AutoWrap"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/igv_ewm"
+                android:layout_width="@dimen/item_dp40"
+                android:layout_height="@dimen/item_dp40"
+                android:layout_margin="@dimen/item_dp15"
+                android:src="@drawable/icon_workorder_select_ewm" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

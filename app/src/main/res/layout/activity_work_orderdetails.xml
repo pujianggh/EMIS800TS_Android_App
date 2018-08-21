@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_black_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ScrollView
+        style="@style/MatchMatch"
+        android:layout_above="@+id/lly_bottom"
+        android:layout_below="@+id/layout_titleBar"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout style="@style/MatchMatch.Vertical">
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="@dimen/item_dp20"
+                    android:layout_height="@dimen/item_dp20"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:src="@drawable/icon_workorder_detail_jbxx" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="@string/text_work_order_details_title"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/line_lightgray" />
+
+            <LinearLayout
+                style="@style/MatchWrap.Vertical"
+                android:background="@color/white"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="@string/text_work_order_details_gsmc" />
+
+                    <TextView
+                        android:id="@+id/tv_company"
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp75"
+                        android:layout_marginRight="@dimen/item_dp55"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/tv_state"
+                        style="@style/Text_Common_Style"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/item_dp10"
+                        android:background="@color/color_green"
+                        android:padding="2dp"
+                        android:text="@string/text_work_order_details_state_dsh"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        android:id="@+id/tv_createrMessage"
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="" />
+
+                    <ImageView
+                        android:id="@+id/igv_iphone"
+                        android:layout_width="@dimen/item_dp20"
+                        android:layout_height="@dimen/item_dp20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/item_dp20"
+                        android:src="@drawable/icon_workorder_detail_phone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        android:id="@+id/tv_locationTip"
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="@string/text_work_order_details_wz" />
+
+                    <TextView
+                        android:id="@+id/tv_location"
+                        style="@style/Text_Common_Style"
+                        android:layout_toRightOf="@+id/tv_locationTip"
+                        android:text="" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="@string/text_work_order_details_yysj" />
+
+                        <TextView
+                            android:id="@+id/tv_yyTime"
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="@string/text_work_order_details_kgsj" />
+
+                        <TextView
+                            android:id="@+id/tv_kgTime"
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:text="" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="@string/text_work_order_details_jbsj" />
+
+                        <TextView
+                            android:id="@+id/tv_jbTime"
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="@string/text_work_order_details_wcsj" />
+
+                        <TextView
+                            android:id="@+id/tv_wcTime"
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:text="" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_message"
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="@string/text_work_order_details_ms" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/View_Line_Common_Style"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@color/line_lightgray" />
+
+                <LinearLayout
+                    android:id="@+id/lly_infoDetails"
+                    style="@style/MatchWrap.Vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="@string/text_work_order_details_bm" />
+
+                        <TextView
+                            android:id="@+id/tv_department"
+                            style="@style/Text_Common_Style"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/item_dp25"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="@string/text_work_order_details_fwlx" />
+
+                        <TextView
+                            android:id="@+id/tv_serverType"
+                            style="@style/Text_Common_Style"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/item_dp25"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="@string/text_work_order_details_gjsj" />
+
+                        <TextView
+                            android:id="@+id/tv_gjTime"
+                            style="@style/Text_Common_Style"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/item_dp25"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rlv_photos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:overScrollMode="never"
+                        android:scrollbars="none" />
+
+                    <View
+                        style="@style/View_Line_Common_Style"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@color/line_lightgray" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rly_infoDetailAllow"
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp35">
+
+                    <ImageView
+                        android:id="@+id/igv_allow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/icon_workorder_detail_allow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                style="@style/MatchWrap.Horizontal"
+                android:layout_marginTop="@dimen/item_dp10"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="@string/text_work_order_details_sfx"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/item_dp10"
+                    android:text="@string/test_work_order_details_amout"
+                    android:textColor="@color/red_text2" />
+            </RelativeLayout>
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:layout_marginTop="@dimen/item_dp10"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="@dimen/item_dp20"
+                    android:layout_height="@dimen/item_dp20"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:src="@drawable/icon_workorder_detail_spnr" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="@string/text_work_order_details_khqz"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1px"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/line_lightgray" />
+
+            <LinearLayout
+                style="@style/LinearLayout_Child_Style"
+                android:layout_height="@dimen/item_dp45"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="@string/text_work_order_details_shsm" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lly_signHand"
+                style="@style/MatchMatch.Vertical"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/item_dp10"
+                    android:text="@string/text_work_order_details_zcqm"
+                    android:textColor="@color/text_contentgray" />
+
+                <ImageView
+                    android:id="@+id/igv_signHand"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="#FFFFFF"
+                    android:scaleType="centerInside"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lly_history"
+                style="@style/MatchMatch.Vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    style="@style/MatchWrap.Horizontal"
+                    android:layout_marginTop="@dimen/item_dp10"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="@dimen/item_dp20"
+                        android:layout_height="@dimen/item_dp20"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:src="@drawable/icon_workorder_detail_lsjl" />
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_dp45"
+                        android:layout_marginLeft="0dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/item_dp10"
+                        android:text="@string/text_work_order_details_lsjl"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    style="@style/View_Line_Common_Style"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@color/line_lightgray" />
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/item_dp35"
+                        android:layout_height="@dimen/item_dp35"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:src="@drawable/icon_workorder_detail_tx" />
+
+                    <LinearLayout
+                        style="@style/MatchMatch.Vertical"
+                        android:layout_marginLeft="@dimen/item_dp55"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="システム" />
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:layout_marginTop="@dimen/spacing_min"
+                            android:text="2018-07-05 15:23"
+                            android:textColor="@color/text_gray"
+                            android:textSize="@dimen/textSize_12" />
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:layout_marginTop="@dimen/spacing_min"
+                            android:text="部品交換、修理完了。" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/item_dp80"
+                            android:layout_margin="@dimen/spacing_min"
+                            android:src="@drawable/test_pos" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    style="@style/View_Line_Common_Style"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@color/line_lightgray" />
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="@string/text_work_order_details_ckqb" />
+
+                    <ImageView
+                        android:layout_width="@dimen/item_dp20"
+                        android:layout_height="@dimen/item_dp20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/item_dp10"
+                        android:background="@drawable/icon_indicator2" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lly_bottom"
+        style="@style/MatchWrap.Vertical"
+        android:layout_height="@dimen/item_dp50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/Button_Common_Style_Black"
+            android:layout_marginLeft="@dimen/item_dp10"
+            android:layout_marginRight="@dimen/item_dp10"
+            android:text="@string/text_work_order_details_btn_jd"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/lly_dshState"
+            style="@style/MatchMatch.Horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btn_inputContent"
+                style="@style/Button_Common_Style_Black"
+                android:layout_marginLeft="@dimen/item_dp10"
+                android:layout_marginRight="@dimen/item_dp10"
+                android:layout_weight="1"
+                android:text="@string/text_work_order_details_btn_txgznr" />
+
+            <Button
+                android:id="@+id/btn_Ok"
+                style="@style/Button_Common_Style_Black"
+                android:layout_marginLeft="@dimen/item_dp10"
+                android:layout_marginRight="@dimen/item_dp10"
+                android:layout_weight="1"
+                android:text="@string/text_work_order_details_btn_wc" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

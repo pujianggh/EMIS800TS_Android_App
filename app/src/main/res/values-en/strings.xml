@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- app通用 -->
+    <string name="app_name">Kotlin Android</string>
+    <string name="text_button_tj">submit</string>
+    <string name="text_button_qd">determine</string>
+    <string name="text_button_qx">cancel</string>
+    <string name="text_button_bc">save</string>
+    <string name="text_button_qc">remove</string>
+    <string name="text_button_tb">sync</string>
+    <string name="text_button_cz">reset</string>
+    <string name="text_button_sc">delete</string>
+
+    <!-- 提示用语 -->
+    <string name="text_message_commit_success">Submitted successfully</string>
+    <string name="text_message_noselect">You have no choice</string>
+    <string name="text_title_wz">location</string>
+    <string name="text_title_zt">state</string>
+    <string name="text_title_fwlx">Service type</string>
+    <string name="text_title_gdlx">Work order type</string>
+    <string name="text_title_yxj">priority</string>
+    <string name="text_title_bm">department</string>
+    <string name="text_title_sb">equipment</string>
+    <string name="text_title_gd">The repair order</string>
+    <string name="text_title_dclgd">Waiting list</string>
+    <string name="text_title_dppgd">Waiting list</string>
+    <string name="text_title_dspgd">Work order to be approved</string>
+    <string name="text_title_dcdgd">Waiting list</string>
+    <string name="text_title_dpjgd">Work order to be evaluated</string>
+    <string name="text_title_gdcx">The repair order query</string>
+    <string name="text_title_xjrw">Inspection tasks</string>
+    <string name="text_title_kcgl">Inventory management</string>
+    <string name="text_title_sz">Setting</string>
+
+    <!-- 状态 -->
+    <string name="text_state_qb">All</string>
+    <string name="text_state_wc">complete</string>
+    <string name="text_state_wtb">Not synchronized</string>
+    <string name="text_state_wwc">unfinished</string>
+    <string name="text_state_pg">dispatching</string>
+    <string name="text_state_jd">order</string>
+    <string name="text_state_wg">Completion of the</string>
+    <string name="text_state_cd">The archive</string>
+    <string name="text_state_dpj">To evaluate</string>
+    <string name="text_state_yz">validation</string>
+    <string name="text_state_pd">Send a single</string>
+    <string name="text_state_wypj">I want to evaluate</string>
+    <string name="text_state_clz">In the processing</string>
+    <string name="text_state_ycj">Has been created</string>
+    <string name="text_state_dsp">pending</string>
+    <string name="text_state_kpj">To evaluate</string>
+
+    <!-- app权限提示语 -->
+    <string name="text_permission_fail_xj">You refuse permission to take photos</string>
+    <string name="text_permission_fail_cc">You deny file storage rights</string>
+
+    <!-- PopupWindow内容 -->
+    <string name="text_popupWindow_dx">object</string>
+    <string name="text_popupWindow_wxgd">The guy single</string>
+    <string name="text_popupWindow_qsrfwqmm">Please enter the server password</string>
+    <string name="text_popupWindow_clwc">Processing is complete</string>
+    <string name="text_popupWindow_zt">suspended</string>
+    <string name="text_popupWindow_zz">Termination of</string>
+    <string name="text_popupWindow_tk">A refund</string>
+    <string name="text_popupWindow_sqsp">Apply for approval</string>
+    <string name="text_popupWindow_qx">cancel</string>
+
+    <!-- 主页Main -->
+    <string name="text_main_xx">message</string>
+    <string name="text_main_wd">my</string>
+    <string name="text_main_sz">set</string>
+    <string name="text_main_title">苏悦</string>
+
+    <!-- 登录 -->
+    <string name="text_login_title">Login</string>
+    <string name="text_login_hint_account">Please enter the account number</string>
+    <string name="text_login_hint_password">Please enter your password</string>
+    <string name="text_login_button_next">Login</string>
+
+    <!-- 消息状态 -->
+    <string name="text_act_project_message_hint">Please enter the project name</string>
+    <string name="text_act_state_query_list_hint">Case sensitive</string>
+    <string name="text_frg_message_item_bj">tag</string>
+    <string name="text_frg_message_item_sc">delete</string>
+
+    <!-- 创建工单 -->
+    <string name="text_work_order_create_title">Create a work order</string>
+    <string name="text_work_order_create_tip_qsrlxdh">Please enter your contact number</string>
+    <string name="text_work_order_create_tip_qxzwz">Please select location</string>
+    <string name="text_work_order_create_tip_qxzgdlx">Please select work order type</string>
+    <string name="text_work_order_create_tip_qxzfwle">Please select the service type</string>
+    <string name="text_work_order_create_jbxx">The basic information</string>
+    <string name="text_work_order_create_sqr">The applicant</string>
+    <string name="text_work_order_create_lxdh">Contact phone number</string>
+    <string name="text_work_order_create_bm">department</string>
+    <string name="text_work_order_create_wz">location</string>
+    <string name="text_work_order_create_gdlx">Work order type</string>
+    <string name="text_work_order_create_fwlx">Service type</string>
+    <string name="text_work_order_create_yxj">priority</string>
+    <string name="text_work_order_create_yysj">To make an appointment time</string>
+    <string name="text_work_order_create_gzsb">The fault equipment</string>
+    <string name="text_work_order_create_wtms">Problem description</string>
+    <string name="text_work_order_create_hint_qsrnr">Please enter the content</string>
+    <string name="text_work_order_create_tip_nr">You can enter up to 1000 characters</string>
+    <string name="text_work_order_create_item_sbbm">Equipment coding:</string>
+    <string name="text_work_order_create_item_sbmc">Device name:</string>
+    <string name="text_work_order_create_item_sbwz">The equipment location:</string>
+
+    <!-- 工单详情 -->
+    <string name="text_work_order_details_title">The basic information</string>
+    <string name="text_work_order_details_gsmc">The name of the company:</string>
+    <string name="text_work_order_details_wz">location:</string>
+    <string name="text_work_order_details_yysj">To make an appointment time:</string>
+    <string name="text_work_order_details_kgsj">Starting time:</string>
+    <string name="text_work_order_details_jbsj">The basic time:</string>
+    <string name="text_work_order_details_wcsj">Completion time:</string>
+    <string name="text_work_order_details_ms">describe:</string>
+    <string name="text_work_order_details_bm">department:</string>
+    <string name="text_work_order_details_fwlx">Service type:</string>
+    <string name="text_work_order_details_gjsj">Estimated time:</string>
+    <string name="text_work_order_details_sfx">Charging items</string>
+    <string name="text_work_order_details_khqz">Customer signature</string>
+    <string name="text_work_order_details_shsm">Audit instructions:</string>
+    <string name="text_work_order_details_zcqm">Normal signature:</string>
+    <string name="text_work_order_details_lsjl">The historical record</string>
+    <string name="text_work_order_details_ckqb">Look at all</string>
+    <string name="text_work_order_details_btn_jd">order</string>
+    <string name="text_work_order_details_btn_txgznr">Fill in the work content</string>
+    <string name="text_work_order_details_btn_wc">Completion of the</string>
+    <string name="text_work_order_details_state_dsh">To audit</string>
+
+    <!-- 设置-离线下载 -->
+    <string name="text_set_download_state_und">Did not download</string>
+    <string name="text_set_download_state_d">Have downloaded</string>
+    <string name="text_set_download_state_alld">Download the entire</string>
+    <string name="text_set_download_deviceInfo">Equipment information</string>
+    <string name="text_set_download_deviceTypeInfo">Device type information</string>
+    <string name="text_set_download_locationInfo">The location information</string>
+    <string name="text_set_download_departmentInfo">Department information</string>
+    <string name="text_set_download_priorityInfo">Priority information</string>
+    <string name="text_set_download_workProcessInfo">Workflow information</string>
+    <string name="text_set_download_serverTypeInfo">Service type information</string>
+    <string name="text_set_download_demandTypeInfo">Workflow information</string>
+    <string name="text_set_download_title">Offline download</string>
+
+    <!-- 二维码扫描 -->
+    <string name="text_qrcode_title">Qr code scanning</string>
+    <string name="text_qrcode_tip_nr">The bar code can be automatically scanned by putting it in the box</string>
+    <string name="text_qrcode_tip_nr2">Put the qr code-bar code into the box and it can be scanned automatically</string>
+
+    <!-- 工作内容填写 -->
+    <string name="text_work_content_input_title">Job description</string>
+    <string name="text_work_content_input_tip_nr">Please enter the job description</string>
+    <string name="text_work_content_input_msg">You can enter up to 1000 characters</string>
+
+    <!-- 工单评价 -->
+    <string name="text_work_order_evaluate_title">Evaluation of the repair order</string>
+    <string name="text_work_order_evaluate_fwsfwc">Completion of service?</string>
+    <string name="text_work_order_evaluate_fwsfmy">Service satisfaction?</string>
+    <string name="text_work_order_evaluate_my">Satisfied with the</string>
+    <string name="text_work_order_evaluate_bmy">Not satisfied with</string>
+    <string name="text_work_order_evaluate_s">Yes</string>
+    <string name="text_work_order_evaluate_f">No</string>
+    <string name="text_work_order_evaluate_fwtdmyd">Service attitude satisfaction?</string>
+    <string name="text_work_order_evaluate_qtbgyj">Please give us your valuable advice</string>
+    <string name="text_work_order_evaluate_ms">describe</string>
+
+    <!-- 通用样式选择人员 -->
+    <string name="text_select_query_list_title">Please choose to dispatch workers</string>
+    <string name="text_select_query_list_tip_bar1">Please select the executor</string>
+
+    <!-- 计划性维护 -->
+    <string name="text_plan_maintain_ri">日</string>
+    <string name="text_plan_maintain_1">一</string>
+    <string name="text_plan_maintain_2">二</string>
+    <string name="text_plan_maintain_3">三</string>
+    <string name="text_plan_maintain_4">四</string>
+    <string name="text_plan_maintain_5">五</string>
+    <string name="text_plan_maintain_6">六</string>
+    <string name="text_plan_maintain_dyrw">Task during the month</string>
+    <string name="text_plan_maintain_jt">Today</string>
+    <string name="text_plan_maintain_jst">Nearly three days</string>
+    <string name="text_plan_maintain_jqt">In seven days</string>
+    <string name="text_plan_maintain_yl">missing</string>
+    <string name="text_plan_maintain_cx">query</string>
+
+    <!-- 计划性维护 -->
+    <string name="text_plan_maintain_details_title">Planned maintenance details</string>
+    <string name="text_plan_maintain_details_jbxx">The basic information</string>
+    <string name="text_plan_maintain_details_wbmc">The name of the maintenance:</string>
+    <string name="text_plan_maintain_details_zq">cycle:</string>
+    <string name="text_plan_maintain_details_scwhsj">Initial maintenance time:</string>
+    <string name="text_plan_maintain_details_xcwhsj">Next maintenance time:</string>
+    <string name="text_plan_maintain_details_wbzq">Maintenance cycle:</string>
+    <string name="text_plan_maintain_details_jsrq">End date:</string>
+    <string name="text_plan_maintain_details_hs">Time consuming:</string>
+    <string name="text_plan_maintain_details_zdscgd">Automatically generate work orders:</string>
+    <string name="text_plan_maintain_details_tqts">Number of days in advance:</string>
+    <string name="text_plan_maintain_details_bz">steps</string>
+
+    <!-- 资产管理 -->
+    <string name="text_property_manage_title">Asset management</string>
+    <string name="text_property_manage_jbxx">The basic information</string>
+    <string name="text_property_manage_sblb">The equipment list</string>
+    <string name="text_property_manage_details_title">Equipment information</string>
+
+    <!-- 工作-巡检-查询 -->
+    <string name="text_polling_query_title">Checking the query</string>
+    <string name="text_polling_query_syy">On January</string>
+    <string name="text_polling_query_xyy">Next month</string>
+    <string name="text_frg_polling_query_xjmc">The name of the inspection</string>
+    <string name="text_frg_polling_query_qrsxjmc">Please enter the inspection name</string>
+    <string name="text_frg_polling_query_bm">department</string>
+    <string name="text_frg_polling_query_qxz">Please select</string>
+    <string name="text_frg_polling_query_xjkssj">Inspection start time</string>
+    <string name="text_frg_polling_query_xjjssj">Inspection end time</string>
+    <string name="text_frg_polling_query_rwzt">Task status</string>
+    <string name="text_frg_polling_query_dwzt">Its state</string>
+    <string name="text_frg_polling_query_gdh">Work order no</string>
+    <string name="text_frg_polling_query_pfmm">pfm coding</string>
+    <string name="text_frg_polling_query_cjsj">Creation time</string>
+    <string name="text_frg_polling_query_gdlx">Work order type</string>
+    <string name="text_frg_polling_query_yxj">priority</string>
+    <string name="text_frg_polling_query_gdzt">Work order status</string>
+    <string name="text_frg_polling_task_details_zwxjrw">There is no patrol duty</string>
+
+    <!-- 工作-巡检任务 -->
+    <string name="text_polling_task_title">Inspection tasks</string>
+    <string name="text_polling_sys">scan</string>
+
+    <!-- 签名板 -->
+    <string name="text_signature_hand_title">The signature</string>
+    <string name="text_signature_hand_tip">No signature yet</string>
+
+    <!-- 多项目信息 -->
+    <string name="text_project_message_title">Multi-item information</string>
+    <string name="text_project_message_tip_nr">Please enter the project name</string>
+    <string name="text_project_message_tip_qfdxx">Case sensitive</string>
+
+    <!-- 关于我们 -->
+    <string name="text_about_us_title">About us</string>
+
+    <!-- 分享 -->
+    <string name="text_shared_title">share</string>
+
+    <!-- 设置 -->
+    <string name="text_frg_setting_sz">set</string>
+    <string name="text_frg_setting_wdbz">My strength</string>
+    <string name="text_frg_setting_bdsj">Binding mobile phone</string>
+    <string name="text_frg_setting_czmm">To reset your password</string>
+    <string name="text_frg_setting_lxxz">Offline download</string>
+
+    <!-- 系统设置 -->
+    <string name="text_setting_title">set</string>
+    <string name="text_setting_qchc">Clear the cache</string>
+    <string name="text_setting_tskg">Push the switch</string>
+    <string name="text_setting_yjfk">feedback</string>
+    <string name="text_setting_fx">share</string>
+    <string name="text_setting_gy">about</string>
+    <string name="text_setting_flsm">Legal notices</string>
+    <string name="text_setting_jcgx">Check the update</string>
+    <string name="text_setting_tcdl">Log out</string>
+
+    <!-- 绑定手机 -->
+    <string name="text_bind_phone_title">Binding mobile phone</string>
+    <string name="text_bind_phone_ndjsjh">Your old phone number</string>
+    <string name="text_bind_phone_qsrxsjhm">Please enter your new cell phone number</string>
+    <string name="text_bind_phone_qsryzm">Please enter the verification code</string>
+    <string name="text_bind_phone_hqyzm">Get code</string>
+
+    <!-- 意见反馈 -->
+    <string name="text_feed_back_title">feedback</string>
+    <string name="text_feed_back_hint_tip_nr">Please enter the job description</string>
+    <string name="text_feed_back_hint_msg">You can enter up to 1000 characters</string>
+
+    <!-- 法律声明 -->
+    <string name="text_legal_declaration_title">Legal notices</string>
+
+    <!-- 我的报障 -->
+    <string name="text_my_worklist_title">My people with disabilities</string>
+
+    <!-- 重置密码 -->
+    <string name="text_reset_password_title">To reset your password</string>
+    <string name="text_reset_password_ymm">The original password</string>
+    <string name="text_reset_password_xmm">The new password</string>
+    <string name="text_reset_password_qrxmm">Confirm new password</string>
+
+    <string name="test_work_order_details_amout">￥50.00</string>
+
+</resources>

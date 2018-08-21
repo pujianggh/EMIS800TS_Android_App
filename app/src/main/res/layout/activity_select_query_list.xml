@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_common_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        android:id="@+id/rl_root_refresh"
+        style="@style/MatchMatch">
+
+        <LinearLayout
+            style="@style/MatchMatch.Vertical"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/Text_MatchWrap_Style"
+                android:layout_marginLeft="@dimen/item_dp15"
+                android:layout_marginTop="@dimen/item_dp10"
+                android:text="@string/text_select_query_list_tip_bar1"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                style="@style/MatchWrap.Vertical"
+                android:layout_marginLeft="@dimen/item_dp15"
+                android:layout_marginRight="@dimen/item_dp15"
+                android:background="@drawable/shape_item_whitecirle"
+                android:padding="@dimen/spacing_min"
+                android:visibility="visible">
+
+                <ListView
+                    android:id="@+id/lv_listData"
+                    style="@style/MatchWrap"
+                    android:background="@null"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lly_btnState"
+                style="@style/MatchWrap.Horizontal"
+                android:layout_marginTop="@dimen/item_dp20"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btn_next"
+                    style="@style/Button_Common_Style_Black"
+                    android:layout_marginLeft="@dimen/item_dp15"
+                    android:layout_marginRight="@dimen/item_dp15"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button_blue"
+                    android:text="@string/text_button_qd" />
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/Button_Common_Style_Black"
+                    android:layout_marginRight="@dimen/item_dp15"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button_gary"
+                    android:text="@string/text_button_qx" />
+            </LinearLayout>
+        </LinearLayout>
+    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+</LinearLayout>

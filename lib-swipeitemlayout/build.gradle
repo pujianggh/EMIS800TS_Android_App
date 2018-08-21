@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion ANDROID_BUILD_COMPILE_SDK_VERSION as int
+
+    defaultConfig {
+        minSdkVersion ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion ANDROID_BUILD_TARGET_SDK_VERSION as int
+    }
+
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION //编译的Tools版本
+}
+
+dependencies {
+    compileOnly "com.android.support:support-v4:${LIBRARY_SUPPORT_V4}"
+    //implementation "com.android.support:support-v4:${LIBRARY_SUPPORT_V4}"
+    api 'cn.bingoogolapple:bga-adapter:1.1.8@aar'
+}

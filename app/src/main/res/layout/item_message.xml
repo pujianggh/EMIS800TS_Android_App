@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.bingoogolapple.swipeitemlayout.BGASwipeItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_root"
+    style="@style/MatchWrap"
+    android:background="@color/color_black_bg"
+    android:gravity="center_vertical"
+    app:bga_sil_bottomMode="pullOut"
+    app:bga_sil_springDistance="20dp"
+    app:bga_sil_swipeDirection="left">
+
+    <LinearLayout style="@style/WrapMatch.Horizontal">
+
+        <TextView
+            style="@style/WrapMatch"
+            android:background="@color/text_blue"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/text_frg_message_item_bj"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_delete"
+            style="@style/WrapMatch"
+            android:background="@color/red_text"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/text_frg_message_item_sc"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lly_item"
+        style="@style/MatchMatch"
+        android:background="@drawable/selector_item_list"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            style="@style/MatchMatch.Vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="85dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/igv_icon"
+                android:layout_width="@dimen/item_dp30"
+                android:layout_height="@dimen/item_dp30"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/item_dp15"
+                android:layout_marginRight="@dimen/item_dp15"
+                android:layout_marginTop="@dimen/spacing_min"
+                android:src="@drawable/icon_message_sh" />
+
+            <TextView
+                android:id="@+id/tv_state"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:text="审核"
+                android:textColor="@color/text_brown2"
+                android:textSize="@dimen/textsize_min" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchMatch.Vertical"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout style="@style/MatchAuto">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/Text_WrapWrap_Style"
+                    android:layout_marginLeft="@dimen/spacing_min"
+                    android:text="EMIS"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_normalplus" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/Text_WrapWrap_Style"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/spacing_normal"
+                    android:text="昨天"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_normalplus" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/MatchAuto"
+                android:layout_marginBottom="@dimen/spacing_min">
+
+                <TextView
+                    android:id="@+id/tv_message"
+                    style="@style/Text_WrapWrap_Style"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/spacing_min"
+                    android:layout_marginRight="13dp"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:text="尊敬的用户您好,巡检任务测试于2018-05-02开始，请提前准备。"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_normalplus" />
+
+                <ImageView
+                    android:id="@+id/igv_tips"
+                    android:layout_width="@dimen/spacing_min"
+                    android:layout_height="@dimen/spacing_min"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_min"
+                    android:src="@drawable/icon_tip" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/spacing_min"
+                android:layout_marginRight="@dimen/item_dp10"
+                android:background="@color/line_deep" />
+        </LinearLayout>
+    </LinearLayout>
+</cn.bingoogolapple.swipeitemlayout.BGASwipeItemLayout>

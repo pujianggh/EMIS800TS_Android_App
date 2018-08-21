@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lly_dataNull"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_black_bg"
+    android:gravity="center_horizontal"
+    android:visibility="visible">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_dp50"
+        android:src="@drawable/ic_data_null1" />
+
+    <TextView
+        android:id="@+id/tv_messageTip"
+        style="@style/Text_Common_Style"
+        android:layout_marginLeft="0dp"
+        android:text="暂无数据"
+        android:textColor="@color/white" />
+
+</LinearLayout>

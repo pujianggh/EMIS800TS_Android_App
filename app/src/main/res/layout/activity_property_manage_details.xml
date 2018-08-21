@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_black_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ScrollView
+        style="@style/MatchMatch"
+        android:layout_above="@+id/lly_bottom"
+        android:layout_below="@+id/layout_titleBar"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout style="@style/MatchMatch.Vertical">
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="@dimen/item_dp20"
+                    android:layout_height="@dimen/item_dp20"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:src="@drawable/icon_workorder_detail_jbxx" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="@string/text_property_manage_jbxx"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/line_lightgray" />
+
+            <LinearLayout
+                style="@style/MatchWrap.Vertical"
+                android:background="@color/white"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="公司名称:" />
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/item_dp10"
+                        android:background="@color/color_green"
+                        android:padding="2dp"
+                        android:text="待审核"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="田思成创建于 2018-6-10 20:45" />
+
+                    <ImageView
+                        android:layout_width="@dimen/item_dp20"
+                        android:layout_height="@dimen/item_dp20"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/item_dp20"
+                        android:src="@drawable/icon_workorder_detail_phone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="位置:" />
+
+                    <TextView
+                        android:id="@+id/tv_department"
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp50"
+                        android:text="绿地金融广场/1期/3栋" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="预约时间:" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="开工时间:" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="基本时间:" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/AutoMatch.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="完成时间:" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp45">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="描述:" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/View_Line_Common_Style"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@color/line_lightgray" />
+
+                <LinearLayout
+                    android:id="@+id/lly_infoDetails"
+                    style="@style/MatchWrap.Vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="部门:" />
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/item_dp25"
+                            android:text="服务部" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="服务类型:" />
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/item_dp25"
+                            android:text="维修工单" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:layout_height="@dimen/item_dp45"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_marginLeft="@dimen/item_dp10"
+                            android:text="预估时间:" />
+
+                        <TextView
+                            style="@style/Text_Common_Style"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/item_dp25"
+                            android:text="2018-9-10" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/View_Line_Common_Style"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@color/line_lightgray" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rly_infoDetailAllow"
+                    style="@style/LinearLayout_Child_Style"
+                    android:layout_height="@dimen/item_dp35">
+
+                    <ImageView
+                        android:id="@+id/igv_allow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/icon_workorder_detail_allow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:layout_marginTop="@dimen/item_dp10"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="@dimen/item_dp20"
+                    android:layout_height="@dimen/item_dp20"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:src="@drawable/icon_workorder_detail_spnr" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="审批内容"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1px"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/line_lightgray" />
+
+            <LinearLayout
+                style="@style/LinearLayout_Child_Style"
+                android:layout_height="@dimen/item_dp45"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="审核说明:" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MatchWrap.Horizontal"
+                android:layout_marginTop="@dimen/item_dp10"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="@dimen/item_dp20"
+                    android:layout_height="@dimen/item_dp20"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:src="@drawable/icon_workorder_detail_lsjl" />
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="0dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/item_dp10"
+                    android:text="历史记录"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1px"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/line_lightgray" />
+
+            <RelativeLayout
+                style="@style/LinearLayout_Child_Style"
+                android:layout_height="@dimen/item_dp100">
+
+                <ImageView
+                    android:layout_width="@dimen/item_dp35"
+                    android:layout_height="@dimen/item_dp35"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:src="@drawable/icon_workorder_detail_tx" />
+
+                <LinearLayout
+                    style="@style/MatchMatch.Vertical"
+                    android:layout_marginLeft="@dimen/item_dp55"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:text="系统" />
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:layout_marginTop="@dimen/spacing_min"
+                        android:text="刘飞创建于8-19日" />
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:layout_marginTop="@dimen/spacing_min"
+                        android:text="位置: 绿地金融广场/1期/3栋" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                style="@style/View_Line_Common_Style"
+                android:layout_height="1px"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/line_lightgray" />
+
+            <RelativeLayout
+                style="@style/LinearLayout_Child_Style"
+                android:layout_height="@dimen/item_dp45">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:text="查看全部" />
+
+                <ImageView
+                    android:layout_width="@dimen/item_dp20"
+                    android:layout_height="@dimen/item_dp20"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/item_dp10"
+                    android:background="@drawable/icon_indicator2" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lly_bottom"
+        style="@style/MatchWrap.Vertical"
+        android:layout_height="@dimen/item_dp50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/Button_Common_Style_Black"
+            android:layout_marginLeft="@dimen/item_dp10"
+            android:layout_marginRight="@dimen/item_dp10"
+            android:text="接单" />
+    </LinearLayout>
+</RelativeLayout>

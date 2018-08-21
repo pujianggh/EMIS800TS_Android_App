@@ -1,0 +1,58 @@
+<resources>
+
+    <!-- 通用-间距值 -->
+    <dimen name="spacing_min">5dp</dimen>
+    <dimen name="spacing_normal">10dp</dimen>
+    <dimen name="spacing_normalplus">15dp</dimen>
+    <dimen name="spacing_larger">20dp</dimen>
+    <dimen name="spacing_max">30dp</dimen>
+    <dimen name="spacing_maxplus">50dp</dimen>
+
+    <!-- 通用-长度高度值 -->
+    <dimen name="item_dp10">10dp</dimen>
+    <dimen name="item_dp12">12dp</dimen>
+    <dimen name="item_dp15">15dp</dimen>
+    <dimen name="item_dp20">20dp</dimen>
+    <dimen name="item_dp25">25dp</dimen>
+    <dimen name="item_dp30">30dp</dimen>
+    <dimen name="item_dp35">35dp</dimen>
+    <dimen name="item_dp40">40dp</dimen>
+    <dimen name="item_dp45">45dp</dimen>
+    <dimen name="item_dp50">50dp</dimen>
+    <dimen name="item_dp55">55dp</dimen>
+    <dimen name="item_dp65">65dp</dimen>
+    <dimen name="item_dp70">70dp</dimen>
+    <dimen name="item_dp75">75dp</dimen>
+    <dimen name="item_dp80">80dp</dimen>
+    <dimen name="item_dp100">100dp</dimen>
+    <dimen name="item_dp120">120dp</dimen>
+    <dimen name="item_dp160">160dp</dimen>
+    <dimen name="item_dp180">180dp</dimen>
+
+    <!-- 通用-文字常用大小值 -->
+    <dimen name="textsize_huge">40sp</dimen>
+    <dimen name="textsize_little">14sp</dimen>
+    <dimen name="textsize_title">20sp</dimen>
+    <dimen name="textsize_title_big">18sp</dimen>
+    <dimen name="textsize_large">25sp</dimen>
+    <dimen name="textsize_large_title">30sp</dimen>
+    <dimen name="textsize_content">16sp</dimen>
+    <dimen name="textsize_min">12sp</dimen>
+    <dimen name="textsize_bottom">12sp</dimen>
+    <dimen name="textsize_small">16sp</dimen>
+    <dimen name="textsize_normal">15sp</dimen>
+    <dimen name="textsize_normalplus">14sp</dimen>
+    <dimen name="textsize_supersmall">10sp</dimen>
+    <dimen name="textsize_bigsmall">8sp</dimen>
+    <dimen name="textsize_seckilltitle">28sp</dimen>
+    <dimen name="textsize_countdown">10sp</dimen>
+
+    <!-- 通用-padding值 -->
+    <dimen name="padding_shape_1">0.1dp</dimen>
+    <dimen name="padding_shape_2">0.2dp</dimen>
+    <dimen name="padding_shape_3">0.3dp</dimen>
+    <dimen name="padding_shape_5">0.5dp</dimen>
+    <dimen name="padding_shape_10">1dp</dimen>
+    <dimen name="padding_shape_10_px">1px</dimen>
+
+</resources>

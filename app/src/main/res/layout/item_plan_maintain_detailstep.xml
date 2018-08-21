@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lly_item"
+    style="@style/MatchWrap.Horizontal"
+    android:background="@drawable/selector_line_bg"
+    android:paddingBottom="@dimen/item_dp10"
+    android:paddingTop="@dimen/item_dp10">
+
+    <LinearLayout
+        style="@style/MatchWrap.Horizontal"
+        android:layout_width="@dimen/item_dp50"
+        android:paddingTop="@dimen/spacing_min">
+
+        <TextView
+            android:id="@+id/tv_index"
+            android:layout_width="@dimen/item_dp30"
+            android:layout_height="@dimen/item_dp30"
+            android:layout_marginLeft="@dimen/item_dp10"
+            android:background="@drawable/selector_cirle_green"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_16" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/MatchWrap.Vertical">
+
+        <LinearLayout
+            style="@style/MatchWrap"
+            android:paddingLeft="@dimen/spacing_min"
+            android:paddingRight="@dimen/spacing_min">
+
+            <TextView
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text="工作组:"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/textsize_normalplus" />
+
+            <TextView
+                android:id="@+id/tv_stepName"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_width="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/spacing_min"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text=""
+                android:textColor="@color/text_deepgray"
+                android:textSize="@dimen/textsize_normalplus" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap"
+            android:layout_marginTop="@dimen/spacing_min"
+            android:paddingLeft="@dimen/spacing_min"
+            android:paddingRight="@dimen/spacing_min">
+
+            <TextView
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text="维护内容:"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/textsize_normalplus" />
+
+            <TextView
+                android:id="@+id/tv_stepContent"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:paddingRight="@dimen/spacing_min"
+                android:text=""
+                android:textColor="@color/text_deepgray"
+                android:textSize="@dimen/textsize_normalplus" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

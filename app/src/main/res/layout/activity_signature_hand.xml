@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_pressed_2">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <RelativeLayout style="@style/MatchMatch.Vertical">
+
+        <cn.signature.tool.view.HandWriteView
+            android:id="@+id/hand_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:paintColor="@color/text_deepgray"
+            app:paintMaxWidth="10px"
+            app:paintMinWidth="5px" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_min"
+                android:background="@drawable/selector_line_bg"
+                android:text="@string/text_button_bc"
+                android:textColor="@color/text_deepgray" />
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_min"
+                android:background="@drawable/selector_line_bg"
+                android:text="@string/text_button_qc"
+                android:textColor="@color/text_deepgray" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

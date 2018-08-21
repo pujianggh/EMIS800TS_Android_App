@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- app通用 -->
+    <string name="app_name">Kotlin安卓</string>
+    <string name="text_button_tj">提出</string>
+    <string name="text_button_qd">確定</string>
+    <string name="text_button_qx">取り消し</string>
+    <string name="text_button_bc">保存</string>
+    <string name="text_button_qc">削除</string>
+    <string name="text_button_tb">アップロード</string>
+    <string name="text_button_cz">リセット</string>
+    <string name="text_button_sc">削除</string>
+
+    <!-- 提示用语 -->
+    <string name="text_message_commit_success">提出済</string>
+    <string name="text_message_noselect">您还没选择</string>
+    <string name="text_title_wz">ロケーション</string>
+    <string name="text_title_zt">状态</string>
+    <string name="text_title_fwlx">サービスカテゴリ</string>
+    <string name="text_title_gdlx">サービスカテゴリ</string>
+    <string name="text_title_yxj">優先順位</string>
+    <string name="text_title_bm">部署</string>
+    <string name="text_title_sb">設備</string>
+    <string name="text_title_gd">チケット</string>
+    <string name="text_title_dclgd">処理待ち</string>
+    <string name="text_title_dppgd">割当待ち</string>
+    <string name="text_title_dspgd">審査待ち</string>
+    <string name="text_title_dcdgd">保存待ち</string>
+    <string name="text_title_dpjgd">待评价工单</string>
+    <string name="text_title_gdcx">チケット　　　　お問合せ</string>
+    <string name="text_title_xjrw">点検タスク</string>
+    <string name="text_title_kcgl">库存管理</string>
+    <string name="text_title_sz">設定</string>
+
+    <!-- 状态 -->
+    <string name="text_state_qb">すべて</string>
+    <string name="text_state_wc">完了</string>
+    <string name="text_state_wtb">アップロード</string>
+    <string name="text_state_wwc">未完成</string>
+    <string name="text_state_pg">割当</string>
+    <string name="text_state_jd">受注</string>
+    <string name="text_state_wg">完了</string>
+    <string name="text_state_cd">保存</string>
+    <string name="text_state_dpj">評価待ち</string>
+    <string name="text_state_yz">検証</string>
+    <string name="text_state_pd">割当</string>
+    <string name="text_state_wypj">コメント記入欄</string>
+    <string name="text_state_clz">処理中</string>
+    <string name="text_state_ycj">作成完了</string>
+    <string name="text_state_dsp">審査待ち</string>
+    <string name="text_state_kpj">評価待ち</string>
+
+    <!-- app权限提示语 -->
+    <string name="text_permission_fail_xj">您拒绝照相权限</string>
+    <string name="text_permission_fail_cc">您拒绝文件存储权限</string>
+
+    <!-- PopupWindow内容 -->
+    <string name="text_popupWindow_dx">ターゲット/対象</string>
+    <string name="text_popupWindow_wxgd">维修工单</string>
+    <string name="text_popupWindow_qsrfwqmm">请输入服务器密码</string>
+    <string name="text_popupWindow_clwc">処理完了</string>
+    <string name="text_popupWindow_zt">一時停止</string>
+    <string name="text_popupWindow_zz">中止</string>
+    <string name="text_popupWindow_tk">退款</string>
+    <string name="text_popupWindow_sqsp">審査申請</string>
+    <string name="text_popupWindow_qx">キャンセル</string>
+
+    <!-- 主页Main -->
+    <string name="text_main_xx">メッセージ</string>
+    <string name="text_main_wd">本人</string>
+    <string name="text_main_sz">設定</string>
+    <string name="text_main_title">ローソン</string>
+
+    <!-- 登录 -->
+    <string name="text_login_title">ログイン</string>
+    <string name="text_login_hint_account">ユーザ名</string>
+    <string name="text_login_hint_password">PASS</string>
+    <string name="text_login_button_next">ログイン</string>
+
+    <!-- 消息状态 -->
+    <string name="text_act_project_message_hint">请输入项目名(如创新园、cxy、chuangxinyuan)</string>
+    <string name="text_act_state_query_list_hint">区分大小写</string>
+    <string name="text_frg_message_item_bj">标记</string>
+    <string name="text_frg_message_item_sc">削除</string>
+
+    <!-- 创建工单 -->
+    <string name="text_work_order_create_title">新規</string>
+    <string name="text_work_order_create_tip_qsrlxdh">連絡先</string>
+    <string name="text_work_order_create_tip_qxzwz">部署</string>
+    <string name="text_work_order_create_tip_qxzgdlx">チケットタイプ</string>
+    <string name="text_work_order_create_tip_qxzfwle">サービスカテゴリ</string>
+    <string name="text_work_order_create_jbxx">基本情報</string>
+    <string name="text_work_order_create_sqr">申請人</string>
+    <string name="text_work_order_create_lxdh">連絡先</string>
+    <string name="text_work_order_create_bm">部署</string>
+    <string name="text_work_order_create_wz">ロケーション</string>
+    <string name="text_work_order_create_gdlx">チケットタイプ</string>
+    <string name="text_work_order_create_fwlx">サービスカテゴリ</string>
+    <string name="text_work_order_create_yxj">優先順位</string>
+    <string name="text_work_order_create_yysj">予約時間</string>
+    <string name="text_work_order_create_gzsb">故障設備</string>
+    <string name="text_work_order_create_wtms">問題記載</string>
+    <string name="text_work_order_create_hint_qsrnr">请输入内容</string>
+    <string name="text_work_order_create_tip_nr">最大100文字まで入力可</string>
+    <string name="text_work_order_create_item_sbbm">設備コード</string>
+    <string name="text_work_order_create_item_sbmc">設備名</string>
+    <string name="text_work_order_create_item_sbwz">設備ロケーション</string>
+
+    <!-- 工单详情 -->
+    <string name="text_work_order_details_title">基本情報</string>
+    <string name="text_work_order_details_gsmc">店舗名:</string>
+    <string name="text_work_order_details_wz">ロケーション:</string>
+    <string name="text_work_order_details_yysj">予約時間:</string>
+    <string name="text_work_order_details_kgsj">開始時間:</string>
+    <string name="text_work_order_details_jbsj">註文時間:</string>
+    <string name="text_work_order_details_wcsj">完了時間:</string>
+    <string name="text_work_order_details_ms">問題記載:</string>
+    <string name="text_work_order_details_bm">部署:</string>
+    <string name="text_work_order_details_fwlx">サービスカテゴリ:</string>
+    <string name="text_work_order_details_gjsj">作業予定時間:</string>
+    <string name="text_work_order_details_sfx">費用欄</string>
+    <string name="text_work_order_details_khqz">顧客サイン</string>
+    <string name="text_work_order_details_shsm">審査説明:</string>
+    <string name="text_work_order_details_zcqm">正常签名:</string>
+    <string name="text_work_order_details_lsjl">履歴</string>
+    <string name="text_work_order_details_ckqb">詳しくはこちら</string>
+    <string name="text_work_order_details_btn_jd">受付</string>
+    <string name="text_work_order_details_btn_txgznr">修理内容記載</string>
+    <string name="text_work_order_details_btn_wc">完了</string>
+    <string name="text_work_order_details_state_dsh">審査待ち</string>
+
+    <!-- 设置-离线下载 -->
+    <string name="text_set_download_title">オフラインダウンロード</string>
+    <string name="text_set_download_state_und">未下载</string>
+    <string name="text_set_download_state_d">ダウンロード済</string>
+    <string name="text_set_download_state_alld">すべてのダウンロード</string>
+    <string name="text_set_download_deviceInfo">設備情報</string>
+    <string name="text_set_download_deviceTypeInfo">設備タイプ</string>
+    <string name="text_set_download_locationInfo">ロケーション</string>
+    <string name="text_set_download_departmentInfo">部门信息</string>
+    <string name="text_set_download_priorityInfo">優先順位</string>
+    <string name="text_set_download_workProcessInfo">サービスレベル</string>
+    <string name="text_set_download_serverTypeInfo">サービスカテゴリ</string>
+    <string name="text_set_download_demandTypeInfo">サービスレベル</string>
+
+    <!-- 二维码扫描 -->
+    <string name="text_qrcode_title">QRコードのスキャン</string>
+    <string name="text_qrcode_tip_nr">将条码放入框内，即可自动扫描</string>
+    <string name="text_qrcode_tip_nr2">QRコードを枠内入れ、自動スキャン可能</string>
+
+    <!-- 工作内容填写 -->
+    <string name="text_work_content_input_title">修理内容記載</string>
+    <string name="text_work_content_input_tip_nr">请输入工作内容描述</string>
+    <string name="text_work_content_input_msg">最大100文字まで入力可</string>
+
+    <!-- 工单评价 -->
+    <string name="text_work_order_evaluate_title">工单评价</string>
+    <string name="text_work_order_evaluate_fwsfwc">修理完了状況　Y/N</string>
+    <string name="text_work_order_evaluate_fwsfmy">サービス品質　Y/N</string>
+    <string name="text_work_order_evaluate_my">満足</string>
+    <string name="text_work_order_evaluate_bmy">不満足</string>
+    <string name="text_work_order_evaluate_s">はい</string>
+    <string name="text_work_order_evaluate_f">いいえ</string>
+    <string name="text_work_order_evaluate_fwtdmyd">サービス態度　Y/N</string>
+    <string name="text_work_order_evaluate_qtbgyj">意見</string>
+    <string name="text_work_order_evaluate_ms">記載</string>
+
+    <!-- 通用样式选择人员 -->
+    <string name="text_select_query_list_title">作業者選択</string>
+    <string name="text_select_query_list_tip_bar1">作業者選択</string>
+
+    <!-- 计划性维护 -->
+    <string name="text_plan_maintain_ri">日</string>
+    <string name="text_plan_maintain_1">一</string>
+    <string name="text_plan_maintain_2">二</string>
+    <string name="text_plan_maintain_3">三</string>
+    <string name="text_plan_maintain_4">四</string>
+    <string name="text_plan_maintain_5">五</string>
+    <string name="text_plan_maintain_6">六</string>
+    <string name="text_plan_maintain_dyrw">当月タスク</string>
+    <string name="text_plan_maintain_jt">本日</string>
+    <string name="text_plan_maintain_jst">近三天</string>
+    <string name="text_plan_maintain_jqt">近七天</string>
+    <string name="text_plan_maintain_yl">漏れ</string>
+    <string name="text_plan_maintain_cx">問合せ</string>
+
+    <!-- 计划性维护 -->
+    <string name="text_plan_maintain_details_title">メンテナンス詳細</string>
+    <string name="text_plan_maintain_details_jbxx">基本情報</string>
+    <string name="text_plan_maintain_details_wbmc">名称:</string>
+    <string name="text_plan_maintain_details_zq">頻度:</string>
+    <string name="text_plan_maintain_details_scwhsj">初回メンテナンス日:</string>
+    <string name="text_plan_maintain_details_xcwhsj">次回メンテナンス日:</string>
+    <string name="text_plan_maintain_details_wbzq">メンテナンス頻度:</string>
+    <string name="text_plan_maintain_details_jsrq">完了日:</string>
+    <string name="text_plan_maintain_details_hs">予定時刻:</string>
+    <string name="text_plan_maintain_details_zdscgd">自動作成:</string>
+    <string name="text_plan_maintain_details_tqts">自動作成:</string>
+    <string name="text_plan_maintain_details_bz">ステップ</string>
+
+    <!-- 资产管理 -->
+    <string name="text_property_manage_title">資産管理</string>
+    <string name="text_property_manage_jbxx">基本情報</string>
+    <string name="text_property_manage_sblb">設備リスト</string>
+    <string name="text_property_manage_details_title">設備情報</string>
+
+    <!-- 工作-巡检-查询 -->
+    <string name="text_polling_query_title">点検問合せ</string>
+    <string name="text_polling_query_syy">先月</string>
+    <string name="text_polling_query_xyy">来月</string>
+    <string name="text_frg_polling_query_xjmc">巡检名称</string>
+    <string name="text_frg_polling_query_qrsxjmc">请输入巡检名称</string>
+    <string name="text_frg_polling_query_bm">部署</string>
+    <string name="text_frg_polling_query_qxz">请选择</string>
+    <string name="text_frg_polling_query_xjkssj">点検開始時間</string>
+    <string name="text_frg_polling_query_xjjssj">点検完了時間</string>
+    <string name="text_frg_polling_query_rwzt">タスク/位置</string>
+    <string name="text_frg_polling_query_dwzt">ステータス</string>
+    <string name="text_frg_polling_query_gdh">チケット番号</string>
+    <string name="text_frg_polling_query_pfmm">pfm编码</string>
+    <string name="text_frg_polling_query_cjsj">註文時間</string>
+    <string name="text_frg_polling_query_gdlx">サービスカテゴリ</string>
+    <string name="text_frg_polling_query_yxj">優先順位</string>
+    <string name="text_frg_polling_query_gdzt">ステータス</string>
+    <string name="text_frg_polling_task_details_zwxjrw">暂无巡检任务</string>
+
+    <!-- 工作-巡检任务 -->
+    <string name="text_polling_task_title">点検タスク</string>
+    <string name="text_polling_sys">QRコードのスキャン</string>
+
+    <!-- 签名板 -->
+    <string name="text_signature_hand_title">サイン</string>
+    <string name="text_signature_hand_tip">还没有签名</string>
+
+    <!-- 多项目信息 -->
+    <string name="text_project_message_title">多项目信息</string>
+    <string name="text_project_message_tip_nr">请输入项目名(如创新园、cxy、chuangxinyuan)</string>
+    <string name="text_project_message_tip_qfdxx">区分大小写</string>
+
+    <!-- 关于我们 -->
+    <string name="text_about_us_title">关于我们</string>
+
+    <!-- 分享 -->
+    <string name="text_shared_title">共有</string>
+
+    <!-- 设置 -->
+    <string name="text_frg_setting_sz">設定</string>
+    <string name="text_frg_setting_wdbz">我的保障</string>
+    <string name="text_frg_setting_bdsj">携帯番号</string>
+    <string name="text_frg_setting_czmm">パスワードリセット</string>
+    <string name="text_frg_setting_lxxz">オフラインダウンロード</string>
+
+    <!-- 系统设置 -->
+    <string name="text_setting_title">設定</string>
+    <string name="text_setting_qchc">キャッシュの消去</string>
+    <string name="text_setting_tskg">推送开关</string>
+    <string name="text_setting_yjfk">フィードバック</string>
+    <string name="text_setting_fx">共有</string>
+    <string name="text_setting_gy">关そのた</string>
+    <string name="text_setting_flsm">法律説明</string>
+    <string name="text_setting_jcgx">检查更新</string>
+    <string name="text_setting_tcdl">ログアウト</string>
+
+    <!-- 绑定手机 -->
+    <string name="text_bind_phone_title">携帯番号</string>
+    <string name="text_bind_phone_ndjsjh">您的旧手机号</string>
+    <string name="text_bind_phone_qsrxsjhm">新しい番号</string>
+    <string name="text_bind_phone_qsryzm">承認コー</string>
+    <string name="text_bind_phone_hqyzm">承認コード取得</string>
+
+    <!-- 意见反馈 -->
+    <string name="text_feed_back_title">フィードバック</string>
+    <string name="text_feed_back_hint_tip_nr">请输入工作内容描述</string>
+    <string name="text_feed_back_hint_msg">最大100文字まで入力可</string>
+
+    <!-- 法律声明 -->
+    <string name="text_legal_declaration_title">法律説明</string>
+
+    <!-- 我的报障 -->
+    <string name="text_my_worklist_title">本人故障処理</string>
+
+    <!-- 重置密码 -->
+    <string name="text_reset_password_title">パスワードリセット</string>
+    <string name="text_reset_password_ymm">旧パスワード</string>
+    <string name="text_reset_password_xmm">新しいパスワード</string>
+    <string name="text_reset_password_qrxmm">再度入力</string>
+
+    <string name="test_work_order_details_amout">￥10000</string>
+
+</resources>

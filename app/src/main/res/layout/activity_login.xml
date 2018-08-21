@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_black_bg">
+
+    <TextView
+        style="@style/Font_MatchWrap_Style"
+        android:layout_height="@dimen/item_dp50"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="@string/text_login_title"
+        android:textSize="@dimen/textsize_title_big" />
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:layout_marginTop="@dimen/item_dp100"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/item_dp100"
+            android:src="@drawable/ic_app_logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_dp45"
+            android:layout_marginLeft="@dimen/item_dp10"
+            android:layout_marginRight="@dimen/item_dp10"
+            android:layout_marginTop="@dimen/item_dp30"
+            android:background="@drawable/shape_edit_garybg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/item_dp20"
+                android:layout_height="@dimen/item_dp20"
+                android:layout_marginLeft="@dimen/item_dp20"
+                android:src="@drawable/icon_login_account" />
+
+            <EditText
+                android:id="@+id/edt_account"
+                style="@style/Edit_MatchWrap_Style"
+                android:layout_marginLeft="@dimen/spacing_min"
+                android:background="@null"
+                android:hint="@string/text_login_hint_account"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textColorHint="@color/color_edit_hint"
+                android:textCursorDrawable="@drawable/cursor_color_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_dp45"
+            android:layout_marginLeft="@dimen/item_dp10"
+            android:layout_marginRight="@dimen/item_dp10"
+            android:layout_marginTop="@dimen/item_dp15"
+            android:background="@drawable/shape_edit_garybg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/item_dp20"
+                android:layout_height="@dimen/item_dp20"
+                android:layout_marginLeft="@dimen/item_dp20"
+                android:src="@drawable/icon_login_password" />
+
+            <EditText
+                android:id="@+id/edt_password"
+                style="@style/Edit_MatchWrap_Style"
+                android:layout_marginLeft="@dimen/spacing_min"
+                android:background="@null"
+                android:hint="@string/text_login_hint_password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/color_edit_hint"
+                android:textCursorDrawable="@drawable/cursor_color_white" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/Button_Common_Style_Orange"
+            android:layout_marginLeft="@dimen/item_dp10"
+            android:layout_marginRight="@dimen/item_dp10"
+            android:layout_marginTop="@dimen/item_dp30"
+            android:text="@string/text_login_button_next" />
+
+        <LinearLayout
+            style="@style/MatchWrap"
+            android:layout_marginTop="@dimen/item_dp15"
+            android:gravity="center|center_vertical">
+
+            <TextView
+                android:id="@+id/tv_languageJA"
+                style="@style/Text_WrapWrap_Style"
+                android:gravity="center"
+                android:text="日本語"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_min" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="@dimen/spacing_min"
+                android:layout_marginRight="@dimen/spacing_min"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_languageEN"
+                style="@style/Text_WrapWrap_Style"
+                android:gravity="center"
+                android:text="English"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_min" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="@dimen/spacing_min"
+                android:layout_marginRight="@dimen/spacing_min"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_languageCN"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_marginRight="@dimen/item_dp15"
+                android:gravity="center"
+                android:text="中文"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_min" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_company"
+        style="@style/Font_MatchWrap_Style"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/item_dp15"
+        android:gravity="center"
+        android:text="TSHMAN SPEYER.ALLrights reserved."
+        android:textSize="@dimen/textsize_min" />
+</RelativeLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_black_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        style="@style/MatchMatch"
+        android:layout_below="@+id/layout_titleBar">
+
+        <RelativeLayout style="@style/MatchMatch">
+
+            <LinearLayout
+                android:id="@+id/lly_date"
+                style="@style/MatchWrap.Horizontal"
+                android:layout_height="@dimen/item_dp35"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_agoMonth"
+                    style="@style/AutoMatch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_line_gray"
+                    android:gravity="center"
+                    android:text="@string/text_polling_query_syy"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize_14" />
+
+                <TextView
+                    android:id="@+id/tv_newMonth"
+                    style="@style/AutoMatch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_line_gray"
+                    android:gravity="center"
+                    android:text="2018年3月"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize_14" />
+
+                <TextView
+                    android:id="@+id/tv_nextMonth"
+                    style="@style/AutoMatch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_line_gray"
+                    android:gravity="center"
+                    android:text="@string/text_polling_query_xyy"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize_14" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:visibility="invisible"
+                android:layout_below="@+id/lly_date"
+                android:background="@color/line_lightgray" />
+
+            <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+                android:id="@+id/rl_root_refresh"
+                style="@style/MatchMatch"
+                android:layout_below="@+id/view_line">
+
+                <ListView
+                    android:id="@+id/lv_list_data"
+                    style="@style/MatchAuto"
+                    android:background="@null"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/frm_content"
+            style="@style/MatchMatch"
+            android:layout_width="280dp"
+            android:layout_gravity="right"
+            android:background="@color/white"
+            android:fitsSystemWindows="true" />
+    </android.support.v4.widget.DrawerLayout>
+
+    <ImageView
+        android:id="@+id/igv_query"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/item_dp20"
+        android:layout_marginRight="@dimen/item_dp10"
+        android:src="@drawable/selector_workorder_query" />
+</RelativeLayout>

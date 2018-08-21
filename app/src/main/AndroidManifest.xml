@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.ts.emis">
+
+    <application
+        android:name=".app.APPApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="${APP_NAME}"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:label">
+
+        <!-- 启动界面 -->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/AppTheme.Transparent.Splash"
+            android:windowSoftInputMode="stateAlwaysHidden">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 主界面 -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 登录 -->
+        <activity
+            android:name=".activity.common.LoginActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 工作-工单 -->
+        <activity
+            android:name=".activity.work.WorkOrderActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 工作-巡检 -->
+        <activity
+            android:name=".activity.work.WorkPollingActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 工作-库存 -->
+        <activity
+            android:name=".activity.work.WorkRepertoryActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 工作-计划性维护 -->
+        <activity
+            android:name=".activity.work.PlanMaintainActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 工作-计划性维护详情 -->
+        <activity
+            android:name=".activity.work.PlanMaintainDetailsActivity"
+            android:theme="@style/AppTheme_WindowBackGround_Black" />
+
+        <!-- 工作-资产管理 -->
+        <activity
+            android:name=".activity.work.PropertyManageActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 工作-资产管理详情 -->
+        <activity
+            android:name=".activity.work.PropertyManageDetailsActivity"
+            android:theme="@style/AppTheme_WindowBackGround_Black" />
+
+        <!-- 工作-巡检-巡检任务 -->
+        <activity
+            android:name=".activity.work.PollingTaskActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 工作-巡检任务-项目详情 -->
+        <activity
+            android:name=".activity.work.PollingTaskDetailsActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 工作-巡检-巡检查询 -->
+        <activity
+            android:name=".activity.work.PollingQueryActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 工作-工单-创建 -->
+        <activity
+            android:name=".activity.work.WorkOrderCreateActivity"
+            android:theme="@style/AppTheme_WindowBackGround_Black"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 工作-工单-列表（包括处理、待处理、待审） -->
+        <activity
+            android:name=".activity.work.WorkOrderListActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 工作-工单-列表查询 -->
+        <activity
+            android:name=".activity.work.WorkOrderQueryListActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 工作-工单详情 -->
+        <activity
+            android:name=".activity.work.WorkOrderDetailsActivity"
+            android:theme="@style/AppTheme_WindowBackGround_Black"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 工作-工单工作内容输入 -->
+        <activity
+            android:name=".activity.work.WorkContentInputActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 工作-工单评价 -->
+        <activity
+            android:name=".activity.work.WorkOrderEvaluateActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 首页-多项目信息 -->
+        <activity
+            android:name=".activity.home.ProjectMessageActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 通用H5加载 -->
+        <activity
+            android:name=".activity.common.CommonWebActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 通用状态选择器 -->
+        <activity
+            android:name=".activity.work.StateQueryListActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 通用人员选择样式 -->
+        <activity
+            android:name=".activity.common.SelectQueryListActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 通用签名板 -->
+        <activity
+            android:name=".activity.common.SignatureHandActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 通用二维码扫描 -->
+        <activity
+            android:name=".activity.common.QRCodeActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 我的-设置-我的报障 -->
+        <activity
+            android:name=".activity.my.MyWorkListActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 我的-设置-绑定手机号 -->
+        <activity
+            android:name=".activity.my.BindPhoneActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 我的-设置-离线下载 -->
+        <activity
+            android:name=".activity.my.OffLineDownloadActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 我的-设置-重置密码 -->
+        <activity
+            android:name=".activity.my.ResetPassWordActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 我的-设置 -->
+        <activity
+            android:name=".activity.my.SettingActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 我的设置-关于 -->
+        <activity
+            android:name=".activity.my.AboutUsActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 我的设置-分享 -->
+        <activity
+            android:name=".activity.my.SharedActivity"
+            android:theme="@style/AppThemeDefaultStyle" />
+
+        <!-- 我的设置-意见反馈 -->
+        <activity
+            android:name=".activity.my.FeedbackActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 我的设置-法律声明 -->
+        <activity
+            android:name=".activity.my.LegalDeclarationActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+    </application>
+
+    <!-- 网络反问权限 - 非隐私权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许从非系统拨号器里输入电话号码 - 隐私权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 允许读取/写入/创建外部存储 - 隐私权限(系统基本授权) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 读取设备手机信息 - 隐私权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 返回手机震动权限， 用于二维码扫描成功 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+</manifest>

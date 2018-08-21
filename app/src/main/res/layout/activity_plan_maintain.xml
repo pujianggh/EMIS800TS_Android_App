@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_common_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <LinearLayout
+        style="@style/MatchMatch.Vertical"
+        android:background="#5291BE">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_dp35"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_plan_maintain_ri"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_plan_maintain_1"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_plan_maintain_2"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_plan_maintain_3"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_plan_maintain_4"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_plan_maintain_5"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_plan_maintain_6"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <com.codbking.calendar.CalendarLayout
+            style="@style/MatchAuto"
+            android:background="@color/color_common_bg">
+
+            <com.codbking.calendar.CalendarDateView
+                android:id="@+id/cdv_calendarView"
+                style="@style/MatchWrap"
+                android:background="@drawable/selector_gradient_blue" />
+
+            <LinearLayout style="@style/MatchWrap.Vertical">
+
+                <LinearLayout
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_height="@dimen/item_dp80"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/spacing_min"
+                    android:paddingTop="@dimen/spacing_min">
+
+                    <TextView
+                        style="@style/Text_MatchWrap_Style"
+                        android:layout_marginLeft="@dimen/item_dp15"
+                        android:layout_marginRight="@dimen/item_dp15"
+                        android:text="@string/text_plan_maintain_dyrw"
+                        android:textColor="@color/text_deepgray"
+                        android:textSize="@dimen/textsize_normal" />
+
+                    <LinearLayout
+                        style="@style/MatchWrap.Horizontal"
+                        android:paddingLeft="@dimen/item_dp10"
+                        android:paddingRight="@dimen/item_dp10">
+
+                        <TextView
+                            style="@style/Text_MatchWrap_Style"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/item_dp25"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:layout_marginRight="@dimen/spacing_min"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_white_blue"
+                            android:gravity="center"
+                            android:text="@string/text_plan_maintain_jt"
+                            android:textColor="@color/text_deepgray"
+                            android:textSize="@dimen/textsize_min" />
+
+                        <TextView
+                            style="@style/Text_MatchWrap_Style"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/item_dp25"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:layout_marginRight="@dimen/spacing_min"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_white_blue"
+                            android:gravity="center"
+                            android:text="@string/text_plan_maintain_jst"
+                            android:textColor="@color/text_deepgray"
+                            android:textSize="@dimen/textsize_min" />
+
+                        <TextView
+                            style="@style/Text_MatchWrap_Style"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/item_dp25"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:layout_marginRight="@dimen/spacing_min"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_white_blue"
+                            android:gravity="center"
+                            android:text="@string/text_plan_maintain_jqt"
+                            android:textColor="@color/text_deepgray"
+                            android:textSize="@dimen/textsize_min" />
+
+                        <TextView
+                            style="@style/Text_MatchWrap_Style"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/item_dp25"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:layout_marginRight="@dimen/spacing_min"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_white_blue"
+                            android:gravity="center"
+                            android:text="@string/text_plan_maintain_yl"
+                            android:textColor="@color/text_deepgray"
+                            android:textSize="@dimen/textsize_min" />
+
+                        <TextView
+                            style="@style/Text_MatchWrap_Style"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/item_dp25"
+                            android:layout_marginLeft="@dimen/spacing_min"
+                            android:layout_marginRight="@dimen/spacing_min"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_white_blue"
+                            android:gravity="center"
+                            android:text="@string/text_plan_maintain_cx"
+                            android:textColor="@color/text_deepgray"
+                            android:textSize="@dimen/textsize_min" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/lv_list_data"
+                    style="@style/MatchAuto"
+                    android:background="@color/color_common_bg"
+                    android:divider="@null"
+                    android:dividerHeight="10dp"
+                    android:overScrollMode="never"
+                    android:paddingTop="@dimen/item_dp10"
+                    android:scrollbars="none" />
+            </LinearLayout>
+        </com.codbking.calendar.CalendarLayout>
+    </LinearLayout>
+</LinearLayout>

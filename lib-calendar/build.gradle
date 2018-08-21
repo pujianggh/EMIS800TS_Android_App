@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion project.ANDROID_BUILD_COMPILE_SDK_VERSION as int//编译的SDK版本
+
+    defaultConfig {
+        minSdkVersion project.ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion project.ANDROID_BUILD_TARGET_SDK_VERSION as int
+
+        versionCode project.VERSION_CODE as int
+        versionName project.VERSION_NAME
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "com.android.support:appcompat-v7:${LIBRARY_SUPPORT_APPCOMPAT_V7}"
+    implementation "com.android.support:support-v4:${LIBRARY_SUPPORT_V4}"
+    implementation "com.android.support:recyclerview-v7:${LIBRARY_SUPPORT_RECYCLERVIEW_V7}"
+}

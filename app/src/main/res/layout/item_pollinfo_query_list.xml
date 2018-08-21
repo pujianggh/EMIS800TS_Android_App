@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchWrap.Vertical"
+    android:background="@drawable/selector_line_bg">
+
+    <RelativeLayout
+        style="@style/MatchWrap"
+        android:layout_marginLeft="@dimen/spacing_min"
+        android:layout_marginRight="@dimen/spacing_min"
+        android:layout_marginTop="@dimen/spacing_min">
+
+        <TextView
+            android:id="@+id/tv_pollName"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:text="便利店设备巡检"
+            android:textColor="@color/text_deepgray"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <TextView
+            android:id="@+id/tv_state"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_width="@dimen/item_dp45"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/spacing_min"
+            android:background="@color/red_tips"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="处理中"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_min" />
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/MatchWrap"
+        android:paddingLeft="@dimen/spacing_min"
+        android:paddingRight="@dimen/spacing_min">
+
+        <TextView
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:gravity="center_vertical"
+            android:text="巡检人员(计划):"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <TextView
+            android:id="@+id/tv_pollPersonnel"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/text_deepgray"
+            android:textSize="@dimen/textsize_normalplus" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MatchWrap"
+        android:paddingLeft="@dimen/spacing_min"
+        android:paddingRight="@dimen/spacing_min">
+
+        <TextView
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:gravity="center_vertical"
+            android:text="预计开始时间:"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <TextView
+            android:id="@+id/tv_pollStartTime"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/text_deepgray"
+            android:textSize="@dimen/textsize_normalplus" />
+    </LinearLayout>
+
+    <RelativeLayout
+        style="@style/MatchWrap"
+        android:layout_marginLeft="@dimen/spacing_min"
+        android:layout_marginBottom="@dimen/spacing_min"
+        android:layout_marginRight="@dimen/spacing_min">
+
+        <TextView
+            android:id="@+id/tv_pollEndTimeTitle"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:gravity="center_vertical"
+            android:text="预计结束时间:"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <TextView
+            android:id="@+id/tv_pollEndTime"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:layout_toRightOf="@+id/tv_pollEndTimeTitle"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/text_deepgray"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <TextView
+            android:id="@+id/tv_pollLocation"
+            style="@style/Text_WrapWrap_Style"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/spacing_min"
+            android:gravity="center_vertical"
+            android:text="1个点位"
+            android:textColor="@color/text_deepgray"
+            android:textSize="@dimen/textsize_normalplus" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/item_dp10"
+        android:layout_marginRight="@dimen/item_dp10"
+        android:background="@color/line_lightgray" />
+
+    <RelativeLayout
+        android:id="@+id/rly_goLook"
+        style="@style/MatchWrap"
+        android:layout_marginBottom="@dimen/spacing_min"
+        android:layout_marginLeft="@dimen/spacing_min"
+        android:layout_marginRight="@dimen/spacing_min"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/Text_WrapWrap_Style"
+            android:layout_margin="@dimen/spacing_min"
+            android:text="立即查看"
+            android:textColor="@color/text_deepgray"
+            android:textSize="@dimen/textsize_normalplus" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/spacing_min"
+            android:src="@drawable/icon_indicator" />
+    </RelativeLayout>
+</LinearLayout>

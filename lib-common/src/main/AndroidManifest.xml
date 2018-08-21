@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.libcommon.action">
+
+    <!-- 允许从非系统拨号器里输入电话号码 - 隐私权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 清单文件添加安装未知来源应用的权限 - 隐私权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 允许读取/写入/创建外部存储 - 隐私权限(系统基本授权) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+</manifest>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_common_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <RelativeLayout
+        style="@style/MatchMatch"
+        android:background="@color/common_white_bg">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/item_dp180"
+            android:src="@drawable/icon_shared_download" />
+    </RelativeLayout>
+</LinearLayout>

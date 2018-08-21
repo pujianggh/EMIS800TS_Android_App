@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.bingoogolapple.swipeitemlayout.BGASwipeItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_root"
+    style="@style/MatchWrap"
+    android:background="@drawable/selector_line_bg"
+    android:gravity="center_vertical"
+    app:bga_sil_bottomMode="pullOut"
+    app:bga_sil_springDistance="20dp"
+    app:bga_sil_swipeDirection="left">
+
+    <LinearLayout style="@style/WrapMatch.Horizontal">
+
+        <TextView
+            android:id="@+id/tv_delete"
+            style="@style/WrapMatch"
+            android:background="@color/red_text"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/text_button_sc"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MatchMatch.Vertical"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            style="@style/MatchWrap"
+            android:paddingLeft="@dimen/spacing_min"
+            android:paddingRight="@dimen/spacing_min">
+
+            <TextView
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text="@string/text_work_order_create_item_sbbm"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/textsize_normalplus" />
+
+            <TextView
+                android:id="@+id/tv_deviceCode"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/text_deepgray"
+                android:textSize="@dimen/textsize_normalplus" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap"
+            android:paddingLeft="@dimen/spacing_min"
+            android:paddingRight="@dimen/spacing_min">
+
+            <TextView
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text="@string/text_work_order_create_item_sbmc"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/textsize_normalplus" />
+
+            <TextView
+                android:id="@+id/tv_deviceName"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/text_deepgray"
+                android:textSize="@dimen/textsize_normalplus" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap"
+            android:paddingLeft="@dimen/spacing_min"
+            android:paddingRight="@dimen/spacing_min">
+
+            <TextView
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text="@string/text_work_order_create_item_sbwz"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/textsize_normalplus" />
+
+            <TextView
+                android:id="@+id/tv_deviceLocation"
+                style="@style/Text_WrapWrap_Style"
+                android:layout_margin="@dimen/spacing_min"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/text_deepgray"
+                android:textSize="@dimen/textsize_normalplus" />
+        </LinearLayout>
+    </LinearLayout>
+</cn.bingoogolapple.swipeitemlayout.BGASwipeItemLayout>
