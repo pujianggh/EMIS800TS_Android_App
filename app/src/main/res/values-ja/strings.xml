@@ -69,7 +69,6 @@
     <string name="text_main_xx">メッセージ</string>
     <string name="text_main_wd">本人</string>
     <string name="text_main_sz">設定</string>
-    <string name="text_main_title">ローソン</string>
 
     <!-- 登录 -->
     <string name="text_login_title">ログイン</string>

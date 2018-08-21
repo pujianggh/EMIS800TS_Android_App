@@ -5,24 +5,17 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         debugConfig {
-            keyAlias project.SIGN_KEY_ALIAS
-            keyPassword project.SIGN_KEY_PASSWORD
-            storePassword project.SIGN_KEY_STORE_PASSWORD
-            storeFile file(project.SIGN_STORE_FILE_PATH)
-        }
-
-        debug {
-            keyAlias project.SIGN_KEY_ALIAS
-            keyPassword project.SIGN_KEY_PASSWORD
-            storePassword project.SIGN_KEY_STORE_PASSWORD
-            storeFile file(project.SIGN_STORE_FILE_PATH)
+            keyAlias "fengniao123"
+            keyPassword "fengniao123"
+            storePassword "fengniao123"
+            storeFile file("/Users/pujiang/Tools/KEY/fengniao_keystore.jks")
         }
 
         release {
-            keyAlias project.SIGN_KEY_ALIAS
-            keyPassword project.SIGN_KEY_PASSWORD
-            storePassword project.SIGN_KEY_STORE_PASSWORD
-            storeFile file(project.SIGN_STORE_FILE_PATH)
+            keyAlias "fengniao123"
+            keyPassword "fengniao123"
+            storePassword "fengniao123"
+            storeFile file("/Users/pujiang/Tools/KEY/fengniao_keystore.jks")
         }
     }
 

@@ -7,13 +7,14 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.kotlinapp.action.config.StateType;
 import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
+import com.android.ts.emis.activity.common.SelectQueryListActivity;
 import com.android.ts.emis.activity.my.BindPhoneActivity;
 import com.android.ts.emis.activity.my.OffLineDownloadActivity;
 import com.android.ts.emis.activity.my.ResetPassWordActivity;
 import com.android.ts.emis.activity.my.SettingActivity;
-import com.android.ts.emis.activity.work.WorkOrderDetailsActivity;
 import com.android.ts.emis.base.BaseFragment;
 import com.android.ts.emis.utils.SPUtil;
 
@@ -64,9 +65,10 @@ public class SetFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.rly_myGuarantee:
                 //startActivity(new Intent(getActivity(), MyWorkListActivity.class));
-                startActivity(new Intent(getActivity(), WorkOrderDetailsActivity.class)
-                        .putExtra(StrRes.INSTANCE.getTicketsCode(), "")
-                        .putExtra(StrRes.INSTANCE.getTitle(), ""));
+//                startActivity(new Intent(getActivity(), WorkOrderDetailsActivity.class)
+//                        .putExtra(StrRes.INSTANCE.getTicketsCode(), "")
+//                        .putExtra(StrRes.INSTANCE.getTitle(), ""));
+                startActivity(new Intent(getActivity(), SelectQueryListActivity.class).putExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo()));
                 break;
             case R.id.rly_bindPhone:
                 startActivity(new Intent(getActivity(), BindPhoneActivity.class));

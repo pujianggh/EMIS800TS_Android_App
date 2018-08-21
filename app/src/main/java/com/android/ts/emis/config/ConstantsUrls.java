@@ -33,4 +33,8 @@ public class ConstantsUrls {
     //获取工单详细信息
     public static String GetTicketsByTicketsCode = "/TicketsManage/GetTicketsByTicketsCode";
 
+
+    //获取执行人列表
+    public static String GetMaintenancePlanInfoByCalendarCode = "/v1/Executor/App_GetMaintenancePlanInfoByCalendarCode";
+
 }

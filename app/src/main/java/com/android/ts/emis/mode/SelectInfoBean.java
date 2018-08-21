@@ -28,8 +28,10 @@ public class SelectInfoBean extends BaseBean implements Serializable {
         private String name;
         private String code;
         private String address;
+        private String phone;
         private String id;
         private boolean isChecked = false;
+
         private List<Data> data;
 
         public List<Data> getData() {
@@ -78,6 +80,14 @@ public class SelectInfoBean extends BaseBean implements Serializable {
 
         public void setAddress(String address) {
             this.address = address;
+        }
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public void setPhone(String phone) {
+            this.phone = phone;
         }
     }
 }

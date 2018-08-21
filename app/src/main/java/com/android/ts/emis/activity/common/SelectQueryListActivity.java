@@ -13,13 +13,21 @@ import com.android.ts.emis.R;
 import com.android.ts.emis.adapter.SelectQueryListAdapter;
 import com.android.ts.emis.base.BaseActivity;
 import com.android.ts.emis.config.DataStateQueryCenter;
+import com.android.ts.emis.mode.MaintenancePlanInfoBean;
 import com.android.ts.emis.mode.SelectInfoBean;
+import com.android.ts.emis.mvp.iface.IConfigureInfo;
+import com.android.ts.emis.mvp.impl.ConfigureInfoImpl;
+import com.libcommon.action.net.INetWorkCallBack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
+import okhttp3.Headers;
 
 /**
  * 通用样式选择人员选择等
@@ -43,7 +51,9 @@ public class SelectQueryListActivity extends BaseActivity {
 
     private SelectQueryListAdapter mAdapter;
     private SelectInfoBean moduleBean;
+    private IConfigureInfo iConfigureInfo;
     private int stateType = StateType.INSTANCE.getPeopleInfo();
+    private String mTicketsCode = "";
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -67,12 +77,62 @@ public class SelectQueryListActivity extends BaseActivity {
         }
     }
 
+    private void getResponseData() {
+        if (stateType == StateType.INSTANCE.getPeopleInfo()) {
+            setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_select_query_list_title), null, true);
+            moduleBean = DataStateQueryCenter.getPGRYModuleData2();
+            showLoading();
+            if (iConfigureInfo == null)
+                iConfigureInfo = new ConfigureInfoImpl();
+            iConfigureInfo.getMaintenancePlanInfoLists(getApplicationContext(), new INetWorkCallBack() {
+                @Override
+                public void noNetWork() {
+                    hideLoading();
+                }
+
+                @Override
+                public <T> void onSuccess(T t, Headers headers, Class cla, String constantUrl) {
+                    hideLoading();
+                    MaintenancePlanInfoBean bean = (MaintenancePlanInfoBean) t;
+                    if (bean != null && "success".equals(bean.getStatus())) {
+                        if (bean.getData().getExecutorList() == null) return;
+                        int size = bean.getData().getExecutorList().size();
+                        SelectInfoBean dataBean = new SelectInfoBean();
+                        List<SelectInfoBean.Data> list = new ArrayList<>();
+                        SelectInfoBean.Data data;
+                        for (int i = 0; i < size; i++) {
+                            data = new SelectInfoBean.Data();
+                            data.setName(bean.getData().getExecutorList().get(i).getExecutorName());
+                            data.setCode(bean.getData().getExecutorList().get(i).getExecutorCode());
+                            data.setPhone(bean.getData().getExecutorList().get(i).getTelephone());
+                            list.add(data);
+                            dataBean.setData(list);
+                        }
+
+                        mAdapter = new SelectQueryListAdapter(mContext);
+                        lvListData.setAdapter(mAdapter);
+                        mAdapter.setData(dataBean.getData());
+                        mAdapter.setItemChecked(getIntent().getStringExtra(StrRes.INSTANCE.getSource()));
+                    }
+                }
+
+                @Override
+                public void onError(int status, String str, Class cla, String constantUrl) {
+                    hideLoading();
+                }
+            }, mTicketsCode);
+        }
+    }
+
     private void initData() {
+        mTicketsCode = "CM0218070008";
+        getResponseData();
         rlRootRefresh.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
         rlRootRefresh.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
                 refreshLayout.endRefreshing();
+                getResponseData();
             }
 
             @Override
@@ -80,15 +140,6 @@ public class SelectQueryListActivity extends BaseActivity {
                 return false;
             }
         });
-
-        mAdapter = new SelectQueryListAdapter(this);
-        lvListData.setAdapter(mAdapter);
-        if (stateType == StateType.INSTANCE.getPeopleInfo()) {
-            setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_select_query_list_title), null, true);
-            moduleBean = DataStateQueryCenter.getPGRYModuleData2();
-        }
-        mAdapter.setData(moduleBean.getData());
-        mAdapter.setItemChecked(getIntent().getStringExtra(StrRes.INSTANCE.getSource()));
     }
 
     /**
