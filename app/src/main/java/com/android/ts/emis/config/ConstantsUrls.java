@@ -31,7 +31,7 @@ public class ConstantsUrls {
     //新增工单
     public static String AddTickets = "/TicketsManage/AddTickets";
     //获取工单详细信息
-    public static String GetTicketsByTicketsCode = "/TicketsManage/GetTicketsByTicketsCode";
+    public static String GetTicketsByTicketsCode = "/TicketsManage/App_GetTicketsByTicketsCode";
 
 
     //获取执行人列表

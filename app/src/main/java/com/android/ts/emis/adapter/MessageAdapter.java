@@ -99,15 +99,15 @@ public class MessageAdapter extends BGAAdapterViewAdapter<MessageInfoBean.DataBe
         } else if (model.getTicketsStatus() == 1) {
             viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_pd);
         } else if (model.getTicketsStatus() == 2) {
-            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_jd);
-        } else if (model.getTicketsStatus() == 3) {
             viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_sh);
-        } else if (model.getTicketsStatus() == 4) {
+        } else if (model.getTicketsStatus() == 3) {
             viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_wg);
         } else if (model.getTicketsStatus() == 5) {
-            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_dpj);
-        } else {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_pd);
+        } else if (model.getTicketsStatus() == 6) {
             viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_yz);
+        } else {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_pd);
         }
 
         viewHolderHelper.getView(R.id.lly_item).setOnClickListener(new View.OnClickListener() {
@@ -120,9 +120,11 @@ public class MessageAdapter extends BGAAdapterViewAdapter<MessageInfoBean.DataBe
                     mContext.startActivity(new Intent(mContext, WorkOrderDetailsActivity.class)
                             .putExtra(StrRes.INSTANCE.getTicketsCode(), model.getObjectCode()));
                 } else if ("PM".equals(model.getMessageType())) {
-                    mContext.startActivity(new Intent(mContext, PlanMaintainActivity.class));
+                    mContext.startActivity(new Intent(mContext, PlanMaintainActivity.class)
+                            .putExtra(StrRes.INSTANCE.getTicketsCode(), model.getObjectCode()));
                 } else if ("IM".equals(model.getMessageType())) {
-                    mContext.startActivity(new Intent(mContext, PollingTaskActivity.class));
+                    mContext.startActivity(new Intent(mContext, PollingTaskActivity.class)
+                            .putExtra(StrRes.INSTANCE.getTicketsCode(), model.getObjectCode()));
                 }
 
                 if (iMessageInfo == null)
