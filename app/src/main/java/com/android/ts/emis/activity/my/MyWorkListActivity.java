@@ -47,7 +47,7 @@ public class MyWorkListActivity extends BaseActivity {
         mAdapter = new WorkOrderListAdapter(this);
         lvListData.setAdapter(mAdapter);
         //dataList = mAPPApplication.getWorkOrderTypeList(0);
-        mAdapter.setData(dataList);
+        //mAdapter.setData(dataList);
         rlRootRefresh.endRefreshing();
     }
 

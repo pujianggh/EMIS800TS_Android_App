@@ -37,8 +37,6 @@ public class WorkOrderQueryListPresenter extends INetWorkCallBack {
      * @param page
      * @param size
      * @param ticketsCode
-     * @param houseCode
-     * @param housePhaseCode
      * @param estateCode
      * @param createStartTime
      * @param createEndTime

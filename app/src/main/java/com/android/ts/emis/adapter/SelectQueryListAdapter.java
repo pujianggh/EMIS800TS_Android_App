@@ -38,6 +38,7 @@ public class SelectQueryListAdapter extends CommonBaseAdapter<SelectInfoBean.Dat
     }
 
     public void setItemChecked(String name) {
+        if (name == null) return;
         int size = data.size();
         for (int i = 0; i < size; i++) {
             data.get(i).setChecked(false);

@@ -26,9 +26,7 @@ import com.android.ts.emis.mvp.impl.WrokOrderInfoImpl;
 import com.android.ts.emis.utils.PopupWindowUtil;
 import com.android.ts.emis.utils.SPUtil;
 import com.android.ts.emis.view.ExpandListView;
-import com.google.gson.Gson;
 import com.libcommon.action.net.INetWorkCallBack;
-import com.libcommon.action.utils.LogAPPUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -241,18 +239,36 @@ public class WorkOrderCreateActivity extends BaseActivity {
         AddTicketJson addTicketJson = new AddTicketJson();
         addTicketJson.setOrderType("CM");
         addTicketJson.setHouseCode(mUserPasswrd.getHouseCode());
-        addTicketJson.setHousePhaseCode(mUserPasswrd.getHousePhaseCode());
+        addTicketJson.setHousePhaseCode("");
         addTicketJson.setEstateCode(mUserPasswrd.getEstateCode());
         addTicketJson.setTicketsFrom("APP");
         addTicketJson.setRepairBy(mUserPasswrd.getUserName());
         addTicketJson.setRepairBy(edtPhoneNumber.getText().toString());
         addTicketJson.setDepartment(tvDepartment.getText().toString());
+        addTicketJson.setDepartment("IT");
         addTicketJson.setTaskTypeCode("");//工单类型编号
         addTicketJson.setTaskTypeName("");
         addTicketJson.setPriorityCode("");
         addTicketJson.setTicketsTitle("");
         addTicketJson.setTicketsDescription(edtContent.getText().toString());
-        addTicketJson.setUserCode(mUserPasswrd.getHouseCode());
+        addTicketJson.setUserCode(mUserPasswrd.getUserCode());
+
+
+        addTicketJson.setOrderType("CM");
+        addTicketJson.setHouseCode(mUserPasswrd.getHouseCode());
+        addTicketJson.setHousePhaseCode("9d642d20-7520-4027-8048-61299a040ebc");
+        addTicketJson.setEstateCode("557cc8f-e614-4672-bc0a-906196aa1ea2");
+        addTicketJson.setTicketsFrom("APP");
+        addTicketJson.setRepairBy(mUserPasswrd.getUserName());
+        addTicketJson.setDepartment("IT");
+        addTicketJson.setTicketsTypeCode("20180424150207146360");
+        addTicketJson.setTicketsTypeName("自检->cathy测试->子节点");
+        addTicketJson.setTaskTypeCode("20180424150236431577");//工单类型编号
+        addTicketJson.setTaskTypeName("子-1->子-2");
+        addTicketJson.setPriorityCode("20150414170730110785");
+        addTicketJson.setTicketsTitle("");
+        addTicketJson.setTicketsDescription(edtContent.getText().toString());
+        addTicketJson.setUserCode(mUserPasswrd.getUserCode());
         if (iWorkOrderInfo == null)
             iWorkOrderInfo = new WrokOrderInfoImpl();
         iWorkOrderInfo.getAddTickets(mAPPApplication, new INetWorkCallBack() {
@@ -267,6 +283,7 @@ public class WorkOrderCreateActivity extends BaseActivity {
                 AddTicketBean bean = (AddTicketBean) t;
                 if (bean != null) {
                     showToast(bean.getMessage());
+                    if ("success".equals(bean.getStatus())) onBackPressed();
                 }
             }
 
@@ -275,9 +292,6 @@ public class WorkOrderCreateActivity extends BaseActivity {
                 hideLoading();
             }
         }, addTicketJson);
-
-        String info = new Gson().toJson(addTicketJson).toString();
-        LogAPPUtil.i("===========>info:" + info);
     }
 
     private void initPhotoPicker() {

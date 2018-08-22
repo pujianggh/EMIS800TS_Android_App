@@ -11,7 +11,8 @@ import android.widget.TextView;
 import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
 import com.android.ts.emis.activity.work.WorkOrderDetailsActivity;
-import com.android.ts.emis.mode.WorkOrderListBean;
+import com.android.ts.emis.config.ConstantsResults;
+import com.android.ts.emis.mode.TicketInfoBean;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
  * @mail 515210530@qq.com
  * @Description:
  */
-public class WorkOrderListAdapter extends CommonBaseAdapter<WorkOrderListBean.Data> {
+public class WorkOrderListAdapter extends CommonBaseAdapter<TicketInfoBean> {
 
     public WorkOrderListAdapter(Context context) {
         super(context);
@@ -40,34 +41,32 @@ public class WorkOrderListAdapter extends CommonBaseAdapter<WorkOrderListBean.Da
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        final WorkOrderListBean.Data bean = data.get(position);
+        final TicketInfoBean bean = data.get(position);
         if (viewHolder != null && bean != null) {
-            //1：待处理工单 2：待派批工单（待派工) 3：待审批工单 4：待存档工单 5：待评价工单
-            viewHolder.tvOrderCode.setText(bean.getOrderCode());
-            viewHolder.tvOrderStatus.setText(bean.getOrderStatus());
-            if (1 == bean.getType()) {
-                viewHolder.tvState.setText("处理中");
-                viewHolder.tvState.setBackgroundResource(R.color.text_brown);
-            } else if (2 == bean.getType()) {
-                viewHolder.tvState.setText("已创建");
-                viewHolder.tvState.setBackgroundResource(R.color.text_brown);
-            } else if (3 == bean.getType()) {
-                viewHolder.tvState.setText("待审批");
-                viewHolder.tvState.setBackgroundResource(R.color.red_text);
-            } else if (4 == bean.getType()) {
-                viewHolder.tvState.setText("完成");
-                viewHolder.tvState.setBackgroundResource(R.color.text_blue);
-            } else if (5 == bean.getType()) {
-                viewHolder.tvState.setText("可评价");
-                viewHolder.tvState.setBackgroundResource(R.color.color_orange);
-            }
-            viewHolder.tvPfmCode.setText(bean.getPfmCode());
-            viewHolder.tvOrderDescribe.setText(bean.getOrderDescribe());
-            viewHolder.tvCreateTime.setText(bean.getCreateTime());
+            //工单已创建 0 派工
+            //工单已派工 1 接单
+            //工单待审批 2 审批
+            //工单处理中 3 完工
+            //工单暂停-继续 4 继续
+            //工单暂停-待派工 5 派工
+            //工单执行完成   6 验证
+            //工单已验证 7 存档
+            //工单已存档 8 评价
+            //工单已关闭 9 查看详情
+            //工单已作废 10 查看详情
+            viewHolder.tvOrderCode.setText(bean.getTicketsCode());
+            viewHolder.tvOrderStatus.setText(bean.getPriorityName());
+            viewHolder.tvState.setText(bean.getTicketsStatusName());
+            viewHolder.tvState.setBackgroundResource(ConstantsResults.getTicketsStatusColor(bean.getTicketsStatus()));
+            viewHolder.tvTicketsStatus.setText(ConstantsResults.getTicketsStatusText(bean.getTicketsStatus()));
+            viewHolder.tvPfmCode.setText(bean.getPriorityCode());
+            viewHolder.tvOrderDescribe.setText(bean.getTicketsDescription());
+            viewHolder.tvCreateTime.setText(bean.getCreateDate());
             viewHolder.llyItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mContext.startActivity(new Intent(mContext, WorkOrderDetailsActivity.class).putExtra(StrRes.INSTANCE.getId(), bean.getId()));
+                    mContext.startActivity(new Intent(mContext, WorkOrderDetailsActivity.class)
+                            .putExtra(StrRes.INSTANCE.getTicketsCode(), bean.getTicketsCode()));
                 }
             });
         }
@@ -89,6 +88,8 @@ public class WorkOrderListAdapter extends CommonBaseAdapter<WorkOrderListBean.Da
         TextView tvCreateTime;
         @BindView(R.id.tv_orderDescribe)
         TextView tvOrderDescribe;
+        @BindView(R.id.tv_ticketsStatus)
+        TextView tvTicketsStatus;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

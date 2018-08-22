@@ -12,85 +12,69 @@ import java.util.List;
  */
 public class MaintenancePlanInfoBean extends BaseBean {
 
-    /**
-     * data : {"ExecutorList":[{"ExecutorCode":"ET_PROPERTY_20170619153506","ExecutorName":"董宁","Telephone":"13564639789","WorkGroupID":152,"IsDirector":0},{"ExecutorCode":"ET_SUPPLIER_20170615164502","ExecutorName":"中建八局","Telephone":"18626096310","WorkGroupID":152,"IsDirector":1}]}
-     */
+    private List<DataBean> data;
 
-    private DataBean data;
-
-    public DataBean getData() {
+    public List<DataBean> getData() {
         return data;
     }
 
-    public void setData(DataBean data) {
+    public void setData(List<DataBean> data) {
         this.data = data;
     }
 
     public static class DataBean {
-        private List<ExecutorListBean> ExecutorList;
+        /**
+         * ExecutorCode : 1_20180423145910
+         * ExecutorName : rachel-执行人
+         * Telephone : 13245678900
+         * WorkGroupID : 147
+         * IsDirector : 1
+         */
 
-        public List<ExecutorListBean> getExecutorList() {
-            return ExecutorList;
+        private String ExecutorCode;
+        private String ExecutorName;
+        private String Telephone;
+        private int WorkGroupID;
+        private int IsDirector;
+
+        public String getExecutorCode() {
+            return ExecutorCode;
         }
 
-        public void setExecutorList(List<ExecutorListBean> ExecutorList) {
-            this.ExecutorList = ExecutorList;
+        public void setExecutorCode(String ExecutorCode) {
+            this.ExecutorCode = ExecutorCode;
         }
 
-        public static class ExecutorListBean {
-            /**
-             * ExecutorCode : ET_PROPERTY_20170619153506
-             * ExecutorName : 董宁
-             * Telephone : 13564639789
-             * WorkGroupID : 152
-             * IsDirector : 0
-             */
+        public String getExecutorName() {
+            return ExecutorName;
+        }
 
-            private String ExecutorCode;
-            private String ExecutorName;
-            private String Telephone;
-            private int WorkGroupID;
-            private int IsDirector;
+        public void setExecutorName(String ExecutorName) {
+            this.ExecutorName = ExecutorName;
+        }
 
-            public String getExecutorCode() {
-                return ExecutorCode;
-            }
+        public String getTelephone() {
+            return Telephone;
+        }
 
-            public void setExecutorCode(String ExecutorCode) {
-                this.ExecutorCode = ExecutorCode;
-            }
+        public void setTelephone(String Telephone) {
+            this.Telephone = Telephone;
+        }
 
-            public String getExecutorName() {
-                return ExecutorName;
-            }
+        public int getWorkGroupID() {
+            return WorkGroupID;
+        }
 
-            public void setExecutorName(String ExecutorName) {
-                this.ExecutorName = ExecutorName;
-            }
+        public void setWorkGroupID(int WorkGroupID) {
+            this.WorkGroupID = WorkGroupID;
+        }
 
-            public String getTelephone() {
-                return Telephone;
-            }
+        public int getIsDirector() {
+            return IsDirector;
+        }
 
-            public void setTelephone(String Telephone) {
-                this.Telephone = Telephone;
-            }
-
-            public int getWorkGroupID() {
-                return WorkGroupID;
-            }
-
-            public void setWorkGroupID(int WorkGroupID) {
-                this.WorkGroupID = WorkGroupID;
-            }
-
-            public int getIsDirector() {
-                return IsDirector;
-            }
-
-            public void setIsDirector(int IsDirector) {
-                this.IsDirector = IsDirector;
-            }
+        public void setIsDirector(int IsDirector) {
+            this.IsDirector = IsDirector;
         }
     }
 }

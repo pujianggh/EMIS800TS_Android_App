@@ -103,6 +103,7 @@ public class WorkOrderQueryListActivity extends BaseActivity implements IWorkOrd
             datas = workOrderQueryListBean.getData().getTicketsList();
             mAdapter.setData(datas);
             mAdapter.notifyDataSetChanged();
+            mTotalPage = workOrderQueryListBean.getData().getTotalPage();
         }
     }
 
@@ -114,7 +115,6 @@ public class WorkOrderQueryListActivity extends BaseActivity implements IWorkOrd
     }
 
     private void initData() {
-        mPresenter = new WorkOrderQueryListPresenter(this, this);
         getResponseData(true);
         tvNewMonth.setText(DateToolsUtil.getNewDateYM());
         mDatePickerHandle = new DatePickerHandle(this, tvNewMonth, true, true, false);
@@ -150,7 +150,7 @@ public class WorkOrderQueryListActivity extends BaseActivity implements IWorkOrd
             @Override
             public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
                 getResponseData(false);
-                return true;
+                return mTotalPage > mPage;
             }
         });
     }
@@ -176,6 +176,8 @@ public class WorkOrderQueryListActivity extends BaseActivity implements IWorkOrd
     }
 
     private void getResponseData(boolean isRefresh) {
+        if (mPresenter == null)
+            mPresenter = new WorkOrderQueryListPresenter(this, this);
         if (isRefresh) {
             mPage = 1;
             mPresenter.getWorkOrderQueryLists(mPage + "", mSize + "",

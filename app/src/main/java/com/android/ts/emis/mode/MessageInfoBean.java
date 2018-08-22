@@ -37,7 +37,7 @@ public class MessageInfoBean extends BaseBean {
          */
 
         private int CurrentPage;
-        private double TotalPage;
+        private int TotalPage;
         private int TotalCount;
         private int UnreadCount;
         private List<MessageListBean> MessageList;
@@ -50,11 +50,11 @@ public class MessageInfoBean extends BaseBean {
             this.CurrentPage = CurrentPage;
         }
 
-        public double getTotalPage() {
+        public int getTotalPage() {
             return TotalPage;
         }
 
-        public void setTotalPage(double TotalPage) {
+        public void setTotalPage(int TotalPage) {
             this.TotalPage = TotalPage;
         }
 

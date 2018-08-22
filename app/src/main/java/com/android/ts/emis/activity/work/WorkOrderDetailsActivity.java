@@ -19,6 +19,7 @@ import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
 import com.android.ts.emis.activity.common.SignatureHandActivity;
 import com.android.ts.emis.base.BaseActivity;
+import com.android.ts.emis.config.ConstantsResults;
 import com.android.ts.emis.config.RequestCode;
 import com.android.ts.emis.config.ResultCode;
 import com.android.ts.emis.mode.TicketDetailInfoBean;
@@ -104,10 +105,6 @@ public class WorkOrderDetailsActivity extends BaseActivity {
         ButterKnife.bind(this);
         setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_gd), null, true);
 
-        mTicketsCode = getIntent().getStringExtra(StrRes.INSTANCE.getTicketsCode());
-        mTicketsCode = "CM234-20180817-0078";
-        mTitleBar.setTitleText(mTicketsCode);
-
         initData();
         initEvent();
     }
@@ -154,6 +151,9 @@ public class WorkOrderDetailsActivity extends BaseActivity {
     }
 
     private void initData() {
+        mTicketsCode = getIntent().getStringExtra(StrRes.INSTANCE.getTicketsCode());
+        mTitleBar.setTitleText(mTicketsCode);
+
         if (iWorkOrderInfo == null)
             iWorkOrderInfo = new WrokOrderInfoImpl();
         showLoading();
@@ -196,9 +196,10 @@ public class WorkOrderDetailsActivity extends BaseActivity {
         btnNext.setVisibility(View.GONE);
 
         tvState.setText(mBean.getData().getTicketsStatusName());
-        tvState.setBackgroundResource(R.color.text_brown);
+        tvState.setBackgroundResource(ConstantsResults.getTicketsStatusColor(mBean.getData().getTicketsStatus()));
+
         btnNext.setVisibility(View.VISIBLE);
-        btnNext.setText(getResources().getString(R.string.text_state_pd));
+        btnNext.setText(ConstantsResults.getTicketsStatusText(mBean.getData().getTicketsStatus()));
         //UIViewToolsUtil.initUIPhotosData(this, mBean.getPhotosList(), rlvPhotos, 5);
     }
 

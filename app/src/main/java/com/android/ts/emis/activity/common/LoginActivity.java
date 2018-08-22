@@ -150,14 +150,12 @@ public class LoginActivity extends BaseActivity {
             mUserPasswrd.setHouseName(SPUtil.INSTANCE.getString(StrRes.INSTANCE.getHouseName()));
             mUserPasswrd.setHouseCode(SPUtil.INSTANCE.getString(StrRes.INSTANCE.getHouseCode()));
             mUserPasswrd.setRuleCode(SPUtil.INSTANCE.getString(StrRes.INSTANCE.getRuleCode()));
-            mUserPasswrd.setHousePhaseCode(SPUtil.INSTANCE.getString(StrRes.INSTANCE.getHousePhaseCode()));
             mUserPasswrd.setEstateCode(SPUtil.INSTANCE.getString(StrRes.INSTANCE.getEstateCode()));
         } else {
             if (dataBean.getHouseList() != null && dataBean.getHouseList().size() > 0) {
                 mUserPasswrd.setHouseName(dataBean.getHouseList().get(0).getHouseName());
                 mUserPasswrd.setHouseCode(dataBean.getHouseList().get(0).getHouseCode());
                 mUserPasswrd.setRuleCode(dataBean.getHouseList().get(0).getHouseCode());
-                mUserPasswrd.setHousePhaseCode(dataBean.getHouseList().get(0).getHousePhaseCode());
                 mUserPasswrd.setEstateCode("");
             }
         }

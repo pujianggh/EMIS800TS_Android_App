@@ -7,8 +7,11 @@ import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
 import com.android.ts.emis.adapter.WorkOrderListAdapter;
 import com.android.ts.emis.base.BaseActivity;
-import com.android.ts.emis.mode.WorkOrderListBean;
-import com.android.ts.emis.utils.ThreadUtil;
+import com.android.ts.emis.mode.TicketInfoBean;
+import com.android.ts.emis.mode.WorkOrderQueryListBean;
+import com.android.ts.emis.mvp.presenter.WorkOrderListPresenter;
+import com.android.ts.emis.mvp.view.IWorkOrderListView;
+import com.android.ts.emis.net.OkhttpUtil;
 
 import java.util.List;
 
@@ -25,97 +28,103 @@ import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
  * @mail 515210530@qq.com
  * @Description:
  */
-public class WorkOrderListActivity extends BaseActivity {
+public class WorkOrderListActivity extends BaseActivity implements IWorkOrderListView {
     @BindView(R.id.rl_root_refresh)
     BGARefreshLayout rlRootRefresh;
     @BindView(R.id.lv_list_data)
     ListView lvListData;
 
+    private WorkOrderListPresenter mPresenter;
     private WorkOrderListAdapter mAdapter;
-    private List<WorkOrderListBean.Data> dataList;
+    private List<TicketInfoBean> datas;
     private int mType = 30002;
-    private String mTitle = "";
+    private String mTicketsStatus = "";
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_work_order_list);
         ButterKnife.bind(this);
 
-        mType = getIntent().getIntExtra(StrRes.INSTANCE.getType(), 30002);
-        switch (mType) {
-            case 30002://待处理工单
-                mTitle = getResources().getString(R.string.text_title_dclgd);
-                break;
-            case 30003://待派批工单
-                mTitle = getResources().getString(R.string.text_title_dppgd);
-                break;
-            case 30004://待审批工单
-                mTitle = getResources().getString(R.string.text_title_dspgd);
-                break;
-            case 30005://待存档工单
-                mTitle = getResources().getString(R.string.text_title_dcdgd);
-                break;
-            case 30006://待评价工单
-                mTitle = getResources().getString(R.string.text_title_dpjgd);
-                break;
-        }
-        setTitleBarLayout(R.drawable.icon_back_white_bar, mTitle, null, true);
-        initEvent();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         initData();
     }
 
     private void initData() {
-        mAdapter = new WorkOrderListAdapter(this);
-        lvListData.setAdapter(mAdapter);
-        //1：待处理工单 2：待派批工单（待派工) 3：待审批工单 4：待存档工单 5：待评价工单
+        mType = getIntent().getIntExtra(StrRes.INSTANCE.getType(), 30002);
+        setTitleBarLayout(R.drawable.icon_back_white_bar, "", null, true);
         switch (mType) {
             case 30002://待处理工单
-                //dataList = mAPPApplication.getWorkOrderTypeList(1);
+                mTitleBar.setTitleText(getResources().getString(R.string.text_title_dclgd));
+                mTicketsStatus = "3";
                 break;
             case 30003://待派批工单
-                //dataList = mAPPApplication.getWorkOrderTypeList(2);
+                mTitleBar.setTitleText(getResources().getString(R.string.text_title_dppgd));
+                mTicketsStatus = "0";
                 break;
             case 30004://待审批工单
-                //dataList = mAPPApplication.getWorkOrderTypeList(3);
+                mTitleBar.setTitleText(getResources().getString(R.string.text_title_dspgd));
+                mTicketsStatus = "2";
                 break;
             case 30005://待存档工单
+                mTitleBar.setTitleText(getResources().getString(R.string.text_title_dcdgd));
+                mTicketsStatus = "8";
                 break;
             case 30006://待评价工单
+                mTitleBar.setTitleText(getResources().getString(R.string.text_title_dpjgd));
+                mTicketsStatus = "7";
                 break;
         }
-        mAdapter.setData(dataList);
-        rlRootRefresh.endRefreshing();
-    }
-
-    private void initEvent() {
         rlRootRefresh.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
         rlRootRefresh.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
-                ThreadUtil.INSTANCE.runInUIThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        rlRootRefresh.endRefreshing();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                }, 2000);
+                getResponseData(true);
             }
 
             @Override
             public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
-                ThreadUtil.INSTANCE.runInUIThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        rlRootRefresh.endLoadingMore();
-                    }
-                }, 1000);
-                return true;
+                getResponseData(false);
+                return mTotalPage > mPage;
             }
         });
+        rlRootRefresh.beginRefreshing();
+        getResponseData(true);
+    }
+
+    @Override
+    public void getWorkOrderLists(WorkOrderQueryListBean workOrderQueryListBean) {
+        rlRootRefresh.endRefreshing();
+        if (workOrderQueryListBean != null && workOrderQueryListBean.getData() != null && workOrderQueryListBean.getData().getTicketsList() != null) {
+            mAdapter = new WorkOrderListAdapter(this);
+            lvListData.setAdapter(mAdapter);
+            datas = workOrderQueryListBean.getData().getTicketsList();
+            mAdapter.setData(datas);
+            mAdapter.notifyDataSetChanged();
+            mTotalPage = workOrderQueryListBean.getData().getTotalPage();
+        }
+    }
+
+    @Override
+    public void addWorkOrderLists(WorkOrderQueryListBean workOrderQueryListBean) {
+        rlRootRefresh.endLoadingMore();
+        datas.addAll(workOrderQueryListBean.getData().getTicketsList());
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void getResponseData(boolean isRefresh) {
+        if (mPresenter == null)
+            mPresenter = new WorkOrderListPresenter(this, this);
+        if (isRefresh) {
+            mPage = 1;
+            mPresenter.getWorkOrderLists(mPage + "", mSize + "",
+                    mTicketsStatus, OkhttpUtil.GetUrlMode.NORMAL);
+        } else {
+            if (mTotalPage > mPage) {
+                mPage++;
+                mPresenter.getWorkOrderLists(mPage + "", mSize + "",
+                        mTicketsStatus, OkhttpUtil.GetUrlMode.PULL_UP);
+            } else {
+                rlRootRefresh.endLoadingMore();
+            }
+        }
     }
 }

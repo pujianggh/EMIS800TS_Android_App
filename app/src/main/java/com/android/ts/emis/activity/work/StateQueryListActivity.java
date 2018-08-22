@@ -68,8 +68,8 @@ public class StateQueryListActivity extends BaseActivity {
         lvListData.setAdapter(mAdapter);
         if (stateType == StateType.INSTANCE.getLocation()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_wz), null, getResources().getString(R.string.text_button_qd), true);
-            //moduleBean = DataStateQueryCenter.getWZModuleData();
-            moduleBean = DataStateQueryCenter.getWZTestModuleData();
+            moduleBean = DataStateQueryCenter.getWZModuleData();
+            //moduleBean = DataStateQueryCenter.getWZTestModuleData();
         } else if (stateType == StateType.INSTANCE.getStateInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_zt), null, getResources().getString(R.string.text_button_qd), true);
             moduleBean = DataStateQueryCenter.getBMModuleData();

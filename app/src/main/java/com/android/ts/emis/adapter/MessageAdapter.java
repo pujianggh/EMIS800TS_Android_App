@@ -6,7 +6,10 @@ import android.view.View;
 
 import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
+import com.android.ts.emis.activity.work.PlanMaintainActivity;
+import com.android.ts.emis.activity.work.PollingTaskActivity;
 import com.android.ts.emis.activity.work.WorkOrderDetailsActivity;
+import com.android.ts.emis.config.ConstantsResults;
 import com.android.ts.emis.mode.MessageInfoBean;
 import com.android.ts.emis.mvp.iface.IMessageInfo;
 import com.android.ts.emis.mvp.impl.MessageInfoImpl;
@@ -79,31 +82,48 @@ public class MessageAdapter extends BGAAdapterViewAdapter<MessageInfoBean.DataBe
             swipeItemLayout.setSwipeAble(true);
         }
 
-        //0:全部 1：待处理工单 2：待派批工单（待派工) 3：待审批工单 4：待存档工单 5：待评价工单
-//        if (model.getMessageType() == 1) {
-//            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_pd);
-//            viewHolderHelper.setText(R.id.tv_state, mContext.getResources().getString(R.string.text_state_pg));
-//        } else if (model.getMessageType() == 2) {
-//            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_jd);
-//            viewHolderHelper.setText(R.id.tv_state, mContext.getResources().getString(R.string.text_state_jd));
-//        } else if (model.getMessageType() == 3) {
-//            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_sh);
-//            viewHolderHelper.setText(R.id.tv_state, mContext.getResources().getString(R.string.text_state_wg));
-//        } else if (model.getMessageType() == 4) {
-//            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_wg);
-//            viewHolderHelper.setText(R.id.tv_state, mContext.getResources().getString(R.string.text_state_cd));
-//        } else if (model.getMessageType() == 5) {
-//            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_dpj);
-//            viewHolderHelper.setText(R.id.tv_state, mContext.getResources().getString(R.string.text_state_dpj));
-//        } else {
-//            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_yz);
-//            viewHolderHelper.setText(R.id.tv_state, mContext.getResources().getString(R.string.text_state_yz));
-//        }
+        //工单已创建 0 派工
+        //工单已派工 1 接单
+        //工单待审批 2 审批
+        //工单处理中 3 完工
+        //工单暂停-继续 4 继续
+        //工单暂停-待派工 5 派工
+        //工单执行完成   6 验证
+        //工单已验证 7 存档
+        //工单已存档 8 评价
+        //工单已关闭 9 查看详情
+        //工单已作废 10 查看详情
+        viewHolderHelper.setText(R.id.tv_state, ConstantsResults.getTicketsStatusText(model.getTicketsStatus()));
+        if (model.getTicketsStatus() == 0) {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_pd);
+        } else if (model.getTicketsStatus() == 1) {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_pd);
+        } else if (model.getTicketsStatus() == 2) {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_jd);
+        } else if (model.getTicketsStatus() == 3) {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_sh);
+        } else if (model.getTicketsStatus() == 4) {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_wg);
+        } else if (model.getTicketsStatus() == 5) {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_dpj);
+        } else {
+            viewHolderHelper.getImageView(R.id.igv_icon).setImageResource(R.drawable.icon_message_yz);
+        }
 
         viewHolderHelper.getView(R.id.lly_item).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, WorkOrderDetailsActivity.class).putExtra(StrRes.INSTANCE.getId(), model.getBDID()));
+                //CM:维修工单;
+                //PM:计划性维护工单;
+                //IM:巡检工单
+                if ("CM".equals(model.getMessageType())) {
+                    mContext.startActivity(new Intent(mContext, WorkOrderDetailsActivity.class)
+                            .putExtra(StrRes.INSTANCE.getTicketsCode(), model.getObjectCode()));
+                } else if ("PM".equals(model.getMessageType())) {
+                    mContext.startActivity(new Intent(mContext, PlanMaintainActivity.class));
+                } else if ("IM".equals(model.getMessageType())) {
+                    mContext.startActivity(new Intent(mContext, PollingTaskActivity.class));
+                }
 
                 if (iMessageInfo == null)
                     iMessageInfo = new MessageInfoImpl();

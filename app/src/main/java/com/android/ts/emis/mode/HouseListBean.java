@@ -21,19 +21,10 @@ public class HouseListBean implements Serializable {
     private String RuleCode;
     private String HouseCode;
     private String HouseName;
-    private String HousePhaseCode;
     private String City;
     private String Province;
     private String HouseDescriptionImage;
     private int UnreadCount;
-
-    public String getHousePhaseCode() {
-        return HousePhaseCode;
-    }
-
-    public void setHousePhaseCode(String housePhaseCode) {
-        HousePhaseCode = housePhaseCode;
-    }
 
     public String getRuleCode() {
         return RuleCode;

@@ -95,16 +95,16 @@ public class SelectQueryListActivity extends BaseActivity {
                     hideLoading();
                     MaintenancePlanInfoBean bean = (MaintenancePlanInfoBean) t;
                     if (bean != null && "success".equals(bean.getStatus())) {
-                        if (bean.getData().getExecutorList() == null) return;
-                        int size = bean.getData().getExecutorList().size();
+                        if (bean.getData() == null) return;
+                        int size = bean.getData().size();
                         SelectInfoBean dataBean = new SelectInfoBean();
                         List<SelectInfoBean.Data> list = new ArrayList<>();
                         SelectInfoBean.Data data;
                         for (int i = 0; i < size; i++) {
                             data = new SelectInfoBean.Data();
-                            data.setName(bean.getData().getExecutorList().get(i).getExecutorName());
-                            data.setCode(bean.getData().getExecutorList().get(i).getExecutorCode());
-                            data.setPhone(bean.getData().getExecutorList().get(i).getTelephone());
+                            data.setName(bean.getData().get(i).getExecutorName());
+                            data.setCode(bean.getData().get(i).getExecutorCode());
+                            data.setPhone(bean.getData().get(i).getTelephone());
                             list.add(data);
                             dataBean.setData(list);
                         }
@@ -125,7 +125,7 @@ public class SelectQueryListActivity extends BaseActivity {
     }
 
     private void initData() {
-        mTicketsCode = "CM0218070008";
+        mTicketsCode = "CM234-20180817-0078";
         getResponseData();
         rlRootRefresh.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
         rlRootRefresh.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {

@@ -83,7 +83,6 @@ public class SettingActivity extends BaseActivity {
                 mUserPasswrd.setUserCode("");
                 mUserPasswrd.setUserName("");
 
-                mUserPasswrd.setHousePhaseCode("");
                 mUserPasswrd.setHouseCode(null);
                 mUserPasswrd.setHouseName("");
                 mUserPasswrd.setRuleCode("");

@@ -54,14 +54,11 @@ public class MessageFragment extends BaseFragment implements IMessageInfoView {
         setContentView(R.layout.fragment_message);
         unBinder = ButterKnife.bind(this, mContentView);
 
-        mPresenter = new MessageInfoPresenter(getActivity(), this);
-
         if (!TextUtils.isEmpty(mUserPasswrd.getHouseCode())) {
             mHouseCode = mUserPasswrd.getHouseCode();
             tvTitleBar.setText(mUserPasswrd.getHouseName());
         }
 
-        getResponseData(true);
         rlRootRefresh.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
         rlRootRefresh.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
             @Override
@@ -71,15 +68,12 @@ public class MessageFragment extends BaseFragment implements IMessageInfoView {
 
             @Override
             public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
-                if (mTotalPage > mPage) {
-                    mPage++;
-                    mPresenter.getMessageInfoLists(mPage + "", mSize + "", mUserPasswrd.getUserCode(), mHouseCode, OkhttpUtil.GetUrlMode.PULL_UP);
-                } else {
-                    rlRootRefresh.endLoadingMore();
-                }
+                getResponseData(false);
                 return mTotalPage > mPage;
             }
         });
+        rlRootRefresh.beginRefreshing();
+        getResponseData(true);
     }
 
     @Override
@@ -91,6 +85,7 @@ public class MessageFragment extends BaseFragment implements IMessageInfoView {
             datas = messageInfoBean.getData().getMessageList();
             mAdapter.setData(datas);
             mAdapter.notifyDataSetChanged();
+            mTotalPage = messageInfoBean.getData().getTotalPage();
         }
     }
 
@@ -131,13 +126,18 @@ public class MessageFragment extends BaseFragment implements IMessageInfoView {
     }
 
     private void getResponseData(boolean isRefresh) {
-        OkhttpUtil.GetUrlMode mode = OkhttpUtil.GetUrlMode.NORMAL;
+        if (mPresenter == null)
+            mPresenter = new MessageInfoPresenter(getActivity(), this);
         if (isRefresh) {
             mPage = 1;
+            mPresenter.getMessageInfoLists(mPage + "", mSize + "", mUserPasswrd.getUserCode(), mHouseCode, OkhttpUtil.GetUrlMode.NORMAL);
         } else {
-            mPage++;
-            mode = OkhttpUtil.GetUrlMode.PULL_UP;
+            if (mTotalPage > mPage) {
+                mPage++;
+                mPresenter.getMessageInfoLists(mPage + "", mSize + "", mUserPasswrd.getUserCode(), mHouseCode, OkhttpUtil.GetUrlMode.PULL_UP);
+            } else {
+                rlRootRefresh.endLoadingMore();
+            }
         }
-        mPresenter.getMessageInfoLists(mPage + "", mSize + "", mUserPasswrd.getUserCode(), mHouseCode, mode);
     }
 }

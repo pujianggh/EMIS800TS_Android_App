@@ -70,6 +70,18 @@
     <!-- line3 -->
     <color name="line_deep">#3c3d41</color>
 
+    <color name="color_order_status_0">#ED4E2A</color>
+    <color name="color_order_status_1">#7D7DF7</color>
+    <color name="color_order_status_2">#FCB322</color>
+    <color name="color_order_status_3">#00008B</color>
+    <color name="color_order_status_4">#FA8072</color>
+    <color name="color_order_status_5">#00BFFF</color>
+    <color name="color_order_status_6">#C8E65E</color>
+    <color name="color_order_status_7">#5294E6</color>
+    <color name="color_order_status_8">#000000</color>
+    <color name="color_order_status_9">#CCCCCC</color>
+    <color name="color_order_status_10">#B8860B</color>
+
     <color name="white">#FFFFFF</color>
     <color name="red_tips">#E74E41</color>
     <color name="nocolor">#00FFFFFF</color>
