@@ -28,6 +28,15 @@ public class SelectQueryListAdapter extends CommonBaseAdapter<SelectInfoBean.Dat
         super(context);
     }
 
+    public void setItemMultiChecked(int position) {
+        if (data.get(position).isChecked()) {
+            data.get(position).setChecked(false);
+        } else {
+            data.get(position).setChecked(true);
+        }
+        notifyDataSetChanged();
+    }
+
     public void setItemChecked(int position) {
         int size = data.size();
         for (int i = 0; i < size; i++) {
@@ -59,6 +68,16 @@ public class SelectQueryListAdapter extends CommonBaseAdapter<SelectInfoBean.Dat
         return null;
     }
 
+    public SelectInfoBean.Data getItemMultiChecked() {
+        int size = data.size();
+        for (int i = 0; i < size; i++) {
+            if (data.get(i).isChecked()) {
+                return data.get(i);
+            }
+        }
+        return null;
+    }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
@@ -79,7 +98,7 @@ public class SelectQueryListAdapter extends CommonBaseAdapter<SelectInfoBean.Dat
             viewHolder.llyItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    setItemChecked(position);
+                    setItemMultiChecked(position);
                 }
             });
         }

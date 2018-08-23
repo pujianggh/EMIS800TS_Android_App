@@ -129,6 +129,9 @@ public abstract class BaseFragment extends CommonBaseFragment implements IParent
             mLoadingDialog.dismiss();
         if (mProgressDialog != null && mProgressDialog.isShowing())
             mProgressDialog.cancel();
+        if (mLoadingDialog != null) {
+            mLoadingDialog.dismiss();
+        }
     }
 
     @Override

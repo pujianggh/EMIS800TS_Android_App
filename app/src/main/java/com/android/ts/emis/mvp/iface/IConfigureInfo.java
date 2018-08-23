@@ -21,4 +21,13 @@ public interface IConfigureInfo {
      */
     public void getMaintenancePlanInfoLists(Context context, INetWorkCallBack callBack, String ticketsCode);
 
+    /**
+     * 离线数据
+     *
+     * @param context
+     * @param callBack
+     * @param dataType
+     */
+    public void getGetOfflineDataInfo(Context context, INetWorkCallBack callBack, String dataType);
+
 }

@@ -12,8 +12,10 @@ import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
 import com.android.ts.emis.adapter.StateQueryListAdapter;
 import com.android.ts.emis.base.BaseActivity;
-import com.android.ts.emis.config.DataStateQueryCenter;
+import com.android.ts.emis.config.DataCache;
 import com.android.ts.emis.mode.StateInfoBean;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +39,7 @@ public class StateQueryListActivity extends BaseActivity {
     EditText edtSearch;
 
     private StateQueryListAdapter mAdapter;
-    private StateInfoBean moduleBean;
+    private List<StateInfoBean.Data> datas;
     private int stateType = StateType.INSTANCE.getStateInfo();
     private String querySource = "";
 
@@ -68,29 +70,30 @@ public class StateQueryListActivity extends BaseActivity {
         lvListData.setAdapter(mAdapter);
         if (stateType == StateType.INSTANCE.getLocation()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_wz), null, getResources().getString(R.string.text_button_qd), true);
-            moduleBean = DataStateQueryCenter.getWZModuleData();
+            //moduleBean = DataStateQueryCenter.getWZModuleData();
             //moduleBean = DataStateQueryCenter.getWZTestModuleData();
+            datas = DataCache.getLocationCache();
         } else if (stateType == StateType.INSTANCE.getStateInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_zt), null, getResources().getString(R.string.text_button_qd), true);
-            moduleBean = DataStateQueryCenter.getBMModuleData();
+            //moduleBean = DataStateQueryCenter.getBMModuleData();
         } else if (stateType == StateType.INSTANCE.getServerType()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_fwlx), null, getResources().getString(R.string.text_button_qd), true);
             //moduleBean = DataStateQueryCenter.getFWLXModuleData();
-            moduleBean = DataStateQueryCenter.getBXNRModuleData();
+            datas = DataCache.getServerTypeCache(mUserPasswrd.getHouseCode());
         } else if (stateType == StateType.INSTANCE.getWorkOrderType()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_gdlx), null, getResources().getString(R.string.text_button_qd), true);
-            moduleBean = DataStateQueryCenter.getGDLXModuleData();
+            //moduleBean = DataStateQueryCenter.getGDLXModuleData();
         } else if (stateType == StateType.INSTANCE.getPriority()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_yxj), null, getResources().getString(R.string.text_button_qd), true);
-            moduleBean = DataStateQueryCenter.getYXJModuleData();
+            //moduleBean = DataStateQueryCenter.getYXJModuleData();
         } else if (stateType == StateType.INSTANCE.getDepartmentInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_bm), null, getResources().getString(R.string.text_button_qd), true);
-            moduleBean = DataStateQueryCenter.getBMModuleData();
+            //moduleBean = DataStateQueryCenter.getBMModuleData();
         } else if (stateType == StateType.INSTANCE.getDevice()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_sb), null, getResources().getString(R.string.text_button_qd), true);
-            moduleBean = DataStateQueryCenter.getDeviceModuleData();
+            //moduleBean = DataStateQueryCenter.getDeviceModuleData();
         }
-        mAdapter.setData(moduleBean.getData());
+        mAdapter.setData(datas);
 
         mTitleBar.getRightCtv().setOnClickListener(new View.OnClickListener() {
             @Override

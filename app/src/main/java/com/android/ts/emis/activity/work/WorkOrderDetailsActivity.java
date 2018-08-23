@@ -15,8 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.kotlinapp.action.config.AppConfig;
+import com.android.kotlinapp.action.config.StateType;
 import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
+import com.android.ts.emis.activity.common.SelectQueryListActivity;
 import com.android.ts.emis.activity.common.SignatureHandActivity;
 import com.android.ts.emis.base.BaseActivity;
 import com.android.ts.emis.config.ConstantsResults;
@@ -114,7 +116,12 @@ public class WorkOrderDetailsActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_next:
-
+                if (mBean == null || mBean.getData() == null) return;
+                if (mBean.getData().getTicketsStatus() == 0) {
+                    startActivity(new Intent(getApplicationContext(), SelectQueryListActivity.class)
+                            .putExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo())
+                            .putExtra(StrRes.INSTANCE.getTicketsCode(), mBean.getData().getTicketsCode()));
+                }
                 break;
             case R.id.rly_infoDetailAllow:
             case R.id.igv_allow:

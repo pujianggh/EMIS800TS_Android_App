@@ -23,11 +23,20 @@ object StrRes {
     val ticketsCode = base + "ticketsCode"
     val result = base + "result"
     val language = base + "language"
-    val loginJson = base + "loginJson"
     val houseName = base + "houseName"
     val houseCode = base + "houseCode"
     val ruleCode = base + "ruleCode"
     val housePhaseCode = base + "housePhaseCode"
     val estateCode = base + "estateCode"
+
+    val loginJson = base + "loginJson"
+    val equipmentJson = base + "equipmentJson"
+    val equipmentTypeJson = base + "equipmentTypeJson"
+    val estateJson = base + "estateJson"
+    val buJson = base + "buJson"
+    val priorityJson = base + "priorityJson"
+    val slaJson = base + "slaJson"
+    val ticketTypeJson = base + "ticketTypeJson"
+    val taskTypeJson = base + "taskTypeJson"
 
 }

@@ -7,16 +7,15 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.kotlinapp.action.config.StateType;
 import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
-import com.android.ts.emis.activity.common.SelectQueryListActivity;
 import com.android.ts.emis.activity.my.BindPhoneActivity;
 import com.android.ts.emis.activity.my.OffLineDownloadActivity;
 import com.android.ts.emis.activity.my.ResetPassWordActivity;
 import com.android.ts.emis.activity.my.SettingActivity;
 import com.android.ts.emis.base.BaseFragment;
 import com.android.ts.emis.utils.SPUtil;
+import com.libcommon.action.utils.LogAPPUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,7 +67,7 @@ public class SetFragment extends BaseFragment {
 //                startActivity(new Intent(getActivity(), WorkOrderDetailsActivity.class)
 //                        .putExtra(StrRes.INSTANCE.getTicketsCode(), "")
 //                        .putExtra(StrRes.INSTANCE.getTitle(), ""));
-                startActivity(new Intent(getActivity(), SelectQueryListActivity.class).putExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo()));
+                //startActivity(new Intent(getActivity(), SelectQueryListActivity.class).putExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo()));
                 break;
             case R.id.rly_bindPhone:
                 startActivity(new Intent(getActivity(), BindPhoneActivity.class));

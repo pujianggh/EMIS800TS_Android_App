@@ -118,6 +118,30 @@ public class OkhttpUtil {
                                         if ("login".equals(constantUrl)) {
                                             SPUtil.INSTANCE.putString(StrRes.INSTANCE.getLoginJson(), response.toString());
                                         }
+                                        if ("equipment".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getEquipmentJson(), response.toString());
+                                        }
+                                        if ("equipmenttype".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getEquipmentTypeJson(), response.toString());
+                                        }
+                                        if ("estate".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getEstateJson(), response.toString());
+                                        }
+                                        if ("bu".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getBuJson(), response.toString());
+                                        }
+                                        if ("priority".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getPriorityJson(), response.toString());
+                                        }
+                                        if ("sla".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getSlaJson(), response.toString());
+                                        }
+                                        if ("tickettype".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getTicketTypeJson(), response.toString());
+                                        }
+                                        if ("tasktype".equals(constantUrl)) {
+                                            SPUtil.INSTANCE.putString(StrRes.INSTANCE.getTaskTypeJson(), response.toString());
+                                        }
                                         try {
                                             Gson gson = new Gson();
                                             final T t = gson.fromJson(response.toString(), clas);

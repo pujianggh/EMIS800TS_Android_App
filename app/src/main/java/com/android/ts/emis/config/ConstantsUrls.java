@@ -31,10 +31,12 @@ public class ConstantsUrls {
     //新增工单
     public static String AddTickets = "/TicketsManage/AddTickets";
     //获取工单详细信息
-    public static String GetTicketsByTicketsCode = "/TicketsManage/App_GetTicketsByTicketsCode";
+    public static String GetTicketsByTicketsCode = "/TicketsManage/GetTicketsByTicketsCode";
 
 
     //获取执行人列表
-    public static String GetMaintenancePlanInfoByCalendarCode = "/v1/Executor/App_GetMaintenancePlanInfoByCalendarCode";
+    public static String GetExecutorByTicketsCode = "/v1/Executor/App_GetExecutorByTicketsCode";
+    //离线数据
+    public static String GetOfflineData = "/OfflineData/GetOfflineData";
 
 }

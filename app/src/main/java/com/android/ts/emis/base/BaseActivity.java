@@ -211,6 +211,9 @@ public abstract class BaseActivity extends CommonBaseSwipeBackActivity implement
             mLoading.dismiss();
         if (mProgressDialog != null && mProgressDialog.isShowing())
             mProgressDialog.cancel();
+        if (mLoadingDialog != null) {
+            mLoadingDialog.dismiss();
+        }
     }
 
     @Override

@@ -12,7 +12,6 @@ import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
 import com.android.ts.emis.adapter.SelectQueryListAdapter;
 import com.android.ts.emis.base.BaseActivity;
-import com.android.ts.emis.config.DataStateQueryCenter;
 import com.android.ts.emis.mode.MaintenancePlanInfoBean;
 import com.android.ts.emis.mode.SelectInfoBean;
 import com.android.ts.emis.mvp.iface.IConfigureInfo;
@@ -50,7 +49,6 @@ public class SelectQueryListActivity extends BaseActivity {
     Button btnCancel;
 
     private SelectQueryListAdapter mAdapter;
-    private SelectInfoBean moduleBean;
     private IConfigureInfo iConfigureInfo;
     private int stateType = StateType.INSTANCE.getPeopleInfo();
     private String mTicketsCode = "";
@@ -59,7 +57,6 @@ public class SelectQueryListActivity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_select_query_list);
         ButterKnife.bind(this);
-        stateType = getIntent().getIntExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo());
 
         initData();
     }
@@ -80,7 +77,6 @@ public class SelectQueryListActivity extends BaseActivity {
     private void getResponseData() {
         if (stateType == StateType.INSTANCE.getPeopleInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_select_query_list_title), null, true);
-            moduleBean = DataStateQueryCenter.getPGRYModuleData2();
             showLoading();
             if (iConfigureInfo == null)
                 iConfigureInfo = new ConfigureInfoImpl();
@@ -112,7 +108,6 @@ public class SelectQueryListActivity extends BaseActivity {
                         mAdapter = new SelectQueryListAdapter(mContext);
                         lvListData.setAdapter(mAdapter);
                         mAdapter.setData(dataBean.getData());
-                        mAdapter.setItemChecked(getIntent().getStringExtra(StrRes.INSTANCE.getSource()));
                     }
                 }
 
@@ -125,7 +120,8 @@ public class SelectQueryListActivity extends BaseActivity {
     }
 
     private void initData() {
-        mTicketsCode = "CM234-20180817-0078";
+        stateType = getIntent().getIntExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo());
+        mTicketsCode = getIntent().getStringExtra(StrRes.INSTANCE.getTicketsCode());
         getResponseData();
         rlRootRefresh.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
         rlRootRefresh.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
