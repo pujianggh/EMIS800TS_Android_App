@@ -25,16 +25,20 @@ import com.android.ts.emis.config.ConstantsResults;
 import com.android.ts.emis.config.RequestCode;
 import com.android.ts.emis.config.ResultCode;
 import com.android.ts.emis.mode.TicketDetailInfoBean;
+import com.android.ts.emis.mode.json.UpdateTicketJson;
 import com.android.ts.emis.mvp.iface.IWorkOrderInfo;
 import com.android.ts.emis.mvp.impl.WrokOrderInfoImpl;
+import com.android.ts.emis.mvp.presenter.WorkOrderDetailsPresenter;
+import com.android.ts.emis.mvp.view.IWorkOrderDetailsView;
 import com.android.ts.emis.utils.PopupWindowUtil;
-import com.libcommon.action.net.INetWorkCallBack;
 import com.libcommon.action.utils.APPToolsUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.Headers;
 
 /**
  * 工作-工单详情
@@ -44,7 +48,7 @@ import okhttp3.Headers;
  * @mail 515210530@qq.com
  * @Description:
  */
-public class WorkOrderDetailsActivity extends BaseActivity {
+public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrderDetailsView {
     @BindView(R.id.layout_titleBar)
     LinearLayout layoutTitleBar;
     @BindView(R.id.lly_infoDetails)
@@ -95,6 +99,7 @@ public class WorkOrderDetailsActivity extends BaseActivity {
     private int infoDetailFlag = 0;
     private IWorkOrderInfo iWorkOrderInfo;
     private TicketDetailInfoBean mBean;
+    private WorkOrderDetailsPresenter mPresenter;
 
     @Override
     public boolean isSupportSwipeBack() {
@@ -105,7 +110,8 @@ public class WorkOrderDetailsActivity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_work_orderdetails);
         ButterKnife.bind(this);
-        setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_gd), null, true);
+        setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_gd), "", "···", true);
+        mPresenter = new WorkOrderDetailsPresenter(this, this);
 
         initData();
         initEvent();
@@ -117,7 +123,43 @@ public class WorkOrderDetailsActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.btn_next:
                 if (mBean == null || mBean.getData() == null) return;
-                if (mBean.getData().getTicketsStatus() == 0) {
+                if (mBean.getData().getTicketsStatus() == 1) {//接单
+
+                    if (iWorkOrderInfo == null)
+                        iWorkOrderInfo = new WrokOrderInfoImpl();
+                    showLoading();
+                    UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                    updateTicketJson.setActionType(4);
+                    updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                    updateTicketJson.setTicketsStatus(3);
+                    updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                    List<UpdateTicketJson.ExecutorListBean> listBeans = new ArrayList<>();
+                    UpdateTicketJson.ExecutorListBean bean = new UpdateTicketJson.ExecutorListBean();
+                    bean.setExecutorCode("ET_PROPERTY_20170619154204");
+                    bean.setID(28);
+                    listBeans.add(bean);
+                    updateTicketJson.setExecutorList(listBeans);
+                    mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+
+                } else if (mBean.getData().getTicketsStatus() == 6) {//验证
+
+                    if (mBean == null || mBean.getData() == null) return;
+                    if (iWorkOrderInfo == null)
+                        iWorkOrderInfo = new WrokOrderInfoImpl();
+                    showLoading();
+                    UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                    updateTicketJson.setActionType(22);
+                    updateTicketJson.setIsPass("1");
+                    updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                    updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                    updateTicketJson.setDescription("测试性通过处理");
+
+                    mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+
+                } else if (mBean.getData().getTicketsStatus() == 7) {//评价工单
+                    startActivity(new Intent(getApplicationContext(), WorkOrderEvaluateActivity.class)
+                            .putExtra(StrRes.INSTANCE.getTicketsCode(), mBean.getData().getTicketsCode()));
+                } else if (mBean.getData().getTicketsStatus() == 0) {
                     startActivity(new Intent(getApplicationContext(), SelectQueryListActivity.class)
                             .putExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo())
                             .putExtra(StrRes.INSTANCE.getTicketsCode(), mBean.getData().getTicketsCode()));
@@ -144,7 +186,16 @@ public class WorkOrderDetailsActivity extends BaseActivity {
                 break;
             case R.id.btn_Ok:
 
-                onBackPressed();
+                if (mBean == null || mBean.getData() == null) return;
+                if (iWorkOrderInfo == null)
+                    iWorkOrderInfo = new WrokOrderInfoImpl();
+                showLoading();
+                UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                updateTicketJson.setActionType(13);
+                updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+
                 break;
             case R.id.igv_signHand:
             case R.id.lly_signHand:
@@ -157,6 +208,11 @@ public class WorkOrderDetailsActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void successBackPressed() {
+        onBackPressed();
+    }
+
     private void initData() {
         mTicketsCode = getIntent().getStringExtra(StrRes.INSTANCE.getTicketsCode());
         mTitleBar.setTitleText(mTicketsCode);
@@ -164,27 +220,11 @@ public class WorkOrderDetailsActivity extends BaseActivity {
         if (iWorkOrderInfo == null)
             iWorkOrderInfo = new WrokOrderInfoImpl();
         showLoading();
-        iWorkOrderInfo.getTicketsWorkOrderInfo(mContext, new INetWorkCallBack() {
-            @Override
-            public void noNetWork() {
-                hideLoading();
-            }
-
-            @Override
-            public <T> void onSuccess(T t, Headers headers, Class cla, String constantUrl) {
-                hideLoading();
-                TicketDetailInfoBean bean = (TicketDetailInfoBean) t;
-                setUIData(bean);
-            }
-
-            @Override
-            public void onError(int status, String str, Class cla, String constantUrl) {
-                hideLoading();
-            }
-        }, mTicketsCode);
+        mPresenter.getWorkOrderDetailsInfo(mTicketsCode);
     }
 
-    private void setUIData(TicketDetailInfoBean bean) {
+    @Override
+    public void setUIData(TicketDetailInfoBean bean) {
         if (bean == null) return;
         if (bean.getData() == null) return;
         mBean = bean;
@@ -198,37 +238,86 @@ public class WorkOrderDetailsActivity extends BaseActivity {
         tvServerType.setText("");
         tvGjTime.setText(mBean.getData().getForecastEndTime());
 
-        //0:全部 1：待处理工单 2：待派批工单（待派工) 3：待审批工单 4：待存档工单 5：待评价工单
-        llyDshState.setVisibility(View.GONE);
-        btnNext.setVisibility(View.GONE);
-
         tvState.setText(mBean.getData().getTicketsStatusName());
         tvState.setBackgroundResource(ConstantsResults.getTicketsStatusColor(mBean.getData().getTicketsStatus()));
 
-        btnNext.setVisibility(View.VISIBLE);
         btnNext.setText(ConstantsResults.getTicketsStatusText(mBean.getData().getTicketsStatus()));
         //UIViewToolsUtil.initUIPhotosData(this, mBean.getPhotosList(), rlvPhotos, 5);
+
+        //0:全部 1：待处理工单 2：待派批工单（待派工) 3：待审批工单 4：待存档工单 5：待评价工单
+        llyBottom.setVisibility(View.GONE);
+        llyDshState.setVisibility(View.GONE);
+        btnNext.setVisibility(View.GONE);
+        if (mBean.getData().getTicketsStatus() == 1) {//已创建-接单
+            llyBottom.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+
+        } else if (mBean.getData().getTicketsStatus() == 3) {//处理中-填写工作内容，完工
+            llyBottom.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.GONE);
+            llyDshState.setVisibility(View.VISIBLE);
+
+        } else if (mBean.getData().getTicketsStatus() == 6) {//已存档-验证
+            llyBottom.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnNext.setText(getResources().getString(R.string.text_state_yz));
+            llyDshState.setVisibility(View.GONE);
+
+        } else if (mBean.getData().getTicketsStatus() == 7) {//已存档-验证
+            llyBottom.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnNext.setText(getResources().getString(R.string.text_state_pj));
+
+        }
     }
 
     private void initEvent() {
+
         mTitleBar.getRightCtv().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mBean == null || mBean.getData() == null) return;
                 if (mPopupWindowUtil == null)
                     mPopupWindowUtil = new PopupWindowUtil(mContext);
-                mPopupWindowUtil.showWorkOrderDetailsWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
-                    @Override
-                    public void onPopuwindowClick(int id) {
-                        switch (id) {
-                            case R.id.igv_add:
-                                break;
-                            case R.id.igv_ewm:
-                                break;
+                if (mBean.getData().getTicketsStatus() == 1) {//已创建-接单
+                    mPopupWindowUtil.showWorkOrderAcceptWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
+                        @Override
+                        public void onPopuwindowClick(int id) {
+                            switch (id) {
+                                case R.id.lly_table1:
+                                    break;
+                                case R.id.lly_table2:
+                                    break;
+                                case R.id.lly_table3:
+                                    break;
+                                case R.id.lly_table4:
+                                    break;
+                            }
                         }
-                    }
-                });
+                    });
+                } else if (mBean.getData().getTicketsStatus() == 3) {//处理中
+                    mPopupWindowUtil.showWorkOrderCLZWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
+                        @Override
+                        public void onPopuwindowClick(int id) {
+                            switch (id) {
+                                case R.id.lly_table1:
+                                    break;
+                                case R.id.lly_table2:
+                                    break;
+                                case R.id.lly_table3:
+                                    break;
+                                case R.id.lly_table4:
+                                    break;
+                                case R.id.lly_table5:
+                                    break;
+                            }
+                        }
+                    });
+                }
+
             }
         });
+
     }
 
     @Override

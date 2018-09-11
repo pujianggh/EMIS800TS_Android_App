@@ -49,6 +49,7 @@
     <string name="text_state_ycj">已创建</string>
     <string name="text_state_dsp">待审批</string>
     <string name="text_state_kpj">可评价</string>
+    <string name="text_state_pj">评价</string>
 
 
     <!-- app权限提示语 -->
@@ -62,8 +63,11 @@
     <string name="text_popupWindow_clwc">处理完成</string>
     <string name="text_popupWindow_zt">暂停</string>
     <string name="text_popupWindow_zz">终止</string>
+    <string name="text_popupWindow_zf">作废</string>
+    <string name="text_popupWindow_td">退单</string>
     <string name="text_popupWindow_tk">退款</string>
     <string name="text_popupWindow_sqsp">申请审批</string>
+    <string name="text_popupWindow_sqpz">申请批准</string>
     <string name="text_popupWindow_qx">取消</string>
 
     <!-- 主页Main -->

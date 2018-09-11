@@ -5,8 +5,10 @@ import android.content.Context;
 import com.android.ts.emis.config.ConstantsUrls;
 import com.android.ts.emis.mode.AddTicketBean;
 import com.android.ts.emis.mode.TicketDetailInfoBean;
+import com.android.ts.emis.mode.UpdateTicketBean;
 import com.android.ts.emis.mode.WorkOrderQueryListBean;
 import com.android.ts.emis.mode.json.AddTicketJson;
+import com.android.ts.emis.mode.json.UpdateTicketJson;
 import com.android.ts.emis.mvp.iface.IWorkOrderInfo;
 import com.android.ts.emis.net.OkhttpUtil;
 import com.google.gson.Gson;
@@ -22,6 +24,17 @@ import java.util.Map;
  * @Description:
  */
 public class WrokOrderInfoImpl implements IWorkOrderInfo {
+
+    /**
+     * @param context
+     * @param callBack
+     * @param acceptTicketJson
+     */
+    @Override
+    public void getUpdateTickets(Context context, INetWorkCallBack callBack, UpdateTicketJson acceptTicketJson) {
+        OkhttpUtil.postJsonClass(context, ConstantsUrls.EditTickets, new Gson().toJson(acceptTicketJson).toString(), UpdateTicketBean.class,
+                OkhttpUtil.GetUrlMode.NORMAL, callBack);
+    }
 
     /**
      * 添加工单

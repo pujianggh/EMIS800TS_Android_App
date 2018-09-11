@@ -257,7 +257,7 @@ public class WorkOrderCreateActivity extends BaseActivity {
         addTicketJson.setOrderType("CM");
         addTicketJson.setHouseCode(mUserPasswrd.getHouseCode());
         addTicketJson.setHousePhaseCode("9d642d20-7520-4027-8048-61299a040ebc");
-        addTicketJson.setEstateCode("557cc8f-e614-4672-bc0a-906196aa1ea2");
+        addTicketJson.setEstateCode("1557cc8f-e614-4672-bc0a-906196aa1ea2");
         addTicketJson.setTicketsFrom("APP");
         addTicketJson.setRepairBy(mUserPasswrd.getUserName());
         addTicketJson.setDepartment("IT");

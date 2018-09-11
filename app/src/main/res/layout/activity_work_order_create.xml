@@ -85,7 +85,7 @@
                         android:background="@android:color/transparent"
                         android:gravity="right|center_vertical"
                         android:inputType="phone"
-                        android:maxLength="15"
+                        android:maxLength="11"
                         android:textCursorDrawable="@drawable/cursor_color_red" />
                 </RelativeLayout>
 

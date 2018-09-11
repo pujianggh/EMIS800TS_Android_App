@@ -68,7 +68,7 @@ public class WorkOrderListPresenter extends INetWorkCallBack {
     @Override
     public <T> void onPullUpSuccess(T t, Class cla, String constantUrl) {
         iWorkOrderListView.hideLoading();
-        if (WorkOrderQueryListBean.class == t) {
+        if (WorkOrderQueryListBean.class == cla) {
             WorkOrderQueryListBean workOrderQueryListBean = (WorkOrderQueryListBean) t;
             iWorkOrderListView.addWorkOrderLists(workOrderQueryListBean);
         }

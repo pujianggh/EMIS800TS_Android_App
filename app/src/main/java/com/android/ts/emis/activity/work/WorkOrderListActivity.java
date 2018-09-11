@@ -45,6 +45,13 @@ public class WorkOrderListActivity extends BaseActivity implements IWorkOrderLis
         setContentView(R.layout.activity_work_order_list);
         ButterKnife.bind(this);
 
+        rlRootRefresh.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
+        rlRootRefresh.beginRefreshing();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         initData();
     }
 
@@ -73,7 +80,7 @@ public class WorkOrderListActivity extends BaseActivity implements IWorkOrderLis
                 mTicketsStatus = "7";
                 break;
         }
-        rlRootRefresh.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
+
         rlRootRefresh.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
@@ -86,7 +93,6 @@ public class WorkOrderListActivity extends BaseActivity implements IWorkOrderLis
                 return mTotalPage > mPage;
             }
         });
-        rlRootRefresh.beginRefreshing();
         getResponseData(true);
     }
 
@@ -105,9 +111,9 @@ public class WorkOrderListActivity extends BaseActivity implements IWorkOrderLis
 
     @Override
     public void addWorkOrderLists(WorkOrderQueryListBean workOrderQueryListBean) {
-        rlRootRefresh.endLoadingMore();
         datas.addAll(workOrderQueryListBean.getData().getTicketsList());
         mAdapter.notifyDataSetChanged();
+        rlRootRefresh.endLoadingMore();
     }
 
     private void getResponseData(boolean isRefresh) {

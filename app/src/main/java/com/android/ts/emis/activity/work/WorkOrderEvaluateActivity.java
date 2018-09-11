@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 import com.android.kotlinapp.action.config.StrRes;
 import com.android.ts.emis.R;
 import com.android.ts.emis.base.BaseActivity;
-import com.android.ts.emis.mode.WorkOrderListBean;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,7 +41,6 @@ public class WorkOrderEvaluateActivity extends BaseActivity {
     @BindView(R.id.rg_serveDegree)
     RadioGroup rgServeDegree;
 
-    private WorkOrderListBean.Data mBean = null;
     private String mServeFinish = "是";
     private String mServePlease = "满意";
     private String mServeDegree = "满意";
@@ -52,8 +50,9 @@ public class WorkOrderEvaluateActivity extends BaseActivity {
         setContentView(R.layout.activity_work_orderevaluate);
         ButterKnife.bind(this);
 
-        mBean = (WorkOrderListBean.Data) getIntent().getSerializableExtra(StrRes.INSTANCE.getMode());
-        initData();
+        String title = (String) getIntent().getStringExtra(StrRes.INSTANCE.getTicketsCode());
+        if (title != null)
+            setTitleBarLayout(R.drawable.icon_back_white_bar, title, null, true);
         initEvent();
     }
 
@@ -71,11 +70,6 @@ public class WorkOrderEvaluateActivity extends BaseActivity {
                 onBackPressed();
                 break;
         }
-    }
-
-    private void initData() {
-        if (mBean != null)
-            setTitleBarLayout(R.drawable.icon_back_white_bar, mBean.getLocation(), null, true);
     }
 
     private void initEvent() {

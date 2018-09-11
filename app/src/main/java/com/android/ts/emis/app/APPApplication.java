@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.android.kotlinapp.action.config.AppConfig;
 import com.android.ts.emis.BuildConfig;
 import com.android.ts.emis.activity.MainActivity;
+import com.android.ts.emis.net.OkhttpUtil;
 import com.android.ts.emis.utils.ToastUtil;
 import com.libcommon.action.base.CommonBaseApplication;
 import com.libcommon.action.utils.APPToolsUtil;
@@ -80,7 +81,8 @@ public class APPApplication extends CommonBaseApplication {
             @Override
             public void onSuccess(String deviceToken) {
                 //注册成功会返回device tokend
-                LogAPPUtil.i("mPushAgent==>deviceToken:"+deviceToken);
+                OkhttpUtil.drivice = deviceToken;
+                LogAPPUtil.i("mPushAgent==>deviceToken:" + deviceToken);
             }
 
             @Override

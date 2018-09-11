@@ -30,6 +30,8 @@ public class ConstantsUrls {
     public static String GetTicketsByConditionQuery = "/TicketsManage/GetTicketsByConditionQuery";
     //新增工单
     public static String AddTickets = "/TicketsManage/AddTickets";
+    //编辑工单状态
+    public static String EditTickets = "/TicketsManage/EditTickets";
     //获取工单详细信息
     public static String GetTicketsByTicketsCode = "/TicketsManage/GetTicketsByTicketsCode";
 

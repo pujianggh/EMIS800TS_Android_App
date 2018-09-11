@@ -76,17 +76,17 @@ public class PropertyManageDetailsActivity extends BaseActivity {
             public void onClick(View v) {
                 if (mPopupWindowUtil == null)
                     mPopupWindowUtil = new PopupWindowUtil(mContext);
-                mPopupWindowUtil.showWorkOrderDetailsWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
-                    @Override
-                    public void onPopuwindowClick(int id) {
-                        switch (id) {
-                            case R.id.igv_add:
-                                break;
-                            case R.id.igv_ewm:
-                                break;
-                        }
-                    }
-                });
+//                mPopupWindowUtil.showWorkOrderDetailsWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
+//                    @Override
+//                    public void onPopuwindowClick(int id) {
+//                        switch (id) {
+//                            case R.id.igv_add:
+//                                break;
+//                            case R.id.igv_ewm:
+//                                break;
+//                        }
+//                    }
+//                });
             }
         });
     }

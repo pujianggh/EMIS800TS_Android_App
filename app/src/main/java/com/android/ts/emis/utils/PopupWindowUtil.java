@@ -40,6 +40,45 @@ public class PopupWindowUtil {
     }
 
     /**
+     * 展示验证内容
+     */
+    public void showInputerifyWindow() {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.window_set_connectset, null);
+        final EditText edtURL = (EditText) view.findViewById(R.id.edt_URL);
+        final Button btnCancel = (Button) view.findViewById(R.id.btn_cancel);
+        final Button btnConfirm = (Button) view.findViewById(R.id.btn_confirm);
+        final PopupWindow popupWindow = new PopupWindow(mContext);
+        popupWindow.setContentView(view);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        backgroundAlpha(0.3f);
+        popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
+        popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                backgroundAlpha(1f);
+            }
+        });
+        popupWindow.showAsDropDown(view);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+    }
+
+    /**
      * 计划性维护详情
      *
      * @param locationView
@@ -128,11 +167,13 @@ public class PopupWindowUtil {
      * @param locationView
      * @param popuwindowClick
      */
-    public void showWorkOrderDetailsWindow(View locationView, final OnPopuwindowClick popuwindowClick) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.window_workorder_details, null);
-        final ImageView igv_clwc = (ImageView) view.findViewById(R.id.igv_clwc);
-        final ImageView igv_qx = (ImageView) view.findViewById(R.id.igv_qx);
-        final LinearLayout llyRoot = (LinearLayout) view.findViewById(R.id.lly_window_root);
+    public void showWorkOrderAcceptWindow(View locationView, final OnPopuwindowClick popuwindowClick) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.window_workorder_accept, null);
+        final LinearLayout lly_table1 = (LinearLayout) view.findViewById(R.id.lly_table1);
+        final LinearLayout lly_table2 = (LinearLayout) view.findViewById(R.id.lly_table2);
+        final LinearLayout lly_table3 = (LinearLayout) view.findViewById(R.id.lly_table3);
+        final LinearLayout lly_table4 = (LinearLayout) view.findViewById(R.id.lly_table4);
+        final LinearLayout lly_table5 = (LinearLayout) view.findViewById(R.id.lly_table5);
         final PopupWindow popupWindow = new PopupWindow(mContext);
         popupWindow.setContentView(view);
         popupWindow.setTouchable(true);
@@ -150,18 +191,112 @@ public class PopupWindowUtil {
                 backgroundAlpha(1f);
             }
         });
-        igv_clwc.setOnClickListener(new View.OnClickListener() {
+        lly_table1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 popupWindow.dismiss();
                 popuwindowClick.onPopuwindowClick(v.getId());
             }
         });
-        igv_qx.setOnClickListener(new View.OnClickListener() {
+        lly_table2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 popupWindow.dismiss();
                 popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+    }
+
+    /**
+     * 工单详细菜单
+     *
+     * @param locationView
+     * @param popuwindowClick
+     */
+    public void showWorkOrderCLZWindow(View locationView, final OnPopuwindowClick popuwindowClick) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.window_workorder_clz, null);
+        final LinearLayout lly_table1 = (LinearLayout) view.findViewById(R.id.lly_table1);
+        final LinearLayout lly_table2 = (LinearLayout) view.findViewById(R.id.lly_table2);
+        final LinearLayout lly_table3 = (LinearLayout) view.findViewById(R.id.lly_table3);
+        final LinearLayout lly_table4 = (LinearLayout) view.findViewById(R.id.lly_table4);
+        final LinearLayout lly_table5 = (LinearLayout) view.findViewById(R.id.lly_table5);
+        final LinearLayout lly_table6 = (LinearLayout) view.findViewById(R.id.lly_table6);
+        final PopupWindow popupWindow = new PopupWindow(mContext);
+        popupWindow.setContentView(view);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        backgroundAlpha(0.3f);
+        popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
+        popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        popupWindow.showAsDropDown(locationView);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                backgroundAlpha(1f);
+            }
+        });
+        lly_table1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
             }
         });
     }

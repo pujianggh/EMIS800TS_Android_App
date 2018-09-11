@@ -515,7 +515,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:gravity="center"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <Button
             android:id="@+id/btn_next"
@@ -523,7 +523,7 @@
             android:layout_marginLeft="@dimen/item_dp10"
             android:layout_marginRight="@dimen/item_dp10"
             android:text="@string/text_work_order_details_btn_jd"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/lly_dshState"
