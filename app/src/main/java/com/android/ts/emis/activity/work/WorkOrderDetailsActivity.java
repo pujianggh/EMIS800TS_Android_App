@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.kotlinapp.action.config.AppConfig;
@@ -94,8 +93,8 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     LinearLayout llyBottom;
     @BindView(R.id.lly_history)
     LinearLayout llyHistory;
-    @BindView(R.id.rly_root)
-    RelativeLayout rlyRoot;
+    @BindView(R.id.lly_root)
+    LinearLayout llyRoot;
 
     private PopupWindowUtil mPopupWindowUtil = null;
     private String mTicketsCode = "";
@@ -369,7 +368,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     private void toZTInfo() {
         if (mPopupWindowUtil == null)
             mPopupWindowUtil = new PopupWindowUtil(mContext);
-        mPopupWindowUtil.showTDGDWorkOrderWindow(rlyRoot, "暂停工单", "暂停原因", "不继续工作", "继续工作", 2,
+        mPopupWindowUtil.showTDGDWorkOrderWindow(llyRoot, "暂停工单", "暂停原因", "不继续工作", "继续工作", 2,
                 new PopupWindowUtil.OnPopuwindowClickInput() {
                     @Override
                     public void onPopuwindowClick(int id, String message) {
@@ -404,7 +403,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     private void toZFGDInfo() {
         if (mPopupWindowUtil == null)
             mPopupWindowUtil = new PopupWindowUtil(mContext);
-        mPopupWindowUtil.showTDGDWorkOrderWindow(rlyRoot, "作废工单", "作废原因", "", "作废", 1,
+        mPopupWindowUtil.showTDGDWorkOrderWindow(llyRoot, "作废工单", "作废原因", "", "作废", 1,
                 new PopupWindowUtil.OnPopuwindowClickInput() {
                     @Override
                     public void onPopuwindowClick(int id, String message) {
@@ -428,7 +427,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     private void toTDInfo() {
         if (mPopupWindowUtil == null)
             mPopupWindowUtil = new PopupWindowUtil(mContext);
-        mPopupWindowUtil.showTDGDWorkOrderWindow(rlyRoot, "退单工单", "退单原因", "", "退单", 1,
+        mPopupWindowUtil.showTDGDWorkOrderWindow(llyRoot, "退单工单", "退单原因", "", "退单", 1,
                 new PopupWindowUtil.OnPopuwindowClickInput() {
                     @Override
                     public void onPopuwindowClick(int id, String message) {
