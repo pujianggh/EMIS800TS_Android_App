@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchMatch.Vertical"
+    android:id="@+id/rly_root"
     android:background="@color/color_black_bg">
 
     <include layout="@layout/layout_title_bar" />
