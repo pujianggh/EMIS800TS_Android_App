@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lly_window_root"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/colorBlackBg"
+    android:gravity="bottom">
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <LinearLayout
+            style="@style/MatchAuto.Horizontal"
+            android:layout_height="@dimen/item_dp50"
+            android:background="@color/color_black_bg"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/Text_Common_Style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_dp45"
+                android:layout_marginLeft="@dimen/item_dp15"
+                android:layout_marginRight="@dimen/item_dp15"
+                android:gravity="center_vertical"
+                android:text="@string/text_work_order_details_title"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edt_content"
+            style="@style/Edit_MatchWrap_Style2"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/item_dp15"
+            android:layout_marginLeft="@dimen/spacing_min"
+            android:layout_marginRight="@dimen/spacing_min"
+            android:background="@drawable/shape_line_roundbg"
+            android:hint="退单原因"
+            android:inputType="textMultiLine"
+            android:paddingBottom="@dimen/item_dp70"
+            android:paddingTop="@dimen/item_dp10"
+            android:textCursorDrawable="@drawable/cursor_color_red" />
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_next0"
+                style="@style/Button_Common_Style_Black"
+                android:layout_marginBottom="@dimen/spacing_min"
+                android:layout_marginLeft="@dimen/item_dp15"
+                android:layout_marginRight="@dimen/item_dp15"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button_gary"
+                android:text="@string/text_popupWindow_td"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_next"
+                style="@style/Button_Common_Style_Black"
+                android:layout_marginBottom="@dimen/spacing_min"
+                android:layout_marginLeft="@dimen/item_dp15"
+                android:layout_marginRight="@dimen/item_dp15"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:text="@string/text_popupWindow_td"
+                android:visibility="visible" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

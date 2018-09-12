@@ -91,6 +91,15 @@ public class UpdateTicketJson implements Serializable {
 
         private int ID;
         private String ExecutorCode;
+        private String Remark;
+
+        public String getRemark() {
+            return Remark;
+        }
+
+        public void setRemark(String remark) {
+            Remark = remark;
+        }
 
         public int getID() {
             return ID;

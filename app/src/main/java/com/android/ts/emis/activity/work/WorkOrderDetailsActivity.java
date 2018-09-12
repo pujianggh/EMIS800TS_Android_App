@@ -303,10 +303,13 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                                 case R.id.lly_table1:
                                     break;
                                 case R.id.lly_table2:
+                                    toZTInfo();
                                     break;
                                 case R.id.lly_table3:
+                                    toZFGDInfo();
                                     break;
                                 case R.id.lly_table4:
+                                    toTDInfo();
                                     break;
                                 case R.id.lly_table5:
                                     break;
@@ -355,5 +358,95 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
             String mSource = data.getStringExtra(StrRes.INSTANCE.getSource());
             onBackPressed();
         }
+    }
+
+    /**
+     * 暂停
+     */
+    private void toZTInfo() {
+        if (mPopupWindowUtil == null)
+            mPopupWindowUtil = new PopupWindowUtil(mContext);
+        mPopupWindowUtil.showTDGDWorkOrderWindow(layoutTitleBar, "暂停工单", "暂停原因", "不继续工作", "继续工作", 2,
+                new PopupWindowUtil.OnPopuwindowClickInput() {
+                    @Override
+                    public void onPopuwindowClick(int id, String message) {
+                        if (id == R.id.btn_next) {//暂停-继续工作
+                            showLoading();
+                            UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                            updateTicketJson.setActionType(6);
+                            updateTicketJson.setTicketsStatus(4);
+                            updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                            updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                            if (!TextUtils.isEmpty(message))
+                                updateTicketJson.setDescription(message);
+                            mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+                        } else if (id == R.id.btn_next0) {//暂停-不继续工作
+                            showLoading();
+                            UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                            updateTicketJson.setActionType(8);
+                            updateTicketJson.setTicketsStatus(5);
+                            updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                            updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                            if (!TextUtils.isEmpty(message))
+                                updateTicketJson.setDescription(message);
+                            mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 作废工单
+     */
+    private void toZFGDInfo() {
+        if (mPopupWindowUtil == null)
+            mPopupWindowUtil = new PopupWindowUtil(mContext);
+        mPopupWindowUtil.showTDGDWorkOrderWindow(layoutTitleBar, "作废工单", "作废原因", "", "作废", 1,
+                new PopupWindowUtil.OnPopuwindowClickInput() {
+                    @Override
+                    public void onPopuwindowClick(int id, String message) {
+                        if (id == R.id.btn_next) {
+                            showLoading();
+                            UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                            updateTicketJson.setActionType(20);
+                            updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                            updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                            if (!TextUtils.isEmpty(message))
+                                updateTicketJson.setDescription(message);
+                            mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 退单
+     */
+    private void toTDInfo() {
+        if (mPopupWindowUtil == null)
+            mPopupWindowUtil = new PopupWindowUtil(mContext);
+        mPopupWindowUtil.showTDGDWorkOrderWindow(layoutTitleBar, "退单工单", "退单原因", "", "退单", 1,
+                new PopupWindowUtil.OnPopuwindowClickInput() {
+                    @Override
+                    public void onPopuwindowClick(int id, String message) {
+                        if (id == R.id.btn_next) {
+                            showLoading();
+                            UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                            updateTicketJson.setActionType(5);
+                            updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                            updateTicketJson.setTicketsStatus(3);
+                            updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                            List<UpdateTicketJson.ExecutorListBean> listBeans = new ArrayList<>();
+                            UpdateTicketJson.ExecutorListBean bean = new UpdateTicketJson.ExecutorListBean();
+                            bean.setExecutorCode("ET_PROPERTY_20170619154204");
+                            bean.setID(28);
+                            if (!TextUtils.isEmpty(message))
+                                bean.setRemark(message);
+                            listBeans.add(bean);
+                            updateTicketJson.setExecutorList(listBeans);
+                            mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+                        }
+                    }
+                });
     }
 }

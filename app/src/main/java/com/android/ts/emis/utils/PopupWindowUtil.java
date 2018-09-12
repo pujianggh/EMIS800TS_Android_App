@@ -2,6 +2,7 @@ package com.android.ts.emis.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.android.ts.emis.R;
 
@@ -52,7 +54,7 @@ public class PopupWindowUtil {
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-        backgroundAlpha(0.3f);
+        backgroundAlpha(0.2f);
         popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
         popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -94,7 +96,7 @@ public class PopupWindowUtil {
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-        backgroundAlpha(0.3f);
+        backgroundAlpha(0.2f);
         popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
         popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -135,7 +137,7 @@ public class PopupWindowUtil {
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-        backgroundAlpha(0.3f);
+        backgroundAlpha(0.2f);
         popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
         popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -179,7 +181,7 @@ public class PopupWindowUtil {
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-        backgroundAlpha(0.3f);
+        backgroundAlpha(0.2f);
         popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
         popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -246,7 +248,7 @@ public class PopupWindowUtil {
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-        backgroundAlpha(0.3f);
+        backgroundAlpha(0.2f);
         popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
         popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -317,7 +319,7 @@ public class PopupWindowUtil {
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-        backgroundAlpha(0.3f);
+        backgroundAlpha(0.2f);
         popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
         popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -344,6 +346,61 @@ public class PopupWindowUtil {
             }
         });
     }
+
+    /**
+     * 退单工单
+     *
+     * @param locationView
+     * @param popuwindowClickInput
+     */
+    public void showTDGDWorkOrderWindow(View locationView, String title, String inputText, String buttonText0, String buttonText, int count, final OnPopuwindowClickInput popuwindowClickInput) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.window_workorder_tdgd, null);
+        final TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+        final EditText edt_content = (EditText) view.findViewById(R.id.edt_content);
+        final Button btn_next = (Button) view.findViewById(R.id.btn_next);
+        final Button btn_next0 = (Button) view.findViewById(R.id.btn_next0);
+        final PopupWindow popupWindow = new PopupWindow(mContext);
+        popupWindow.setContentView(view);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        backgroundAlpha(0.2f);
+        popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
+        popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        popupWindow.showAsDropDown(locationView);
+
+        btn_next0.setVisibility(View.GONE);
+        if (count == 2) {
+            btn_next0.setVisibility(View.VISIBLE);
+            btn_next0.setText(buttonText0);
+        }
+        if (!TextUtils.isEmpty(title)) tv_title.setText(title);
+        if (!TextUtils.isEmpty(inputText)) edt_content.setHint(inputText);
+        if (!TextUtils.isEmpty(buttonText)) btn_next.setText(buttonText);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                backgroundAlpha(1f);
+            }
+        });
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClickInput.onPopuwindowClick(v.getId(), edt_content.getText().toString());
+            }
+        });
+        btn_next0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClickInput.onPopuwindowClick(v.getId(), edt_content.getText().toString());
+            }
+        });
+    }
+
 
     /**
      * 设置添加屏幕的背景透明度
