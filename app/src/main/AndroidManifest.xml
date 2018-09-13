@@ -119,6 +119,12 @@
             android:theme="@style/AppThemeDefaultStyle"
             android:windowSoftInputMode="stateHidden" />
 
+        <!-- 工作-申请审批 -->
+        <activity
+            android:name=".activity.work.WorkOrderApplyApproveActivity"
+            android:theme="@style/AppThemeDefaultStyle"
+            android:windowSoftInputMode="stateHidden" />
+
         <!-- 工作-工单评价 -->
         <activity
             android:name=".activity.work.WorkOrderEvaluateActivity"

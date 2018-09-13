@@ -28,7 +28,7 @@
             <TextView
                 style="@style/Text_Common_Style"
                 android:layout_marginLeft="0dp"
-                android:text="@string/text_popupWindow_clwc"
+                android:text="@string/text_popupWindow_wc"
                 android:textColor="@color/text_deepblue" />
         </LinearLayout>
 

@@ -61,6 +61,7 @@
     <string name="text_popupWindow_wxgd">维修工单</string>
     <string name="text_popupWindow_qsrfwqmm">请输入服务器密码</string>
     <string name="text_popupWindow_clwc">处理完成</string>
+    <string name="text_popupWindow_wc">完成</string>
     <string name="text_popupWindow_zt">暂停</string>
     <string name="text_popupWindow_zz">终止</string>
     <string name="text_popupWindow_zf">作废</string>
@@ -156,6 +157,9 @@
     <string name="text_work_content_input_title">工作内容填写</string>
     <string name="text_work_content_input_tip_nr">请输入工作内容描述</string>
     <string name="text_work_content_input_msg">最多可以输入1000字符</string>
+
+    <!-- 工单-申请审批 -->
+    <string name="text_work_order_apply_approve_title">申请审批</string>
 
     <!-- 工单评价 -->
     <string name="text_work_order_evaluate_title">工单评价</string>

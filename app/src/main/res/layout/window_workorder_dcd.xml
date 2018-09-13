@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lly_window_root"
+    style="@style/MatchWrap.Vertical"
+    android:background="@color/white"
+    android:gravity="top"
+    android:paddingBottom="@dimen/item_dp10"
+    android:paddingTop="@dimen/item_dp10">
+
+    <LinearLayout
+        style="@style/MatchWrap.Horizontal"
+        android:layout_height="@dimen/item_dp75"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/lly_table1"
+            style="@style/AutoMatch.Vertical"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/item_dp40"
+                android:layout_height="@dimen/item_dp40"
+                android:src="@drawable/icon_wordorder_details_zz" />
+
+            <TextView
+                style="@style/Text_Common_Style"
+                android:layout_marginLeft="0dp"
+                android:text="@string/text_popupWindow_zf"
+                android:textColor="@color/text_deepblue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lly_table6"
+            style="@style/AutoMatch.Vertical"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/igv_qx"
+                android:layout_width="@dimen/item_dp40"
+                android:layout_height="@dimen/item_dp40"
+                android:src="@drawable/icon_wordorder_details_qx" />
+
+            <TextView
+                style="@style/Text_Common_Style"
+                android:layout_marginLeft="0dp"
+                android:text="@string/text_popupWindow_qx"
+                android:textColor="@color/text_deepblue" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

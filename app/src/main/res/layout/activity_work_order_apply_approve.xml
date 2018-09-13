@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@color/color_black_bg">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ScrollView
+        style="@style/MatchMatch"
+        android:layout_above="@+id/lly_bottom"
+        android:layout_below="@+id/layout_titleBar"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout style="@style/MatchMatch.Vertical">
+
+            <LinearLayout
+                style="@style/MatchAuto.Horizontal"
+                android:layout_height="@dimen/item_dp50"
+                android:background="@color/color_black_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/Text_Common_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_dp45"
+                    android:layout_marginLeft="@dimen/item_dp10"
+                    android:layout_marginRight="@dimen/item_dp10"
+                    android:gravity="center_vertical"
+                    android:text="审批事由"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/MatchMatch.Vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:minHeight="@dimen/item_dp180">
+
+                    <EditText
+                        android:id="@+id/edt_content"
+                        style="@style/Edit_MatchWrap_Style2"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="@dimen/spacing_min"
+                        android:layout_marginRight="@dimen/spacing_min"
+                        android:background="@color/white"
+                        android:hint="输入审批事由"
+                        android:inputType="textMultiLine"
+                        android:paddingBottom="@dimen/item_dp70"
+                        android:paddingTop="@dimen/item_dp10"
+                        android:textCursorDrawable="@drawable/cursor_color_red" />
+
+                    <TextView
+                        android:id="@+id/tv_contentTip"
+                        style="@style/Text_MatchWrap_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/item_dp10"
+                        android:paddingBottom="@dimen/item_dp10"
+                        android:text="@string/text_work_content_input_msg"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/textSize_12" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    style="@style/MatchAuto.Horizontal"
+                    android:layout_height="@dimen/item_dp50"
+                    android:background="@color/color_black_bg"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/Text_Common_Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_dp45"
+                        android:layout_marginLeft="@dimen/item_dp10"
+                        android:layout_marginRight="@dimen/item_dp10"
+                        android:gravity="center_vertical"
+                        android:text="审批人"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/MatchWrap.Vertical"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/item_dp80">
+
+                    <ImageView
+                        android:id="@+id/igv_add"
+                        android:layout_width="@dimen/item_dp40"
+                        android:layout_height="@dimen/item_dp40"
+                        android:layout_marginRight="@dimen/item_dp10"
+                        android:src="@drawable/icon_add_pr" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

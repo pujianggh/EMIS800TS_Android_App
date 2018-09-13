@@ -304,6 +304,48 @@ public class PopupWindowUtil {
     }
 
     /**
+     * 待存档-工单
+     *
+     * @param locationView
+     * @param popuwindowClick
+     */
+    public void showWorkOrderDCDWindow(View locationView, final OnPopuwindowClick popuwindowClick) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.window_workorder_dcd, null);
+        final LinearLayout lly_table1 = (LinearLayout) view.findViewById(R.id.lly_table1);
+        final ImageView igv_qx = (ImageView) view.findViewById(R.id.igv_qx);
+        final PopupWindow popupWindow = new PopupWindow(mContext);
+        popupWindow.setContentView(view);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        backgroundAlpha(0.2f);
+        popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
+        popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        popupWindow.showAsDropDown(locationView);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                backgroundAlpha(1f);
+            }
+        });
+        lly_table1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        igv_qx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+    }
+
+    /**
      * 创建工单对话框展示
      *
      * @param locationView
@@ -369,7 +411,8 @@ public class PopupWindowUtil {
         popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
         popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        popupWindow.showAsDropDown(locationView);
+        //popupWindow.showAsDropDown(locationView);
+        popupWindow.showAtLocation(locationView, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 
         btn_next0.setVisibility(View.GONE);
         if (count == 2) {

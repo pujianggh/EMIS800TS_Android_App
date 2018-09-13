@@ -45,4 +45,6 @@ object RequestCode {
     val Result_WorkContentInput = 202
 
     val Result_PeopeSelect = 203
+
+    val Result_WorkOrderApplyApprove = 204
 }

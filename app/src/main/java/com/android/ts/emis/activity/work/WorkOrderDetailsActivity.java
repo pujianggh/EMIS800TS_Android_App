@@ -93,8 +93,6 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     LinearLayout llyBottom;
     @BindView(R.id.lly_history)
     LinearLayout llyHistory;
-    @BindView(R.id.lly_root)
-    LinearLayout llyRoot;
 
     private PopupWindowUtil mPopupWindowUtil = null;
     private String mTicketsCode = "";
@@ -269,7 +267,6 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
             llyBottom.setVisibility(View.VISIBLE);
             btnNext.setVisibility(View.VISIBLE);
             btnNext.setText(getResources().getString(R.string.text_state_pj));
-
         }
     }
 
@@ -281,18 +278,22 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                 if (mBean == null || mBean.getData() == null) return;
                 if (mPopupWindowUtil == null)
                     mPopupWindowUtil = new PopupWindowUtil(mContext);
-                if (mBean.getData().getTicketsStatus() == 1) {//已创建-接单
+                if (mBean.getData().getTicketsStatus() == 1 || mBean.getData().getTicketsStatus() == 0) {//已创建-接单
                     mPopupWindowUtil.showWorkOrderAcceptWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
                         @Override
                         public void onPopuwindowClick(int id) {
                             switch (id) {
                                 case R.id.lly_table1:
+                                    toZTInfo();
                                     break;
                                 case R.id.lly_table2:
+                                    toZFGDInfo();
                                     break;
                                 case R.id.lly_table3:
+                                    toTDInfo();
                                     break;
                                 case R.id.lly_table4:
+                                    toSQSPInfo();
                                     break;
                             }
                         }
@@ -303,6 +304,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                         public void onPopuwindowClick(int id) {
                             switch (id) {
                                 case R.id.lly_table1:
+                                    toWCInfo();
                                     break;
                                 case R.id.lly_table2:
                                     toZTInfo();
@@ -314,6 +316,18 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                                     toTDInfo();
                                     break;
                                 case R.id.lly_table5:
+                                    toSQSPInfo();
+                                    break;
+                            }
+                        }
+                    });
+                } else if (mBean.getData().getTicketsStatus() == 6 || mBean.getData().getTicketsStatus() == 7) {//已存档
+                    mPopupWindowUtil.showWorkOrderDCDWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
+                        @Override
+                        public void onPopuwindowClick(int id) {
+                            switch (id) {
+                                case R.id.lly_table1:
+                                    toZFGDInfo();
                                     break;
                             }
                         }
@@ -359,7 +373,33 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
         } else if (requestCode == RequestCode.INSTANCE.getResult_WorkContentInput() && resultCode == RESULT_OK && data != null) {
             String mSource = data.getStringExtra(StrRes.INSTANCE.getSource());
             onBackPressed();
+        } else if (requestCode == RequestCode.INSTANCE.getResult_WorkOrderApplyApprove() && resultCode == RESULT_OK && data != null) {
+            String mSource = data.getStringExtra(StrRes.INSTANCE.getSource());
+            onBackPressed();
         }
+    }
+
+    /**
+     * 申请审批
+     */
+    private void toSQSPInfo() {
+        startActivityForResult(new Intent(getApplicationContext(), WorkOrderApplyApproveActivity.class),
+                RequestCode.INSTANCE.getResult_WorkOrderApplyApprove());
+    }
+
+    /**
+     * 处理完成
+     */
+    private void toWCInfo() {
+        if (mBean == null || mBean.getData() == null) return;
+        if (iWorkOrderInfo == null)
+            iWorkOrderInfo = new WrokOrderInfoImpl();
+        showLoading();
+        UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+        updateTicketJson.setActionType(13);
+        updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+        updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+        mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
     }
 
     /**
@@ -368,7 +408,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     private void toZTInfo() {
         if (mPopupWindowUtil == null)
             mPopupWindowUtil = new PopupWindowUtil(mContext);
-        mPopupWindowUtil.showTDGDWorkOrderWindow(llyRoot, "暂停工单", "暂停原因", "不继续工作", "继续工作", 2,
+        mPopupWindowUtil.showTDGDWorkOrderWindow(llyBottom, "暂停工单", "暂停原因", "不继续工作", "继续工作", 2,
                 new PopupWindowUtil.OnPopuwindowClickInput() {
                     @Override
                     public void onPopuwindowClick(int id, String message) {
@@ -403,7 +443,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     private void toZFGDInfo() {
         if (mPopupWindowUtil == null)
             mPopupWindowUtil = new PopupWindowUtil(mContext);
-        mPopupWindowUtil.showTDGDWorkOrderWindow(llyRoot, "作废工单", "作废原因", "", "作废", 1,
+        mPopupWindowUtil.showTDGDWorkOrderWindow(llyBottom, "作废工单", "作废原因", "", "作废", 1,
                 new PopupWindowUtil.OnPopuwindowClickInput() {
                     @Override
                     public void onPopuwindowClick(int id, String message) {
@@ -427,7 +467,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     private void toTDInfo() {
         if (mPopupWindowUtil == null)
             mPopupWindowUtil = new PopupWindowUtil(mContext);
-        mPopupWindowUtil.showTDGDWorkOrderWindow(llyRoot, "退单工单", "退单原因", "", "退单", 1,
+        mPopupWindowUtil.showTDGDWorkOrderWindow(llyBottom, "退单工单", "退单原因", "", "退单", 1,
                 new PopupWindowUtil.OnPopuwindowClickInput() {
                     @Override
                     public void onPopuwindowClick(int id, String message) {
