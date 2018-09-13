@@ -346,6 +346,56 @@ public class PopupWindowUtil {
     }
 
     /**
+     * 工单-待审批
+     *
+     * @param locationView
+     * @param popuwindowClick
+     */
+    public void showWorkOrderDSPWindow(View locationView, final OnPopuwindowClick popuwindowClick) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.window_workorder_dsp, null);
+        final LinearLayout lly_table1 = (LinearLayout) view.findViewById(R.id.lly_table1);
+        final LinearLayout lly_table2 = (LinearLayout) view.findViewById(R.id.lly_table2);
+        final LinearLayout lly_table3 = (LinearLayout) view.findViewById(R.id.lly_table3);
+        final PopupWindow popupWindow = new PopupWindow(mContext);
+        popupWindow.setContentView(view);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        backgroundAlpha(0.2f);
+        popupWindow.setAnimationStyle(R.style.Animal_Popuwindow_EnterOrExit);
+        popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        popupWindow.showAsDropDown(locationView);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                backgroundAlpha(1f);
+            }
+        });
+        lly_table1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                popuwindowClick.onPopuwindowClick(v.getId());
+            }
+        });
+        lly_table3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+    }
+
+    /**
      * 创建工单对话框展示
      *
      * @param locationView

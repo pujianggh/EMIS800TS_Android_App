@@ -321,12 +321,26 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                             }
                         }
                     });
-                } else if (mBean.getData().getTicketsStatus() == 6 || mBean.getData().getTicketsStatus() == 7) {//已存档
+                } else if (mBean.getData().getTicketsStatus() == 6 || mBean.getData().getTicketsStatus() == 7 || mBean.getData().getTicketsStatus() == 8) {//已存档
                     mPopupWindowUtil.showWorkOrderDCDWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
                         @Override
                         public void onPopuwindowClick(int id) {
                             switch (id) {
                                 case R.id.lly_table1:
+                                    toZFGDInfo();
+                                    break;
+                            }
+                        }
+                    });
+                } else if (mBean.getData().getTicketsStatus() == 5) {//待派工
+                    mPopupWindowUtil.showWorkOrderDSPWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
+                        @Override
+                        public void onPopuwindowClick(int id) {
+                            switch (id) {
+                                case R.id.lly_table1:
+                                    toSQSPInfo();
+                                    break;
+                                case R.id.lly_table2:
                                     toZFGDInfo();
                                     break;
                             }
