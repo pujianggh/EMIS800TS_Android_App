@@ -72,7 +72,7 @@ public class StateQueryListActivity extends BaseActivity {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_wz), null, getResources().getString(R.string.text_button_qd), true);
             //moduleBean = DataStateQueryCenter.getWZModuleData();
             //moduleBean = DataStateQueryCenter.getWZTestModuleData();
-            datas = DataCache.getLocationCache();
+            datas = DataCache.getServerTypeCache(mUserPasswrd.getHouseCode());
         } else if (stateType == StateType.INSTANCE.getStateInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_zt), null, getResources().getString(R.string.text_button_qd), true);
             //moduleBean = DataStateQueryCenter.getBMModuleData();
