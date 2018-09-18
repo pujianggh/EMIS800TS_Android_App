@@ -88,7 +88,7 @@ public class StateQueryListActivity extends BaseActivity {
             //moduleBean = DataStateQueryCenter.getYXJModuleData();
         } else if (stateType == StateType.INSTANCE.getDepartmentInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_bm), null, getResources().getString(R.string.text_button_qd), true);
-            //moduleBean = DataStateQueryCenter.getBMModuleData();
+            datas = DataCache.getServerTypeCache(mUserPasswrd.getHouseCode());
         } else if (stateType == StateType.INSTANCE.getDevice()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_sb), null, getResources().getString(R.string.text_button_qd), true);
             //moduleBean = DataStateQueryCenter.getDeviceModuleData();

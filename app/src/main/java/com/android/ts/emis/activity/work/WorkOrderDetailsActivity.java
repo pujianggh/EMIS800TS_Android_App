@@ -123,45 +123,24 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
         switch (view.getId()) {
             case R.id.btn_next:
                 if (mBean == null || mBean.getData() == null) return;
-                if (mBean.getData().getTicketsStatus() == 1) {//接单
-
-                    if (iWorkOrderInfo == null)
-                        iWorkOrderInfo = new WrokOrderInfoImpl();
-                    showLoading();
-                    UpdateTicketJson updateTicketJson = new UpdateTicketJson();
-                    updateTicketJson.setActionType(4);
-                    updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
-                    updateTicketJson.setTicketsStatus(3);
-                    updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
-                    List<UpdateTicketJson.ExecutorListBean> listBeans = new ArrayList<>();
-                    UpdateTicketJson.ExecutorListBean bean = new UpdateTicketJson.ExecutorListBean();
-                    bean.setExecutorCode("ET_PROPERTY_20170619154204");
-                    bean.setID(28);
-                    listBeans.add(bean);
-                    updateTicketJson.setExecutorList(listBeans);
-                    mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
-
-                } else if (mBean.getData().getTicketsStatus() == 6) {//验证
-
-                    if (mBean == null || mBean.getData() == null) return;
-                    if (iWorkOrderInfo == null)
-                        iWorkOrderInfo = new WrokOrderInfoImpl();
-                    showLoading();
-                    UpdateTicketJson updateTicketJson = new UpdateTicketJson();
-                    updateTicketJson.setActionType(22);
-                    updateTicketJson.setIsPass("1");
-                    updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
-                    updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
-                    updateTicketJson.setDescription("测试性通过处理");
-
-                    mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
-
-                } else if (mBean.getData().getTicketsStatus() == 7) {//评价工单
-                    startActivity(new Intent(getApplicationContext(), WorkOrderEvaluateActivity.class)
-                            .putExtra(StrRes.INSTANCE.getTicketsCode(), mBean.getData().getTicketsCode()));
-                } else if (mBean.getData().getTicketsStatus() == 0) {
+                if (mBean.getData().getTicketsStatus() == 0 || mBean.getData().getTicketsStatus() == 5) {//派工
                     startActivity(new Intent(getApplicationContext(), SelectQueryListActivity.class)
                             .putExtra(StrRes.INSTANCE.getType(), StateType.INSTANCE.getPeopleInfo())
+                            .putExtra(StrRes.INSTANCE.getTicketsCode(), mBean.getData().getTicketsCode()));
+                } else if (mBean.getData().getTicketsStatus() == 1) {//接单
+                    toJDInfo();
+                } else if (mBean.getData().getTicketsStatus() == 2) {//审批
+                    toSQSPInfo();
+                } else if (mBean.getData().getTicketsStatus() == 3) {//完工
+                    toWCInfo();
+                } else if (mBean.getData().getTicketsStatus() == 4) {//继续
+
+                } else if (mBean.getData().getTicketsStatus() == 6) {//验证
+                    toYZInfo();
+                } else if (mBean.getData().getTicketsStatus() == 7) {//评价工单
+                    toYZInfo();
+                } else if (mBean.getData().getTicketsStatus() == 8) {//评价
+                    startActivity(new Intent(getApplicationContext(), WorkOrderEvaluateActivity.class)
                             .putExtra(StrRes.INSTANCE.getTicketsCode(), mBean.getData().getTicketsCode()));
                 }
                 break;
@@ -185,17 +164,7 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                         RequestCode.INSTANCE.getResult_WorkContentInput());
                 break;
             case R.id.btn_Ok:
-
-                if (mBean == null || mBean.getData() == null) return;
-                if (iWorkOrderInfo == null)
-                    iWorkOrderInfo = new WrokOrderInfoImpl();
-                showLoading();
-                UpdateTicketJson updateTicketJson = new UpdateTicketJson();
-                updateTicketJson.setActionType(13);
-                updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
-                updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
-                mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
-
+                toWCInfo();
                 break;
             case R.id.igv_signHand:
             case R.id.lly_signHand:
@@ -251,22 +220,32 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
         if (mBean.getData().getTicketsStatus() == 1) {//已创建-接单
             llyBottom.setVisibility(View.VISIBLE);
             btnNext.setVisibility(View.VISIBLE);
-
+        } else if (mBean.getData().getTicketsStatus() == 2) {//待审批
+            llyBottom.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnNext.setText(getResources().getString(R.string.text_state_sp));
+            llyDshState.setVisibility(View.GONE);
         } else if (mBean.getData().getTicketsStatus() == 3) {//处理中-填写工作内容，完工
             llyBottom.setVisibility(View.VISIBLE);
             btnNext.setVisibility(View.GONE);
             llyDshState.setVisibility(View.VISIBLE);
-
         } else if (mBean.getData().getTicketsStatus() == 6) {//已存档-验证
             llyBottom.setVisibility(View.VISIBLE);
             btnNext.setVisibility(View.VISIBLE);
             btnNext.setText(getResources().getString(R.string.text_state_yz));
             llyDshState.setVisibility(View.GONE);
-
-        } else if (mBean.getData().getTicketsStatus() == 7) {//已存档-验证
+        } else if (mBean.getData().getTicketsStatus() == 7) {//已存档-存档
+            llyBottom.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnNext.setText(getResources().getString(R.string.text_state_cd));
+        } else if (mBean.getData().getTicketsStatus() == 8) {//已存档-评价
             llyBottom.setVisibility(View.VISIBLE);
             btnNext.setVisibility(View.VISIBLE);
             btnNext.setText(getResources().getString(R.string.text_state_pj));
+        } else if (mBean.getData().getTicketsStatus() == 0 || mBean.getData().getTicketsStatus() == 5) {//
+            llyBottom.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnNext.setText(getResources().getString(R.string.text_state_pg));
         }
     }
 
@@ -321,7 +300,8 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                             }
                         }
                     });
-                } else if (mBean.getData().getTicketsStatus() == 6 || mBean.getData().getTicketsStatus() == 7 || mBean.getData().getTicketsStatus() == 8) {//已存档
+                } else if (mBean.getData().getTicketsStatus() == 6 || mBean.getData().getTicketsStatus() == 7 ||
+                        mBean.getData().getTicketsStatus() == 8 || mBean.getData().getTicketsStatus() == 2) {//已存档
                     mPopupWindowUtil.showWorkOrderDCDWindow(layoutTitleBar, new PopupWindowUtil.OnPopuwindowClick() {
                         @Override
                         public void onPopuwindowClick(int id) {
@@ -399,6 +379,28 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
     private void toSQSPInfo() {
         startActivityForResult(new Intent(getApplicationContext(), WorkOrderApplyApproveActivity.class),
                 RequestCode.INSTANCE.getResult_WorkOrderApplyApprove());
+    }
+
+    /**
+     * 接单
+     */
+    private void toJDInfo() {
+        if (mBean == null || mBean.getData() == null) return;
+        if (iWorkOrderInfo == null)
+            iWorkOrderInfo = new WrokOrderInfoImpl();
+        showLoading();
+        UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+        updateTicketJson.setActionType(4);
+        updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+        updateTicketJson.setTicketsStatus(3);
+        updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+        List<UpdateTicketJson.ExecutorListBean> listBeans = new ArrayList<>();
+        UpdateTicketJson.ExecutorListBean bean = new UpdateTicketJson.ExecutorListBean();
+        bean.setExecutorCode("ET_PROPERTY_20170619154204");
+        bean.setID(28);
+        listBeans.add(bean);
+        updateTicketJson.setExecutorList(listBeans);
+        mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
     }
 
     /**
@@ -500,6 +502,41 @@ public class WorkOrderDetailsActivity extends BaseActivity implements IWorkOrder
                                 bean.setRemark(message);
                             listBeans.add(bean);
                             updateTicketJson.setExecutorList(listBeans);
+                            mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 验证-审批工单
+     */
+    private void toYZInfo() {
+        if (mPopupWindowUtil == null)
+            mPopupWindowUtil = new PopupWindowUtil(mContext);
+        mPopupWindowUtil.showTDGDWorkOrderWindow(llyBottom, "验证工单", "请输入描述", "拒绝", "通过", 2,
+                new PopupWindowUtil.OnPopuwindowClickInput() {
+                    @Override
+                    public void onPopuwindowClick(int id, String message) {
+                        if (id == R.id.btn_next) {//暂停-继续工作
+                            showLoading();
+                            UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                            updateTicketJson.setActionType(11);
+                            updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                            updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                            updateTicketJson.setIsPass("1");
+                            if (!TextUtils.isEmpty(message))
+                                updateTicketJson.setDescription(message);
+                            mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
+                        } else if (id == R.id.btn_next0) {//暂停-不继续工作
+                            showLoading();
+                            UpdateTicketJson updateTicketJson = new UpdateTicketJson();
+                            updateTicketJson.setActionType(12);
+                            updateTicketJson.setTicketsCode(mBean.getData().getTicketsCode());
+                            updateTicketJson.setUserCode(mUserPasswrd.getUserCode());
+                            updateTicketJson.setIsPass("2");
+                            if (!TextUtils.isEmpty(message))
+                                updateTicketJson.setDescription(message);
                             mPresenter.getUpdateWorkOrderDetailsInfo(updateTicketJson);
                         }
                     }

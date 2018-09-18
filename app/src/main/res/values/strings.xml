@@ -50,6 +50,7 @@
     <string name="text_state_dsp">待审批</string>
     <string name="text_state_kpj">可评价</string>
     <string name="text_state_pj">评价</string>
+    <string name="text_state_sp">审批</string>
 
 
     <!-- app权限提示语 -->

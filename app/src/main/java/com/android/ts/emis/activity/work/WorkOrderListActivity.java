@@ -73,11 +73,11 @@ public class WorkOrderListActivity extends BaseActivity implements IWorkOrderLis
                 break;
             case 30005://待存档工单
                 mTitleBar.setTitleText(getResources().getString(R.string.text_title_dcdgd));
-                mTicketsStatus = "8";
+                mTicketsStatus = "6";
                 break;
             case 30006://待评价工单
                 mTitleBar.setTitleText(getResources().getString(R.string.text_title_dpjgd));
-                mTicketsStatus = "7";
+                mTicketsStatus = "8";
                 break;
         }
 

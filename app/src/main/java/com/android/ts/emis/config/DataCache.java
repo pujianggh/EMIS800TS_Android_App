@@ -68,7 +68,6 @@ public class DataCache {
                 data.setName(ticketsTypeBeans.get(i).getTicketsTypeName());
                 data.setCode(ticketsTypeBeans.get(i).getTicketsTypeCode());
 
-
                 if (ticketsTypeBeans.get(i).getChildren() != null) {
                     int size2 = ticketsTypeBeans.get(i).getChildren().size();
                     List<StateInfoBean.Data> data2s = new ArrayList<>();
@@ -92,7 +91,7 @@ public class DataCache {
     /**
      * 模拟部门数据
      */
-    public static List<StateInfoBean.Data> getLocationCache() {
+    public static List<StateInfoBean.Data> getDepartmentCache() {
         String json = SPUtil.INSTANCE.getString(StrRes.INSTANCE.getEstateJson());
         if (TextUtils.isEmpty(json)) return null;
         List<StateInfoBean.Data> list;

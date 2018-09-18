@@ -635,13 +635,13 @@ public class DataCenter {
         bodyBean3.setWorkCode(30004);
 
         WorkModuleBean.BodyBean bodyBean4 = new WorkModuleBean.BodyBean();
-        bodyBean4.setName("待存单工单");
+        bodyBean4.setName("待存档工单");
         bodyBean4.setCount(0);
         bodyBean4.setImageURL("");
         bodyBean4.setWorkCode(30005);
 
         WorkModuleBean.BodyBean bodyBean6 = new WorkModuleBean.BodyBean();
-        bodyBean6.setName("待评价");
+        bodyBean6.setName("待评价工单");
         bodyBean6.setCount(0);
         bodyBean6.setImageURL("");
         bodyBean6.setWorkCode(30006);
