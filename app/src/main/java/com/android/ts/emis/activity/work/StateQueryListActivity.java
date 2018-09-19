@@ -70,25 +70,20 @@ public class StateQueryListActivity extends BaseActivity {
         lvListData.setAdapter(mAdapter);
         if (stateType == StateType.INSTANCE.getLocation()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_wz), null, getResources().getString(R.string.text_button_qd), true);
-            //moduleBean = DataStateQueryCenter.getWZModuleData();
-            //moduleBean = DataStateQueryCenter.getWZTestModuleData();
-            datas = DataCache.getServerTypeCache(mUserPasswrd.getHouseCode());
+            datas = DataCache.getLocationCache(mUserPasswrd.getHouseCode());
         } else if (stateType == StateType.INSTANCE.getStateInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_zt), null, getResources().getString(R.string.text_button_qd), true);
-            //moduleBean = DataStateQueryCenter.getBMModuleData();
         } else if (stateType == StateType.INSTANCE.getServerType()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_fwlx), null, getResources().getString(R.string.text_button_qd), true);
-            //moduleBean = DataStateQueryCenter.getFWLXModuleData();
             datas = DataCache.getServerTypeCache(mUserPasswrd.getHouseCode());
         } else if (stateType == StateType.INSTANCE.getWorkOrderType()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_gdlx), null, getResources().getString(R.string.text_button_qd), true);
-            //moduleBean = DataStateQueryCenter.getGDLXModuleData();
+            datas = DataCache.getEquipmentTypeCache(mUserPasswrd.getHouseCode());
         } else if (stateType == StateType.INSTANCE.getPriority()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_yxj), null, getResources().getString(R.string.text_button_qd), true);
-            //moduleBean = DataStateQueryCenter.getYXJModuleData();
         } else if (stateType == StateType.INSTANCE.getDepartmentInfo()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_bm), null, getResources().getString(R.string.text_button_qd), true);
-            datas = DataCache.getServerTypeCache(mUserPasswrd.getHouseCode());
+            datas = DataCache.getDepartmentCache();
         } else if (stateType == StateType.INSTANCE.getDevice()) {
             setTitleBarLayout(R.drawable.icon_back_white_bar, getResources().getString(R.string.text_title_sb), null, getResources().getString(R.string.text_button_qd), true);
             //moduleBean = DataStateQueryCenter.getDeviceModuleData();
